@@ -1,2 +1,2 @@
-fingerprint
 background
+fingerprint
