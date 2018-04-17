@@ -26,7 +26,6 @@ SOURCES +=  main.cpp\
     databasetester.cpp \
     isoconverter.cpp \
     QCustomPlot/qcustomplot.cpp \
-    extraction.cpp \
     extractiontester.cpp
 
 HEADERS  += mainwindow.h \
@@ -40,7 +39,6 @@ HEADERS  += mainwindow.h \
     isoconverter.h \
     qmatconverter.h \
     QCustomPlot/qcustomplot.h \
-    extraction.h \
     extractiontester.h
 
 
@@ -81,3 +79,8 @@ unix:!macx: LIBS += -L$$PWD/../../../../../usr/lib64/ -lcaffe
 unix:!macx: LIBS += -L$$PWD/../../../../../usr/lib64/ -lboost_system
 unix:!macx: LIBS += -L$$PWD/../../../../../usr/lib64/ -lglog
 unix:!macx: LIBS += -L$$PWD/../../../../../usr/lib64/ -lprotobuf
+
+#Extraction
+unix:!macx: LIBS += -L$$PWD/../Extraction/ -lExtraction
+INCLUDEPATH += $$PWD/../Extraction
+DEPENDPATH += $$PWD/../Extraction
