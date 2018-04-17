@@ -22,18 +22,20 @@ MainWindow::MainWindow(QWidget *parent) :
 
     this->trainerDirModel = nullptr;
 
-    this->viewTestOriginal = new Graphics_view_zoom(this->ui->graphicsView_exExter_original);
+    this->viewTestOriginal = new Graphics_view_zoom(this->ui->graphicsView_exTester_original);
     this->viewTestOriginal->set_modifiers(Qt::NoModifier);
-    this->viewTestMask = new Graphics_view_zoom(this->ui->graphicsView_exExter_mask);
+    this->viewTestMask = new Graphics_view_zoom(this->ui->graphicsView_exTester_mask);
     this->viewTestMask->set_modifiers(Qt::NoModifier);
-    this->viewTestMap = new Graphics_view_zoom(this->ui->graphicsView_exExter_map);
+    this->viewTestMap = new Graphics_view_zoom(this->ui->graphicsView_exTester_map);
     this->viewTestMap->set_modifiers(Qt::NoModifier);
-    this->viewTestEnhanced = new Graphics_view_zoom(this->ui->graphicsView_exExter_enhanced);
+    this->viewTestEnhanced = new Graphics_view_zoom(this->ui->graphicsView_exTester_enhanced);
     this->viewTestEnhanced->set_modifiers(Qt::NoModifier);
-    this->viewTestBinarized = new Graphics_view_zoom(this->ui->graphicsView_exExter_binarized);
+    this->viewTestBinarized = new Graphics_view_zoom(this->ui->graphicsView_exTester_binarized);
     this->viewTestBinarized->set_modifiers(Qt::NoModifier);
-    this->viewTestSkeleton = new Graphics_view_zoom(this->ui->graphicsView_exExter_skeleton);
+    this->viewTestSkeleton = new Graphics_view_zoom(this->ui->graphicsView_exTester_skeleton);
     this->viewTestSkeleton->set_modifiers(Qt::NoModifier);
+    this->viewTestExtraction = new Graphics_view_zoom(this->ui->graphicsView_exTester_extraction);
+    this->viewTestExtraction->set_modifiers(Qt::NoModifier);
 
     this->sceneTestOriginal = new QGraphicsScene();
     this->sceneTestMask = new QGraphicsScene();
@@ -41,6 +43,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->sceneTestEnhanced = new QGraphicsScene();
     this->sceneTestBinarized = new QGraphicsScene();
     this->sceneTestSkeleton = new QGraphicsScene();
+    this->sceneTestExtraction = new QGraphicsScene();
 
     this->fpViewMarker = new Graphics_view_zoom(ui->graphicsView_fingerprintMarker);
     this->fpViewMarker->set_modifiers(Qt::NoModifier);
@@ -553,10 +556,12 @@ void MainWindow::startExtractionTester()
     this->exTesterTh->start();
 
     qRegisterMetaType<cv::Mat>("cv::Mat");
+    qRegisterMetaType<QVector<MINUTIA>>("QVector<MINUTIA>");
 
     //Extraction Tester Connecter
     connect(this, SIGNAL(startExTestingSignal()), this->exTesterTh, SLOT(startTesting()));
-    connect(this->exTesterTh, SIGNAL(preprocessingResultsSignal(cv::Mat,cv::Mat,cv::Mat,cv::Mat,cv::Mat,cv::Mat,cv::Mat,cv::Mat,cv::Mat)), this, SLOT(showExtractionTestResults(cv::Mat,cv::Mat,cv::Mat,cv::Mat,cv::Mat,cv::Mat,cv::Mat,cv::Mat,cv::Mat)));
+    connect(this->exTesterTh, SIGNAL(preprocessingResultsSignal(cv::Mat,cv::Mat,cv::Mat,cv::Mat,cv::Mat,cv::Mat,cv::Mat,cv::Mat,cv::Mat)), this, SLOT(showPreprocessingTestResults(cv::Mat,cv::Mat,cv::Mat,cv::Mat,cv::Mat,cv::Mat,cv::Mat,cv::Mat,cv::Mat)));
+    connect(this->exTesterTh, SIGNAL(extractionResultsSignal(cv::Mat,QVector<MINUTIA>,QVector<MINUTIA>,QVector<MINUTIA>)), this, SLOT(showExtractionTestResults(cv::Mat,QVector<MINUTIA>,QVector<MINUTIA>,QVector<MINUTIA>)));
     connect(this->exTesterTh, SIGNAL(sendLogSignal(QString,QString)), this, SLOT(addLog(QString,QString)));
 }
 
@@ -727,14 +732,15 @@ void MainWindow::runExtractionTester()
     if (this->exTesterTh->getIsImgLoaded()) {
         this->ui->tabWidget_exTester_settings->setEnabled(false);
 
-        this->exTesterTh->setPreprocessingParams(this->ui->spinBox_exTester_BlockSize->value(),
+        this->exTesterTh->setPreprocessingParams(this->ui->spinBox_exTester_threadNum->value(), this->ui->spinBox_exTester_BlockSize->value(),
                                                  this->ui->spinBox_exTester_BasicOMapBlockSize->value(), this->ui->spinBox_exTester_AdvancedOMapBlockSize->value(),
                                                  this->ui->doubleSpinBox_exTester_BasicOMapSigma->value(), this->ui->doubleSpinBox_exTester_AdvancedOMapSigma->value(),
                                                  this->ui->doubleSpinBox_exTester_GaborSigma->value(), this->ui->doubleSpinBox_exTester_GaborLambda->value(),
                                                  this->ui->spinBox_exTester_holeSize->value());
-        this->exTesterTh->setFeatures(this->ui->spinBox_exTester_threadNum->value(), this->ui->checkBox_exTester_gaborFilterGPU->isChecked(), this->ui->checkBox_exTester_contrast->isChecked(), this->ui->checkBox_dbTester_removeHoles->isChecked(),
+        this->exTesterTh->setFeatures(this->ui->checkBox_exTester_contrast->isChecked(), this->ui->checkBox_dbTester_removeHoles->isChecked(),
                                       this->ui->checkBox_exTester_fixOrientations->isChecked(), this->ui->checkBox_exTester_mask->isChecked(), this->ui->checkBox_exTester_qualityMap->isChecked(), this->ui->checkBox_exTester_frequencyMap->isChecked());
 
+        this->exTesterTh->setExtractionFeatures(this->ui->checkBox_exTester_fixOrientations->isChecked(), this->ui->checkBox_exTester_useVarBlockSize->isChecked());
         emit startExTestingSignal();
     }
 }
@@ -761,10 +767,8 @@ void MainWindow::on_listWidget_exTester_inputImages_itemClicked(QListWidgetItem 
     this->runExtractionTester();
 }
 
-void MainWindow::showExtractionTestResults(cv::Mat imgOrig, cv::Mat imgOMap, cv::Mat imgEnhanced, cv::Mat imgBinarized, cv::Mat imgSkeleton, cv::Mat imgSkeletonInv, cv::Mat imgMask, cv::Mat imgQMap, cv::Mat imgFMap)
+void MainWindow::showPreprocessingTestResults(cv::Mat imgOriginal, cv::Mat imgOMap, cv::Mat imgEnhanced, cv::Mat imgBinarized, cv::Mat imgSkeleton, cv::Mat imgSkeletonInv, cv::Mat imgMask, cv::Mat imgQMap, cv::Mat imgFMap)
 {
-    this->ui->tabWidget_exTester_settings->setEnabled(true);
-
     this->sceneTestOriginal->clear();
     this->sceneTestMask->clear();
     this->sceneTestMap->clear();
@@ -772,11 +776,11 @@ void MainWindow::showExtractionTestResults(cv::Mat imgOrig, cv::Mat imgOMap, cv:
     this->sceneTestBinarized->clear();
     this->sceneTestSkeleton->clear();
 
-    this->sceneTestOriginal->addPixmap(QPixmap::fromImage(Helper::Mat2QImage(imgOrig, QImage::Format_Grayscale8)));
-    this->ui->graphicsView_exExter_original->setScene(this->sceneTestOriginal);
+    this->sceneTestOriginal->addPixmap(QPixmap::fromImage(Helper::Mat2QImage(imgOriginal, QImage::Format_Grayscale8)));
+    this->ui->graphicsView_exTester_original->setScene(this->sceneTestOriginal);
 
     this->sceneTestMask->addPixmap(QPixmap::fromImage(Helper::Mat2QImage(imgMask, QImage::Format_Grayscale8)));
-    this->ui->graphicsView_exExter_mask->setScene(this->sceneTestMask);
+    this->ui->graphicsView_exTester_mask->setScene(this->sceneTestMask);
 
     if (this->ui->comboBox_exTester_map->currentText() == "Orientation")
         this->sceneTestMap->addPixmap(QPixmap::fromImage(Helper::Mat2QImage(imgOMap, QImage::Format_RGB888)));
@@ -784,22 +788,75 @@ void MainWindow::showExtractionTestResults(cv::Mat imgOrig, cv::Mat imgOMap, cv:
         this->sceneTestMap->addPixmap(QPixmap::fromImage(Helper::Mat2QImage(imgQMap, QImage::Format_Grayscale8)));
     else if (this->ui->comboBox_exTester_map->currentText() == "Frequency")
         this->sceneTestMap->addPixmap(QPixmap::fromImage(Helper::Mat2QImage(imgFMap, QImage::Format_Grayscale8)));
-    this->ui->graphicsView_exExter_map->setScene(this->sceneTestMap);
+    this->ui->graphicsView_exTester_map->setScene(this->sceneTestMap);
 
     this->sceneTestEnhanced->addPixmap(QPixmap::fromImage(Helper::Mat2QImage(imgEnhanced, QImage::Format_Grayscale8)));
-    this->ui->graphicsView_exExter_enhanced->setScene(this->sceneTestEnhanced);
+    this->ui->graphicsView_exTester_enhanced->setScene(this->sceneTestEnhanced);
 
     this->sceneTestBinarized->addPixmap(QPixmap::fromImage(Helper::Mat2QImage(imgBinarized, QImage::Format_Grayscale8)));
-    this->ui->graphicsView_exExter_binarized->setScene(this->sceneTestBinarized);
+    this->ui->graphicsView_exTester_binarized->setScene(this->sceneTestBinarized);
 
     if (this->ui->checkBox_exTester_invertedSkeleton->isChecked())
         this->sceneTestSkeleton->addPixmap(QPixmap::fromImage(Helper::Mat2QImage(imgSkeletonInv, QImage::Format_Grayscale8)));
     else
         this->sceneTestSkeleton->addPixmap(QPixmap::fromImage(Helper::Mat2QImage(imgSkeleton, QImage::Format_Grayscale8)));
-    this->ui->graphicsView_exExter_skeleton->setScene(this->sceneTestSkeleton);
+    this->ui->graphicsView_exTester_skeleton->setScene(this->sceneTestSkeleton);
 
+    this->ui->tabWidget_exTester_settings->setEnabled(true);
     this->ui->groupBox_exTester_inputImages->setEnabled(true);
 }
+
+void MainWindow::drawCircles(const MINUTIA &minutia, bool difference)
+{
+    QColor color;
+
+    if (minutia.type == 0 && !difference) color = QColor(0,0,255);
+    else if (minutia.type == 1 && !difference) color = QColor(0,255,0);
+    else color = QColor(255,0,0);
+
+    int arrow = 7;
+    int radius = 4;
+
+    this->sceneTestExtraction->addLine(QLineF(QPointF(minutia.xy.x(), minutia.xy.y()), QPointF(minutia.xy.x() - qCos(minutia.angle) * arrow, minutia.xy.y() - qSin(minutia.angle) * arrow)), QPen(color));
+    this->sceneTestExtraction->addEllipse((qreal)minutia.xy.x() - radius, (qreal)minutia.xy.y() - radius, 2*radius, 2*radius, QPen(color));
+}
+
+void MainWindow::showExtractionTestResults(const cv::Mat &imgSkeleton, const QVector<MINUTIA> &crossingNumber, const QVector<MINUTIA> &fixedOrientations, const QVector<MINUTIA> &checkedOrientations)
+{
+    cv::Mat imgMarked;
+    cv::cvtColor(imgSkeleton, imgMarked, cv::COLOR_GRAY2RGB);
+
+    this->sceneTestExtraction->clear();
+
+    this->sceneTestExtraction->addPixmap(QPixmap::fromImage(Helper::Mat2QImage(imgMarked, QImage::Format_RGB888)));
+    this->ui->graphicsView_exTester_extraction->setScene(this->sceneTestExtraction);
+
+    int cnt = 0;
+    bool difference = false;
+    if (this->ui->radioButton_exTester_crossingNumber->isChecked()) {
+        for (MINUTIA minutia : crossingNumber) {            
+            this->drawCircles(minutia, difference);
+        }
+    }
+    else if (this->ui->radioButton_exTester_fixedOrientations->isChecked()) {
+        for (MINUTIA minutia : fixedOrientations) {
+            //if (minutia.angle != crossingNumber[cnt].angle/* && this->ui->checkBox_exTester_highlightDifferences->isChecked()*/) difference = true;
+            this->drawCircles(minutia, difference);
+            cnt++;
+        }
+    }
+    else if (this->ui->radioButton_exTester_checkedMinutiae->isChecked()) {
+        for (MINUTIA minutia : checkedOrientations) {
+            //if (minutia.angle != fixedOrientations[cnt].angle/* && this->ui->checkBox_exTester_highlightDifferences->isChecked()*/) difference = true;
+            this->drawCircles(minutia, difference);
+            cnt++;
+        }
+    }
+
+    this->ui->tabWidget_exTester_settings->setEnabled(true);
+    this->ui->groupBox_exTester_inputImages->setEnabled(true);
+}
+
 
 void MainWindow::on_checkBox_exTester_invertedSkeleton_clicked(bool checked)
 {
@@ -809,7 +866,7 @@ void MainWindow::on_checkBox_exTester_invertedSkeleton_clicked(bool checked)
         this->sceneTestSkeleton->addPixmap(QPixmap::fromImage(Helper::Mat2QImage(this->exTesterTh->getImgSkeletonInv(), QImage::Format_Grayscale8)));
     else
         this->sceneTestSkeleton->addPixmap(QPixmap::fromImage(Helper::Mat2QImage(this->exTesterTh->getImgSkeleton(), QImage::Format_Grayscale8)));
-    this->ui->graphicsView_exExter_skeleton->setScene(this->sceneTestSkeleton);
+    this->ui->graphicsView_exTester_skeleton->setScene(this->sceneTestSkeleton);
 }
 
 void MainWindow::on_comboBox_exTester_map_currentTextChanged(const QString &arg1)
@@ -820,7 +877,7 @@ void MainWindow::on_comboBox_exTester_map_currentTextChanged(const QString &arg1
         this->sceneTestMap->addPixmap(QPixmap::fromImage(Helper::Mat2QImage(this->exTesterTh->getImgQMap(), QImage::Format_Grayscale8)));
     else if (arg1 == "Frequency")
         this->sceneTestMap->addPixmap(QPixmap::fromImage(Helper::Mat2QImage(this->exTesterTh->getImgFMap(), QImage::Format_Grayscale8)));
-    this->ui->graphicsView_exExter_map->setScene(this->sceneTestMap);
+    this->ui->graphicsView_exTester_map->setScene(this->sceneTestMap);
 }
 
 void MainWindow::on_checkBox_exTester_contrast_clicked()
@@ -864,6 +921,32 @@ void MainWindow::on_checkBox_exTester_fixOrientations_clicked()
 }
 
 void MainWindow::on_checkBox_exTester_gaborFilterGPU_clicked()
+{
+    this->runExtractionTester();
+}
+
+void MainWindow::on_radioButton_exTester_crossingNumber_clicked(bool checked)
+{
+    if (checked) {
+        this->showExtractionTestResults(this->exTesterTh->getImgSkeleton(), this->exTesterTh->getCrossingNumber(), this->exTesterTh->getFixedOrientations(), this->exTesterTh->getCheckedMnutiae());
+    }
+}
+
+void MainWindow::on_radioButton_exTester_fixedOrientations_clicked(bool checked)
+{
+    if (checked) {
+        this->showExtractionTestResults(this->exTesterTh->getImgSkeleton(), this->exTesterTh->getCrossingNumber(), this->exTesterTh->getFixedOrientations(), this->exTesterTh->getCheckedMnutiae());
+    }
+}
+
+void MainWindow::on_radioButton_exTester_checkedMinutiae_clicked(bool checked)
+{
+    if (checked) {
+        this->showExtractionTestResults(this->exTesterTh->getImgSkeleton(), this->exTesterTh->getCrossingNumber(), this->exTesterTh->getFixedOrientations(), this->exTesterTh->getCheckedMnutiae());
+    }
+}
+
+void MainWindow::on_checkBox_exTester_useVarBlockSize_clicked(bool checked)
 {
     this->runExtractionTester();
 }

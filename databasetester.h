@@ -16,7 +16,7 @@
 #include <QGraphicsView>
 
 #include "preprocessing.h"
-#include "extraction.h"
+//#include "extraction.h"
 #include "isoconverter.h"
 #include "bozorth3m.h"
 
@@ -26,7 +26,6 @@
 #include <opencv2/opencv.hpp>
 
 #include "UFMatcher.h" // Suprema
-#include "isoconverter.h" // ISO converter
 
 typedef QVector<std::tuple<QPoint, int, int, int>> MINUTIAE_VECTOR;
 
@@ -74,7 +73,7 @@ private slots:
 
 private:
     Preprocessing *preprocessing;
-    Extraction *extraction;
+    //Extraction *extraction;
     HUFMatcher hMatcher;
     BozorthMultiThreadManager bozorth3;
 
@@ -98,7 +97,7 @@ private:
     QDir inputImages;
     int actualImage;
 
-    EXTRACTION_SETTINGS exSettings;
+    //EXTRACTION_SETTINGS exSettings;
     PREPROCESS_PARAMS preParamsDefault, preParams;
     PLOT_PARAMS plotParams;
     TEST_ITERATION testIter, testIterActual;

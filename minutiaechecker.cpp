@@ -111,7 +111,7 @@ void MinutiaeChecker::predictHeatmap(const QImage &fpQImage, int blockSize, bool
                     }
                 }
 
-                qDebug() << this->objectName();
+                //qDebug() << this->objectName();
                 if (int((((x-borderSize)*fpQImage.height()+y+1-borderSize)*1.0 / (fpQImage.width()*fpQImage.height())) * 100) > progress) {
                     progress = (int)((((x-borderSize)*fpQImage.height()+y+1-borderSize)*1.0 / (fpQImage.width()*fpQImage.height())) * 100);
                     emit updateProgressBarSignal(this->objectName(), progress);

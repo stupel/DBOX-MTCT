@@ -98,29 +98,28 @@ private slots:
     void on_pushButton_exTester_inputDir_clicked();
     void on_listWidget_exTester_inputImages_itemClicked(QListWidgetItem *item);
 
-    void showExtractionTestResults(cv::Mat imgOrig, cv::Mat imgOMap, cv::Mat imgEnhanced, cv::Mat imgBinarized, cv::Mat imgSkeleton, cv::Mat imgSkeletonInv, cv::Mat imgMask, cv::Mat imgQMap, cv::Mat imgFMap);
+    void showPreprocessingTestResults(cv::Mat imgOriginal, cv::Mat imgOMap, cv::Mat imgEnhanced, cv::Mat imgBinarized, cv::Mat imgSkeleton, cv::Mat imgSkeletonInv, cv::Mat imgMask, cv::Mat imgQMap, cv::Mat imgFMap);
+    void showExtractionTestResults(const cv::Mat &imgSkeleton, const QVector<MINUTIA> &crossingNumber, const QVector<MINUTIA> &fixedOrientations, const QVector<MINUTIA> &checkedOrientations);
 
     void on_checkBox_exTester_invertedSkeleton_clicked(bool checked);
-
     void on_comboBox_exTester_map_currentTextChanged(const QString &arg1);
-
     void on_checkBox_exTester_contrast_clicked();
-
     void on_spinBox_exTester_holeSize_valueChanged(int arg1);
-
     void on_checkBox_exTester_removeHoles_clicked();
-
     void on_checkBox_exTester_mask_clicked();
-
     void on_checkBox_exTester_qualityMap_clicked();
-
     void on_spinBox_exTester_threadNum_valueChanged(int arg1);
-
     void on_checkBox_exTester_frequencyMap_clicked();
-
     void on_checkBox_exTester_fixOrientations_clicked();
-
     void on_checkBox_exTester_gaborFilterGPU_clicked();
+
+    void on_radioButton_exTester_crossingNumber_clicked(bool checked);
+
+    void on_radioButton_exTester_fixedOrientations_clicked(bool checked);
+
+    void on_radioButton_exTester_checkedMinutiae_clicked(bool checked);
+
+    void on_checkBox_exTester_useVarBlockSize_clicked(bool checked);
 
 private:
     Ui::MainWindow *ui;
@@ -179,6 +178,7 @@ private:
 
     void runExtractionTester();
     void updateBlockPreviews(QPoint xy);
+    void drawCircles(const MINUTIA &minutia, bool difference);
 
 signals:
     void predictHeatmapSignal(QImage, int, bool);

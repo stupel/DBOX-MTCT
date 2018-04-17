@@ -8,7 +8,7 @@ DatabaseTester::DatabaseTester()
     bool readyImpostorScores = false;
 
     this->preprocessing = nullptr;
-    this->extraction = nullptr;
+    //this->extraction = nullptr;
     //this->hMatcher = nullptr;
 }
 
@@ -35,10 +35,10 @@ QString DatabaseTester::getDbInputPath() const
 
 void DatabaseTester::setExtractionSettings(bool useMask, bool useVarBlockSize, bool useFixOrientations, bool useDistinctMinutiae)
 {
-    this->exSettings.useMask = useMask;
+    /*this->exSettings.useMask = useMask;
     this->exSettings.useVarBlockSize = useVarBlockSize;
     this->exSettings.useFixOrientations = useFixOrientations;
-    this->exSettings.useDistincsMinutiae = useDistinctMinutiae;
+    this->exSettings.useDistincsMinutiae = useDistinctMinutiae;*/
 }
 
 void DatabaseTester::setPreprocessingParams(int blockSize, int basicOMapBlockSize, int advancedOMapBlockSize, double basicOMapSigma, double advancedOMapSigma, double gaborSigma, double gaborLambda)
@@ -53,19 +53,19 @@ void DatabaseTester::preprocess()
         emit logSignal("dbTester", "Preparing data...");
 
         this->preprocessing = new Preprocessing();
-        this->extraction = new Extraction();
+        //this->extraction = new Extraction();
 
         this->inputImages.setPath(this->dbInputPath);
         this->inputImages.setNameFilters(QStringList() << "*.png" << "*.jpg" << "*.bmp" << "*.tif");
 
         this->preprocessing->setPreprocessingParams(this->preParams.blockSize, this->preParams.gaborLambda, this->preParams.gaborSigma,
                                                     this->preParams.basicOMapBlockSize, this->preParams.basicOMapSigma, this->preParams.advancedOMapBlockSize, this->preParams.advancedOMapSigma, 20);
-        this->preprocessing->setFeatures(true, 0, true, true, true, false, false, false);
+        this->preprocessing->setFeatures(true, 0, true, true, false, false, false);
 
-        this->extraction->loadExtractionModel();
+        /*this->extraction->loadExtractionModel();
         if (this->exSettings.useMask) {
             this->extraction->loadMaskModel();
-        }
+        }*/
 
         qRegisterMetaType<cv::Mat>("cv::Mat");
         connect(this->preprocessing, SIGNAL(readySkeletonsMaskOMapSignal(cv::Mat,cv::Mat,cv::Mat,cv::Mat)), this, SLOT(extract(cv::Mat,cv::Mat,cv::Mat,cv::Mat)));
@@ -84,7 +84,7 @@ void DatabaseTester::preprocess()
         this->imgOrig = cv::imread(this->inputImages.entryInfoList().at(this->actualImage).absoluteFilePath().toStdString(), CV_8UC1);
 
         this->timer.start();
-        if (this->exSettings.useMask) {
+        /*if (this->exSettings.useMask) {
             if (!this->imgMasks.contains(this->inputImages.entryInfoList().at(this->actualImage).baseName())) {
                 this->imgMasks.insert(this->inputImages.entryInfoList().at(this->actualImage).baseName(), cv::imread(("./masks/" + this->inputImages.entryInfoList().at(this->actualImage).baseName() + ".bmp").toStdString(), CV_8UC1));
                 //this->imgMasks.insert(this->inputImages.entryInfoList().at(this->actualImage).baseName(), this->extraction->getMask(this->imgOrig));
@@ -92,7 +92,7 @@ void DatabaseTester::preprocess()
             }
             this->extraction->loadMask(this->imgMasks.value(this->inputImages.entryInfoList().at(this->actualImage).baseName()));
             this->timer.start();
-        }
+        }*/
 
         //cv::imwrite((this->inputImages.entryInfoList().at(this->actualImage).baseName() + ".bmp").toStdString(), this->imgMasks.value(this->inputImages.entryInfoList().at(this->actualImage).baseName()));
 
@@ -107,8 +107,8 @@ void DatabaseTester::preprocess()
 
         gv.grab().save("./output/" + this->inputImages.entryInfoList().at(this->actualImage).baseName() + ".bmp");*/
 
-        this->preprocessing->loadImg(imgOrig);
-        this->preprocessing->start();
+      /*  this->preprocessing->loadImg(imgOrig);
+        this->preprocessing->start();*/
     }
     else {
         this->actualImage = 0;
@@ -123,9 +123,9 @@ void DatabaseTester::extract(cv::Mat imgSkeleton, cv::Mat imgSkeletonInverted, c
     emit logSignal("dbTester", "- preprocessing done (" + QString::number(this->timer.elapsed()) + " ms)");
     this->timer.start();
 
-    this->extraction->loadImages(this->imgOrig, orientationMap, imgSkeleton, imgSkeletonInverted);
+  /*  this->extraction->loadImages(this->imgOrig, orientationMap, imgSkeleton, imgSkeletonInverted);
     this->minutiaeData.push_back(qMakePair(this->extraction->extract(this->exSettings, this->matcher, 19, inputImages.entryInfoList().at(this->actualImage).baseName()), inputImages.entryInfoList().at(this->actualImage).baseName()));
-
+*/
     emit logSignal("dbTester", "- extraction done (" + QString::number(timer.elapsed()) + " ms)");
     emit updateProgressBarSignal("dbTester", (int)(this->actualImage*1.0 / this->inputImages.entryInfoList().size() * 100), "Preprocessing and Extraction");
 
@@ -145,17 +145,17 @@ void DatabaseTester::convertToIso()
 {
     ISOConverter isoConverter;
 
-    for (auto minIsoReady : minutiaeData) {
+   /* for (auto minIsoReady : minutiaeData) {
         isoConverter.load(this->imgOrig.rows, this->imgOrig.cols, 100, minIsoReady.first);
         this->isoTemplates.push_back(qMakePair(isoConverter.convert(), minIsoReady.second));
         this->isoTemplateSizes.push_back(isoConverter.getTemplateSize());
-    }
+    }*/
 
     emit logSignal("dbTester", "Conversion to ISO format done");
     emit updateProgressBarSignal("dbTester", 100, "Converting to ISO");
 
     delete this->preprocessing;
-    delete this->extraction;
+    //delete this->extraction;
 
     this->compareFingerprints();
 }
@@ -290,7 +290,7 @@ void DatabaseTester::convertToBozorth()
     emit updateProgressBarSignal("dbTester", 100, "Converting to ISO");
 
     delete this->preprocessing;
-    delete this->extraction;
+    //delete this->extraction;
 
     this->compareFingerprints();
 }

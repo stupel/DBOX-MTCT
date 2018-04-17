@@ -304,36 +304,53 @@ public:
     QCheckBox *checkBox_exTester_mask;
     QCheckBox *checkBox_exTester_qualityMap;
     QCheckBox *checkBox_exTester_frequencyMap;
+    QGroupBox *groupBox_exTester_exFeatures_2;
+    QVBoxLayout *verticalLayout_61;
     QCheckBox *checkBox_exTester_fixOrientations;
-    QSpacerItem *verticalSpacer_11;
+    QCheckBox *checkBox_exTester_useVarBlockSize;
     QWidget *tab_7;
+    QVBoxLayout *verticalLayout_59;
+    QGroupBox *groupBox_2;
+    QHBoxLayout *horizontalLayout_45;
+    QLabel *label_exTester_exBlockSize;
+    QSpacerItem *horizontalSpacer_39;
+    QSpinBox *spinBox_exTester_exBlockSize;
+    QGroupBox *groupBox_exTester_exResults;
+    QVBoxLayout *verticalLayout_60;
+    QRadioButton *radioButton_exTester_crossingNumber;
+    QRadioButton *radioButton_exTester_fixedOrientations;
+    QRadioButton *radioButton_exTester_checkedMinutiae;
+    QCheckBox *checkBox_exTester_highlightDifferences;
+    QSpacerItem *verticalSpacer_12;
     QTabWidget *tabWidget_exTester_results;
     QWidget *tab_8;
     QGridLayout *gridLayout_6;
     QVBoxLayout *verticalLayout_45;
     QLabel *label_exExter_original;
-    QGraphicsView *graphicsView_exExter_original;
+    QGraphicsView *graphicsView_exTester_original;
     QVBoxLayout *verticalLayout_46;
     QLabel *label_exExter_mask;
-    QGraphicsView *graphicsView_exExter_mask;
+    QGraphicsView *graphicsView_exTester_mask;
     QVBoxLayout *verticalLayout_47;
     QHBoxLayout *horizontalLayout_36;
     QLabel *label_exExter_omap;
     QComboBox *comboBox_exTester_map;
-    QGraphicsView *graphicsView_exExter_map;
+    QGraphicsView *graphicsView_exTester_map;
     QSpacerItem *verticalSpacer_10;
     QVBoxLayout *verticalLayout_48;
     QLabel *label_exExter_enhanced;
-    QGraphicsView *graphicsView_exExter_enhanced;
+    QGraphicsView *graphicsView_exTester_enhanced;
     QVBoxLayout *verticalLayout_49;
     QLabel *label_exExter_binarized;
-    QGraphicsView *graphicsView_exExter_binarized;
+    QGraphicsView *graphicsView_exTester_binarized;
     QVBoxLayout *verticalLayout_50;
     QHBoxLayout *horizontalLayout_40;
     QLabel *label_exExter_skeleton;
     QCheckBox *checkBox_exTester_invertedSkeleton;
-    QGraphicsView *graphicsView_exExter_skeleton;
+    QGraphicsView *graphicsView_exTester_skeleton;
     QWidget *tab_extraction;
+    QVBoxLayout *verticalLayout_58;
+    QGraphicsView *graphicsView_exTester_extraction;
     QWidget *tab_large;
     QWidget *tab_log;
     QVBoxLayout *verticalLayout_51;
@@ -1965,21 +1982,96 @@ public:
 
         verticalLayout_56->addWidget(checkBox_exTester_frequencyMap);
 
-        checkBox_exTester_fixOrientations = new QCheckBox(groupBox_exTester_preprocessing);
-        checkBox_exTester_fixOrientations->setObjectName(QStringLiteral("checkBox_exTester_fixOrientations"));
-
-        verticalLayout_56->addWidget(checkBox_exTester_fixOrientations);
-
 
         verticalLayout_57->addWidget(groupBox_exTester_preprocessing);
 
-        verticalSpacer_11 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        groupBox_exTester_exFeatures_2 = new QGroupBox(tab_features);
+        groupBox_exTester_exFeatures_2->setObjectName(QStringLiteral("groupBox_exTester_exFeatures_2"));
+        verticalLayout_61 = new QVBoxLayout(groupBox_exTester_exFeatures_2);
+        verticalLayout_61->setSpacing(6);
+        verticalLayout_61->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_61->setObjectName(QStringLiteral("verticalLayout_61"));
+        checkBox_exTester_fixOrientations = new QCheckBox(groupBox_exTester_exFeatures_2);
+        checkBox_exTester_fixOrientations->setObjectName(QStringLiteral("checkBox_exTester_fixOrientations"));
+        checkBox_exTester_fixOrientations->setChecked(true);
 
-        verticalLayout_57->addItem(verticalSpacer_11);
+        verticalLayout_61->addWidget(checkBox_exTester_fixOrientations);
+
+        checkBox_exTester_useVarBlockSize = new QCheckBox(groupBox_exTester_exFeatures_2);
+        checkBox_exTester_useVarBlockSize->setObjectName(QStringLiteral("checkBox_exTester_useVarBlockSize"));
+
+        verticalLayout_61->addWidget(checkBox_exTester_useVarBlockSize);
+
+
+        verticalLayout_57->addWidget(groupBox_exTester_exFeatures_2);
 
         tabWidget_exTester_settings->addTab(tab_features, QString());
         tab_7 = new QWidget();
         tab_7->setObjectName(QStringLiteral("tab_7"));
+        verticalLayout_59 = new QVBoxLayout(tab_7);
+        verticalLayout_59->setSpacing(6);
+        verticalLayout_59->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_59->setObjectName(QStringLiteral("verticalLayout_59"));
+        groupBox_2 = new QGroupBox(tab_7);
+        groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
+        horizontalLayout_45 = new QHBoxLayout(groupBox_2);
+        horizontalLayout_45->setSpacing(6);
+        horizontalLayout_45->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_45->setObjectName(QStringLiteral("horizontalLayout_45"));
+        label_exTester_exBlockSize = new QLabel(groupBox_2);
+        label_exTester_exBlockSize->setObjectName(QStringLiteral("label_exTester_exBlockSize"));
+
+        horizontalLayout_45->addWidget(label_exTester_exBlockSize);
+
+        horizontalSpacer_39 = new QSpacerItem(108, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_45->addItem(horizontalSpacer_39);
+
+        spinBox_exTester_exBlockSize = new QSpinBox(groupBox_2);
+        spinBox_exTester_exBlockSize->setObjectName(QStringLiteral("spinBox_exTester_exBlockSize"));
+        spinBox_exTester_exBlockSize->setMinimumSize(QSize(55, 0));
+        spinBox_exTester_exBlockSize->setValue(19);
+
+        horizontalLayout_45->addWidget(spinBox_exTester_exBlockSize);
+
+
+        verticalLayout_59->addWidget(groupBox_2);
+
+        groupBox_exTester_exResults = new QGroupBox(tab_7);
+        groupBox_exTester_exResults->setObjectName(QStringLiteral("groupBox_exTester_exResults"));
+        verticalLayout_60 = new QVBoxLayout(groupBox_exTester_exResults);
+        verticalLayout_60->setSpacing(6);
+        verticalLayout_60->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_60->setObjectName(QStringLiteral("verticalLayout_60"));
+        radioButton_exTester_crossingNumber = new QRadioButton(groupBox_exTester_exResults);
+        radioButton_exTester_crossingNumber->setObjectName(QStringLiteral("radioButton_exTester_crossingNumber"));
+
+        verticalLayout_60->addWidget(radioButton_exTester_crossingNumber);
+
+        radioButton_exTester_fixedOrientations = new QRadioButton(groupBox_exTester_exResults);
+        radioButton_exTester_fixedOrientations->setObjectName(QStringLiteral("radioButton_exTester_fixedOrientations"));
+
+        verticalLayout_60->addWidget(radioButton_exTester_fixedOrientations);
+
+        radioButton_exTester_checkedMinutiae = new QRadioButton(groupBox_exTester_exResults);
+        radioButton_exTester_checkedMinutiae->setObjectName(QStringLiteral("radioButton_exTester_checkedMinutiae"));
+        radioButton_exTester_checkedMinutiae->setChecked(true);
+
+        verticalLayout_60->addWidget(radioButton_exTester_checkedMinutiae);
+
+        checkBox_exTester_highlightDifferences = new QCheckBox(groupBox_exTester_exResults);
+        checkBox_exTester_highlightDifferences->setObjectName(QStringLiteral("checkBox_exTester_highlightDifferences"));
+        checkBox_exTester_highlightDifferences->setChecked(false);
+
+        verticalLayout_60->addWidget(checkBox_exTester_highlightDifferences);
+
+
+        verticalLayout_59->addWidget(groupBox_exTester_exResults);
+
+        verticalSpacer_12 = new QSpacerItem(20, 196, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_59->addItem(verticalSpacer_12);
+
         tabWidget_exTester_settings->addTab(tab_7, QString());
 
         verticalLayout_7->addWidget(tabWidget_exTester_settings);
@@ -2004,11 +2096,11 @@ public:
 
         verticalLayout_45->addWidget(label_exExter_original);
 
-        graphicsView_exExter_original = new QGraphicsView(tab_8);
-        graphicsView_exExter_original->setObjectName(QStringLiteral("graphicsView_exExter_original"));
-        graphicsView_exExter_original->setDragMode(QGraphicsView::ScrollHandDrag);
+        graphicsView_exTester_original = new QGraphicsView(tab_8);
+        graphicsView_exTester_original->setObjectName(QStringLiteral("graphicsView_exTester_original"));
+        graphicsView_exTester_original->setDragMode(QGraphicsView::ScrollHandDrag);
 
-        verticalLayout_45->addWidget(graphicsView_exExter_original);
+        verticalLayout_45->addWidget(graphicsView_exTester_original);
 
 
         gridLayout_6->addLayout(verticalLayout_45, 0, 0, 1, 1);
@@ -2022,11 +2114,11 @@ public:
 
         verticalLayout_46->addWidget(label_exExter_mask);
 
-        graphicsView_exExter_mask = new QGraphicsView(tab_8);
-        graphicsView_exExter_mask->setObjectName(QStringLiteral("graphicsView_exExter_mask"));
-        graphicsView_exExter_mask->setDragMode(QGraphicsView::ScrollHandDrag);
+        graphicsView_exTester_mask = new QGraphicsView(tab_8);
+        graphicsView_exTester_mask->setObjectName(QStringLiteral("graphicsView_exTester_mask"));
+        graphicsView_exTester_mask->setDragMode(QGraphicsView::ScrollHandDrag);
 
-        verticalLayout_46->addWidget(graphicsView_exExter_mask);
+        verticalLayout_46->addWidget(graphicsView_exTester_mask);
 
 
         gridLayout_6->addLayout(verticalLayout_46, 0, 1, 1, 1);
@@ -2053,11 +2145,11 @@ public:
 
         verticalLayout_47->addLayout(horizontalLayout_36);
 
-        graphicsView_exExter_map = new QGraphicsView(tab_8);
-        graphicsView_exExter_map->setObjectName(QStringLiteral("graphicsView_exExter_map"));
-        graphicsView_exExter_map->setDragMode(QGraphicsView::ScrollHandDrag);
+        graphicsView_exTester_map = new QGraphicsView(tab_8);
+        graphicsView_exTester_map->setObjectName(QStringLiteral("graphicsView_exTester_map"));
+        graphicsView_exTester_map->setDragMode(QGraphicsView::ScrollHandDrag);
 
-        verticalLayout_47->addWidget(graphicsView_exExter_map);
+        verticalLayout_47->addWidget(graphicsView_exTester_map);
 
 
         gridLayout_6->addLayout(verticalLayout_47, 0, 2, 1, 1);
@@ -2075,11 +2167,11 @@ public:
 
         verticalLayout_48->addWidget(label_exExter_enhanced);
 
-        graphicsView_exExter_enhanced = new QGraphicsView(tab_8);
-        graphicsView_exExter_enhanced->setObjectName(QStringLiteral("graphicsView_exExter_enhanced"));
-        graphicsView_exExter_enhanced->setDragMode(QGraphicsView::ScrollHandDrag);
+        graphicsView_exTester_enhanced = new QGraphicsView(tab_8);
+        graphicsView_exTester_enhanced->setObjectName(QStringLiteral("graphicsView_exTester_enhanced"));
+        graphicsView_exTester_enhanced->setDragMode(QGraphicsView::ScrollHandDrag);
 
-        verticalLayout_48->addWidget(graphicsView_exExter_enhanced);
+        verticalLayout_48->addWidget(graphicsView_exTester_enhanced);
 
 
         gridLayout_6->addLayout(verticalLayout_48, 2, 0, 1, 1);
@@ -2093,11 +2185,11 @@ public:
 
         verticalLayout_49->addWidget(label_exExter_binarized);
 
-        graphicsView_exExter_binarized = new QGraphicsView(tab_8);
-        graphicsView_exExter_binarized->setObjectName(QStringLiteral("graphicsView_exExter_binarized"));
-        graphicsView_exExter_binarized->setDragMode(QGraphicsView::ScrollHandDrag);
+        graphicsView_exTester_binarized = new QGraphicsView(tab_8);
+        graphicsView_exTester_binarized->setObjectName(QStringLiteral("graphicsView_exTester_binarized"));
+        graphicsView_exTester_binarized->setDragMode(QGraphicsView::ScrollHandDrag);
 
-        verticalLayout_49->addWidget(graphicsView_exExter_binarized);
+        verticalLayout_49->addWidget(graphicsView_exTester_binarized);
 
 
         gridLayout_6->addLayout(verticalLayout_49, 2, 1, 1, 1);
@@ -2121,11 +2213,11 @@ public:
 
         verticalLayout_50->addLayout(horizontalLayout_40);
 
-        graphicsView_exExter_skeleton = new QGraphicsView(tab_8);
-        graphicsView_exExter_skeleton->setObjectName(QStringLiteral("graphicsView_exExter_skeleton"));
-        graphicsView_exExter_skeleton->setDragMode(QGraphicsView::ScrollHandDrag);
+        graphicsView_exTester_skeleton = new QGraphicsView(tab_8);
+        graphicsView_exTester_skeleton->setObjectName(QStringLiteral("graphicsView_exTester_skeleton"));
+        graphicsView_exTester_skeleton->setDragMode(QGraphicsView::ScrollHandDrag);
 
-        verticalLayout_50->addWidget(graphicsView_exExter_skeleton);
+        verticalLayout_50->addWidget(graphicsView_exTester_skeleton);
 
 
         gridLayout_6->addLayout(verticalLayout_50, 2, 2, 1, 1);
@@ -2133,6 +2225,16 @@ public:
         tabWidget_exTester_results->addTab(tab_8, QString());
         tab_extraction = new QWidget();
         tab_extraction->setObjectName(QStringLiteral("tab_extraction"));
+        verticalLayout_58 = new QVBoxLayout(tab_extraction);
+        verticalLayout_58->setSpacing(6);
+        verticalLayout_58->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_58->setObjectName(QStringLiteral("verticalLayout_58"));
+        graphicsView_exTester_extraction = new QGraphicsView(tab_extraction);
+        graphicsView_exTester_extraction->setObjectName(QStringLiteral("graphicsView_exTester_extraction"));
+        graphicsView_exTester_extraction->setDragMode(QGraphicsView::ScrollHandDrag);
+
+        verticalLayout_58->addWidget(graphicsView_exTester_extraction);
+
         tabWidget_exTester_results->addTab(tab_extraction, QString());
         tab_large = new QWidget();
         tab_large->setObjectName(QStringLiteral("tab_large"));
@@ -2777,7 +2879,7 @@ public:
 
         tabWidget_main->setCurrentIndex(3);
         tabWidget_exTester_settings->setCurrentIndex(1);
-        tabWidget_exTester_results->setCurrentIndex(0);
+        tabWidget_exTester_results->setCurrentIndex(1);
         tabWidget_testerSettings->setCurrentIndex(0);
         tabWidget_testResults->setCurrentIndex(0);
 
@@ -2889,8 +2991,17 @@ public:
         checkBox_exTester_mask->setText(QApplication::translate("MainWindow", "Use the Mask", nullptr));
         checkBox_exTester_qualityMap->setText(QApplication::translate("MainWindow", "Use the Quality Map", nullptr));
         checkBox_exTester_frequencyMap->setText(QApplication::translate("MainWindow", "Use the Frequency Map", nullptr));
-        checkBox_exTester_fixOrientations->setText(QApplication::translate("MainWindow", "Fix the Orientations", nullptr));
+        groupBox_exTester_exFeatures_2->setTitle(QApplication::translate("MainWindow", "Extraction Features", nullptr));
+        checkBox_exTester_fixOrientations->setText(QApplication::translate("MainWindow", "Use the Orientation Fixer", nullptr));
+        checkBox_exTester_useVarBlockSize->setText(QApplication::translate("MainWindow", "Use Variable Block Size", nullptr));
         tabWidget_exTester_settings->setTabText(tabWidget_exTester_settings->indexOf(tab_features), QApplication::translate("MainWindow", "Features", nullptr));
+        groupBox_2->setTitle(QApplication::translate("MainWindow", "Extraction Settings", nullptr));
+        label_exTester_exBlockSize->setText(QApplication::translate("MainWindow", "Block Size", nullptr));
+        groupBox_exTester_exResults->setTitle(QApplication::translate("MainWindow", "Results", nullptr));
+        radioButton_exTester_crossingNumber->setText(QApplication::translate("MainWindow", "Crossing Number", nullptr));
+        radioButton_exTester_fixedOrientations->setText(QApplication::translate("MainWindow", "Fixed Orientations", nullptr));
+        radioButton_exTester_checkedMinutiae->setText(QApplication::translate("MainWindow", "Checked Minutiae", nullptr));
+        checkBox_exTester_highlightDifferences->setText(QApplication::translate("MainWindow", "Highlight Differences", nullptr));
         tabWidget_exTester_settings->setTabText(tabWidget_exTester_settings->indexOf(tab_7), QApplication::translate("MainWindow", "Extraction", nullptr));
         label_exExter_original->setText(QApplication::translate("MainWindow", "Original", nullptr));
         label_exExter_mask->setText(QApplication::translate("MainWindow", "Mask", nullptr));
