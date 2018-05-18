@@ -3,6 +3,8 @@
 ExtractionTester::ExtractionTester()
 {
     this->preprocessing = new Preprocessing();
+    //this->preprocessing->moveToThread(this->preprocessing);
+
     this->extraction = new Extraction();
     this->extraction->moveToThread(this->extraction);
 
@@ -10,13 +12,14 @@ ExtractionTester::ExtractionTester()
 
     qRegisterMetaType<PREPROCESSING_ALL_RESULTS>("PREPROCESSING_ALL_RESULTS");
     qRegisterMetaType<PREPROCESSING_DURATIONS>("PREPROCESSING_DURATIONS");
-    connect(this->preprocessing, SIGNAL(preprocessingAdvancedDoneSignal(PREPROCESSING_ALL_RESULTS)), this, SLOT(saveResults(PREPROCESSING_ALL_RESULTS)));
+    connect(this->preprocessing, SIGNAL(preprocessingDoneSignal(PREPROCESSING_ALL_RESULTS)), this, SLOT(saveResults(PREPROCESSING_ALL_RESULTS)));
     connect(this->preprocessing, SIGNAL(preprocessingDurationSignal(PREPROCESSING_DURATIONS)), this, SLOT(sendDurationLog(PREPROCESSING_DURATIONS)));
     //connect(this->preprocessing, SIGNAL(preprocessingErrorSignal(int)), this, SLOT());
+    //connect(this, SIGNAL(startPreprocessing()), this->preprocessing, SLOT(start2()));
 
     qRegisterMetaType<EXTRACTION_RESULTS>("EXTRACTION_RESULTS");
     qRegisterMetaType<EXTRACTION_DURATIONS>("EXTRACTION_DURATIONS");
-    connect(this->extraction, SIGNAL(extractionResultsSignal(EXTRACTION_RESULTS)), this, SLOT(saveExtractionResults(EXTRACTION_RESULTS)));
+    connect(this->extraction, SIGNAL(extractionDoneSignal(EXTRACTION_RESULTS)), this, SLOT(saveExtractionResults(EXTRACTION_RESULTS)));
     connect(this->extraction, SIGNAL(extractionDurationsSignal(EXTRACTION_DURATIONS)), this, SLOT(sendExtractionDurationLog(EXTRACTION_DURATIONS)));
 }
 
@@ -35,19 +38,19 @@ void ExtractionTester::setInputPath(const QString &value)
     inputPath = value;
 }
 
-void ExtractionTester::setPreprocessingParams(int numThreads, int blockSize, int basicOMapBlockSize, int advancedOMapBlockSize, double basicOMapSigma, double advancedOMapSigma, double gaborSigma, double gaborLambda, int holeSize)
+void ExtractionTester::setPreprocessingParams(int blockSize, int basicOMapBlockSize, int advancedOMapBlockSize, double basicOMapSigma, double advancedOMapSigma, double gaborSigma, double gaborLambda, int holeSize)
 {
-    this->preprocessing->setPreprocessingParams(numThreads, blockSize, gaborLambda, gaborSigma, basicOMapBlockSize, basicOMapSigma, advancedOMapBlockSize, advancedOMapSigma, holeSize);
+    this->preprocessing->setPreprocessingParams(blockSize, gaborLambda, gaborSigma, basicOMapBlockSize, basicOMapSigma, advancedOMapBlockSize, advancedOMapSigma, holeSize);
 }
 
-void ExtractionTester::setFeatures(bool useContrastEnhancement, bool useRemoveHoles, bool useFixOrientations, bool useMask, bool useQualityMap, bool useFrequencyMap)
+void ExtractionTester::setFeatures(bool useContrastEnhancement, bool useAdvancedOrientationMap, bool useHoleRemover, bool generateIvertedSkeleton, bool useMask, bool useQualityMap, bool useFrequencyMap)
 {
-    this->preprocessing->setFeatures(true, useContrastEnhancement, useRemoveHoles, useFixOrientations, useQualityMap, useMask, useFrequencyMap);
+    this->preprocessing->setFeatures(true, useContrastEnhancement, useAdvancedOrientationMap, useHoleRemover, generateIvertedSkeleton, useQualityMap, useMask, useFrequencyMap);
 }
 
 void ExtractionTester::setExtractionFeatures(int useOrientationFixer, int useVarBlockSize)
 {
-    this->extraction->setFeatures(useOrientationFixer, useVarBlockSize);
+    this->extraction->setFeatures(false, useOrientationFixer, useVarBlockSize);
 }
 
 cv::Mat ExtractionTester::getImgOrig() const
@@ -109,14 +112,23 @@ cv::Mat ExtractionTester::getImgFMap() const
 void ExtractionTester::startTesting()
 {
     if (isImgLoaded) {
-        this->preprocessing->loadImg(this->imgOrig);
+        qDebug() << QThread::currentThreadId();
+        //this->preprocessing->setCPUOnly(false);
+        this->preprocessing->loadInput(this->imgOrig);
 
         this->preprocessing->start();
+        //this->preprocessing->start2();
+        //emit startPreprocessing();
+        //emit this->preprocessing->start2();
+        //emit this->preprocessing->start();
     }
 }
 
 void ExtractionTester::saveResults(PREPROCESSING_ALL_RESULTS results)
 {
+    //if (results.imgContrastEnhanced.rows > 0) cv::imshow("",results.imgContrastEnhanced);
+    cv::imwrite("gabor.bmp", results.imgEnhanced);
+
     this->imgMask = results.imgMask;
     this->imgOMap = results.imgOrientationMap;
     this->imgQMap = results.imgQualityMap;
@@ -127,6 +139,14 @@ void ExtractionTester::saveResults(PREPROCESSING_ALL_RESULTS results)
     this->imgSkeletonInv = results.imgSkeletonInverted;
 
     this->oMap = results.orientationMap;
+    this->qMap = results.qualityMap;
+
+    /*qDebug() << "skel" << results.imgSkeleton.type();
+    qDebug() << "mask" << results.imgMask.type();
+    qDebug() << "imgqmap" << results.imgQualityMap.type();
+    qDebug() << "qmap" << results.qualityMap.type();
+    qDebug() << "fmap" << results.frequencyMap.type();
+    qDebug() << "omap" << results.orientationMap.type();*/
 
     this->sendResults();
     this->startExtraction();
@@ -156,15 +176,15 @@ void ExtractionTester::sendDurationLog(PREPROCESSING_DURATIONS durations)
 
 void ExtractionTester::startExtraction()
 {
-    this->extraction->loadInput(this->imgOrig, this->imgSkeleton, this->oMap, 100, this->imgSkeletonInv);
+    this->extraction->loadInput(this->imgOrig, this->imgSkeleton, this->oMap, 100, this->qMap, this->imgSkeletonInv);
     emit this->extraction->start();
 }
 
 void ExtractionTester::saveExtractionResults(EXTRACTION_RESULTS results)
 {
-    this->crossingNumber = results.minutiae;
-    this->fixedOrientations = results.checkedFixedMinutiae;
-    this->checkedMnutiae = results.checkedMinutiae;
+    this->crossingNumber = results.minutiaeCN;
+    this->fixedOrientations = results.minutiaePredictedFixed;
+    this->checkedMnutiae = results.minutiaePredicted;
 
     this->sendExtractionResults();
 }

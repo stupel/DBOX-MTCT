@@ -16,6 +16,7 @@
 
 #include "caffenetwork.h"
 #include "qmatconverter.h"
+#include "helper.h"
 
 class MinutiaeChecker : public QThread
 {

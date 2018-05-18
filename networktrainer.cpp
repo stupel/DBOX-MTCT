@@ -2,7 +2,7 @@
 
 NetworkTrainer::NetworkTrainer()
 {
-
+    this->outputPath = "./output";
 }
 
 void NetworkTrainer::run()
@@ -22,16 +22,6 @@ void NetworkTrainer::sendProgressBarValue(QString progressbarName, int value, QS
 
 QVector<QPair<QString, int> > NetworkTrainer::dirExtractor(const QString& inputDir, const QString& outputDir, const QVector<QString>& minutiaTypes, const QString& fileFormat, const QString& setName, bool rotations, bool blur, bool irisblur, int trainSet, int testSet)
 {
-
-    // spocitanie vsetkych suborov
-//    QDirIterator test(inputDir, QStringList() << "*" + minutiaType +"*." + fileFormat+ "", QDir::Files, QDirIterator::Subdirectories);
-//    int i=0;
-//    while (test.hasNext()){
-//        test.next();
-//        i++;
-//    }
-//    qDebug() << "Number of files: " <<  i;
-
     QFile data(outputDir + "/" + setName + "ImgPaths.txt");
     data.open(QIODevice::WriteOnly);
     QTextStream ts(&data);

@@ -7,18 +7,24 @@
     <x>0</x>
     <y>0</y>
     <width>1168</width>
-    <height>751</height>
+    <height>725</height>
    </rect>
   </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>725</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>DBOX MTCT</string>
+   <string>DBOX-MTCT</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QGridLayout" name="gridLayout_9">
-    <item row="0" column="0">
+   <layout class="QHBoxLayout" name="horizontalLayout_41">
+    <item>
      <widget class="QTabWidget" name="tabWidget_main">
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_marker">
        <attribute name="title">
@@ -713,13 +719,13 @@
                    </property>
                    <property name="minimumSize">
                     <size>
-                     <width>60</width>
+                     <width>65</width>
                      <height>0</height>
                     </size>
                    </property>
                    <property name="maximumSize">
                     <size>
-                     <width>60</width>
+                     <width>65</width>
                      <height>16777215</height>
                     </size>
                    </property>
@@ -820,13 +826,13 @@
             <property name="minimumSize">
              <size>
               <width>0</width>
-              <height>145</height>
+              <height>160</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>270</width>
-              <height>160</height>
+              <height>180</height>
              </size>
             </property>
             <property name="title">
@@ -850,6 +856,9 @@
                </item>
                <item>
                 <widget class="QLineEdit" name="lineEdit_outputDirectory">
+                 <property name="text">
+                  <string>./output</string>
+                 </property>
                  <property name="readOnly">
                   <bool>true</bool>
                  </property>
@@ -900,6 +909,22 @@
               </layout>
              </item>
              <item>
+              <spacer name="verticalSpacer_6">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>10</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
               <spacer name="verticalSpacer_4">
                <property name="orientation">
                 <enum>Qt::Vertical</enum>
@@ -916,13 +941,28 @@
               <layout class="QHBoxLayout" name="horizontalLayout">
                <item>
                 <widget class="QLabel" name="label_outputFormat">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>25</height>
+                  </size>
+                 </property>
                  <property name="text">
                   <string>File Format:</string>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
                <item>
                 <widget class="QComboBox" name="comboBox_outputFormat">
+                 <property name="minimumSize">
+                  <size>
+                   <width>70</width>
+                   <height>0</height>
+                  </size>
+                 </property>
                  <item>
                   <property name="text">
                    <string>*.BMP</string>
@@ -958,12 +998,22 @@
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>120</width>
+                   <width>100</width>
                    <height>16777215</height>
                   </size>
                  </property>
+                 <property name="autoFillBackground">
+                  <bool>false</bool>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background: rgb(54, 156, 221);
+color: white;</string>
+                 </property>
                  <property name="text">
                   <string>Save Blocks</string>
+                 </property>
+                 <property name="checkable">
+                  <bool>false</bool>
                  </property>
                 </widget>
                </item>
@@ -993,9 +1043,9 @@
        <attribute name="title">
         <string>Network Trainer</string>
        </attribute>
-       <layout class="QHBoxLayout" name="horizontalLayout_9">
+       <layout class="QHBoxLayout" name="horizontalLayout_51">
         <item>
-         <widget class="QGroupBox" name="groupBox_imageBlocksInput">
+         <widget class="QGroupBox" name="groupBox_netTrainer_input">
           <property name="maximumSize">
            <size>
             <width>280</width>
@@ -1007,7 +1057,7 @@
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_19">
            <item>
-            <widget class="QPushButton" name="pushButton_trainerInputDirectory">
+            <widget class="QPushButton" name="pushButton_netTrainer_input">
              <property name="maximumSize">
               <size>
                <width>100</width>
@@ -1036,7 +1086,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QTreeView" name="treeView_networkTrainer">
+            <widget class="QTreeView" name="treeView_netTrainer_input">
              <property name="maximumSize">
               <size>
                <width>260</width>
@@ -1049,221 +1099,45 @@
          </widget>
         </item>
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_23">
+         <layout class="QVBoxLayout" name="verticalLayout_24">
           <item>
-           <widget class="QGroupBox" name="groupBox_settings_2">
+           <widget class="QGroupBox" name="groupBox_netTrainer_settings">
             <property name="maximumSize">
              <size>
               <width>16777215</width>
-              <height>250</height>
+              <height>300</height>
              </size>
             </property>
             <property name="title">
              <string>Settings</string>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout_22">
+            <layout class="QHBoxLayout" name="horizontalLayout_50">
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_8">
+              <layout class="QVBoxLayout" name="verticalLayout_64">
                <item>
-                <widget class="QGroupBox" name="groupBox_inputBlocks">
-                 <property name="enabled">
-                  <bool>true</bool>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>130</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="title">
-                  <string>Input Blocks</string>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_20">
-                  <item>
-                   <widget class="QCheckBox" name="checkBox_trainerOriginals">
-                    <property name="text">
-                     <string>Originals</string>
-                    </property>
-                    <property name="checkable">
-                     <bool>true</bool>
-                    </property>
-                    <property name="checked">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QCheckBox" name="checkBox_trainerRotations">
-                    <property name="text">
-                     <string>Rotations</string>
-                    </property>
-                    <property name="checked">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QCheckBox" name="checkBox_trainerBlurred">
-                    <property name="text">
-                     <string>Blurred</string>
-                    </property>
-                    <property name="checked">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QCheckBox" name="checkBox_trainerIrisBlurred">
-                    <property name="text">
-                     <string>Iris Blurred</string>
-                    </property>
-                    <property name="checked">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <spacer name="verticalSpacer_7">
-                    <property name="orientation">
-                     <enum>Qt::Vertical</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>20</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item>
-                <widget class="QGroupBox" name="groupBox_training">
-                 <property name="enabled">
-                  <bool>true</bool>
-                 </property>
-                 <property name="title">
-                  <string>Training</string>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_24">
-                  <item>
-                   <layout class="QGridLayout" name="gridLayout_2">
-                    <item row="1" column="1">
-                     <widget class="QSpinBox" name="spinBox_testSet">
-                      <property name="minimumSize">
-                       <size>
-                        <width>50</width>
-                        <height>0</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>50</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
-                      <property name="minimum">
-                       <number>1</number>
-                      </property>
-                      <property name="maximum">
-                       <number>100</number>
-                      </property>
-                      <property name="singleStep">
-                       <number>1</number>
-                      </property>
-                      <property name="value">
-                       <number>20</number>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="0" column="1">
-                     <widget class="QSpinBox" name="spinBox_trainSet">
-                      <property name="minimumSize">
-                       <size>
-                        <width>50</width>
-                        <height>0</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>50</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
-                      <property name="minimum">
-                       <number>1</number>
-                      </property>
-                      <property name="maximum">
-                       <number>100</number>
-                      </property>
-                      <property name="singleStep">
-                       <number>1</number>
-                      </property>
-                      <property name="value">
-                       <number>100</number>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="1" column="0">
-                     <widget class="QLabel" name="label_testSet">
-                      <property name="text">
-                       <string>Test set (%)</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="0" column="0">
-                     <widget class="QLabel" name="label_trainSet">
-                      <property name="text">
-                       <string>Train set (%):</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item>
-                   <spacer name="verticalSpacer_6">
-                    <property name="orientation">
-                     <enum>Qt::Vertical</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>20</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item>
-                <widget class="QGroupBox" name="groupBox_caffeModel">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>160</height>
-                  </size>
-                 </property>
-                 <property name="title">
-                  <string>Caffe Model</string>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_21">
-                  <item>
-                   <layout class="QHBoxLayout" name="horizontalLayout_7">
+                <layout class="QHBoxLayout" name="horizontalLayout_48">
+                 <item>
+                  <widget class="QGroupBox" name="groupBox_netTrainer_inputBlocks">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="title">
+                    <string>Input Blocks</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_20">
                     <item>
-                     <widget class="QRadioButton" name="radioButton_defaultCaffeModel">
-                      <property name="maximumSize">
-                       <size>
-                        <width>85</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
+                     <widget class="QCheckBox" name="checkBox_netTrainer_original">
                       <property name="text">
-                       <string>Use Default</string>
+                       <string>Original</string>
+                      </property>
+                      <property name="checkable">
+                       <bool>true</bool>
                       </property>
                       <property name="checked">
                        <bool>true</bool>
@@ -1271,113 +1145,198 @@
                      </widget>
                     </item>
                     <item>
-                     <spacer name="horizontalSpacer_5">
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
+                     <widget class="QCheckBox" name="checkBox_netTrainer_rotation">
+                      <property name="text">
+                       <string>Rotation</string>
                       </property>
-                      <property name="sizeType">
-                       <enum>QSizePolicy::Fixed</enum>
+                      <property name="checked">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="checkBox_netTrainer_blurred">
+                      <property name="text">
+                       <string>Blurred</string>
+                      </property>
+                      <property name="checked">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="checkBox_netTrainer_irisBlurred">
+                      <property name="text">
+                       <string>Iris Blurred</string>
+                      </property>
+                      <property name="checked">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="verticalSpacer_7">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
                       </property>
                       <property name="sizeHint" stdset="0">
                        <size>
                         <width>20</width>
-                        <height>20</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
-                    <item>
-                     <widget class="QRadioButton" name="radioButton_customCaffeModel">
-                      <property name="text">
-                       <string>Load Custom</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <spacer name="horizontalSpacer_4">
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>40</width>
-                        <height>20</height>
+                        <height>40</height>
                        </size>
                       </property>
                      </spacer>
                     </item>
                    </layout>
-                  </item>
+                  </widget>
+                 </item>
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_23">
+                   <item>
+                    <widget class="QGroupBox" name="groupBox_netTrainer_trainingSettings">
+                     <property name="enabled">
+                      <bool>true</bool>
+                     </property>
+                     <property name="title">
+                      <string>Training Settings</string>
+                     </property>
+                     <layout class="QVBoxLayout" name="verticalLayout_21">
+                      <item>
+                       <layout class="QGridLayout" name="gridLayout_2">
+                        <item row="1" column="1">
+                         <widget class="QSpinBox" name="spinBox_netTrainer_testSet">
+                          <property name="minimumSize">
+                           <size>
+                            <width>50</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>50</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                          <property name="minimum">
+                           <number>1</number>
+                          </property>
+                          <property name="maximum">
+                           <number>100</number>
+                          </property>
+                          <property name="singleStep">
+                           <number>1</number>
+                          </property>
+                          <property name="value">
+                           <number>20</number>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="1">
+                         <widget class="QSpinBox" name="spinBox_netTrainer_trainSet">
+                          <property name="minimumSize">
+                           <size>
+                            <width>50</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>50</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                          <property name="minimum">
+                           <number>1</number>
+                          </property>
+                          <property name="maximum">
+                           <number>100</number>
+                          </property>
+                          <property name="singleStep">
+                           <number>1</number>
+                          </property>
+                          <property name="value">
+                           <number>100</number>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="0">
+                         <widget class="QLabel" name="label_netTrainer_testSet">
+                          <property name="text">
+                           <string>Test set (%)</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="0">
+                         <widget class="QLabel" name="label_netTrainer_trainSet">
+                          <property name="text">
+                           <string>Train set (%):</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QGroupBox" name="groupBox_netTrainer_mode">
+                     <property name="title">
+                      <string>Mode</string>
+                     </property>
+                     <layout class="QHBoxLayout" name="horizontalLayout_8">
+                      <item>
+                       <widget class="QRadioButton" name="radioButton_netTrainer_cpu">
+                        <property name="text">
+                         <string>CPU</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QRadioButton" name="radioButton_netTrainer_gpu">
+                        <property name="text">
+                         <string>GPU</string>
+                        </property>
+                        <property name="checked">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="groupBox_netTrainer_output">
+                 <property name="title">
+                  <string>Output</string>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_13">
                   <item>
-                   <widget class="Line" name="line_2">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
+                   <widget class="QLabel" name="label_netTrainer_outputFolder">
+                    <property name="text">
+                     <string>Output folder:</string>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <layout class="QGridLayout" name="gridLayout_3">
-                    <item row="0" column="0">
-                     <widget class="QLabel" name="label_caffeModelPrototxt">
-                      <property name="enabled">
-                       <bool>false</bool>
-                      </property>
-                      <property name="text">
-                       <string>Model Prototxt:</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="0" column="1">
-                     <widget class="QLineEdit" name="lineEdit_caffeModelPrototxt">
-                      <property name="enabled">
-                       <bool>false</bool>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="0" column="2">
-                     <widget class="QPushButton" name="pushButton_caffeModelPrototxt">
-                      <property name="enabled">
-                       <bool>false</bool>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>16777215</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
-                      <property name="text">
-                       <string>Browse</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="1" column="0">
-                     <widget class="QLabel" name="label_caffeSolverPrototxt">
-                      <property name="enabled">
-                       <bool>false</bool>
-                      </property>
-                      <property name="text">
-                       <string>Solver Prototxt:</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="1" column="1">
-                     <widget class="QLineEdit" name="lineEdit_caffeSolverPrototxt">
-                      <property name="enabled">
-                       <bool>false</bool>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="1" column="2">
-                     <widget class="QPushButton" name="pushButton_caffeSolverPrototxt">
-                      <property name="enabled">
-                       <bool>false</bool>
-                      </property>
-                      <property name="text">
-                       <string>Browse</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
+                   <widget class="QLineEdit" name="lineEdit_netTrainer_outputFolder">
+                    <property name="text">
+                     <string>./output</string>
+                    </property>
+                    <property name="readOnly">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButton_netTrainer_outputFolder">
+                    <property name="text">
+                     <string>Browse</string>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </widget>
@@ -1385,31 +1344,347 @@
               </layout>
              </item>
              <item>
-              <widget class="QGroupBox" name="groupBox_output_2">
-               <property name="title">
-                <string>Output</string>
+              <widget class="QGroupBox" name="groupBox_netTrainer_solverParams">
+               <property name="enabled">
+                <bool>true</bool>
                </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_13">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="title">
+                <string>Solver Parameters</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_22">
                 <item>
-                 <widget class="QLabel" name="label_outputFolder">
-                  <property name="text">
-                   <string>Output folder:</string>
-                  </property>
-                 </widget>
+                 <layout class="QHBoxLayout" name="horizontalLayout_7">
+                  <item>
+                   <widget class="QLabel" name="label_netTrainer_model">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
+                    <property name="text">
+                     <string>Model (.prototxt):</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="lineEdit_netTrainer_model">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
+                    <property name="text">
+                     <string>./core/config/Caffe/model.prototxt</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButton_netTrainer_model">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>Browse</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="lineEdit_trainerOutputFolder">
-                  <property name="readOnly">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pushButton_outputFolder">
-                  <property name="text">
-                   <string>Browse</string>
-                  </property>
-                 </widget>
+                 <layout class="QHBoxLayout" name="horizontalLayout_9">
+                  <item>
+                   <layout class="QGridLayout" name="gridLayout_3">
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="label_netTrainer_testIterations">
+                      <property name="text">
+                       <string>Test Iterations:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QSpinBox" name="spinBox_netTrainer_testIterations">
+                      <property name="maximumSize">
+                       <size>
+                        <width>80</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="maximum">
+                       <number>500</number>
+                      </property>
+                      <property name="value">
+                       <number>100</number>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="0">
+                     <widget class="QLabel" name="label_netTrainer_testInterval">
+                      <property name="text">
+                       <string>Test Interval:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="1">
+                     <widget class="QSpinBox" name="spinBox_netTrainer_testInterval">
+                      <property name="maximumSize">
+                       <size>
+                        <width>80</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="maximum">
+                       <number>2000</number>
+                      </property>
+                      <property name="value">
+                       <number>500</number>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="0">
+                     <widget class="QLabel" name="label_netTrainer_maxIterations">
+                      <property name="text">
+                       <string>Max Iterations:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="1">
+                     <widget class="QSpinBox" name="spinBox_netTrainer_maxIterations">
+                      <property name="maximumSize">
+                       <size>
+                        <width>80</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="maximum">
+                       <number>100000</number>
+                      </property>
+                      <property name="singleStep">
+                       <number>1000</number>
+                      </property>
+                      <property name="value">
+                       <number>25000</number>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="3" column="0">
+                     <widget class="QLabel" name="label_netTrainer_snapshotInterval">
+                      <property name="maximumSize">
+                       <size>
+                        <width>120</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Snapshot Interval:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="3" column="1">
+                     <widget class="QSpinBox" name="spinBox_netTrainer_snapshotInterval">
+                      <property name="maximumSize">
+                       <size>
+                        <width>80</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="maximum">
+                       <number>5000</number>
+                      </property>
+                      <property name="singleStep">
+                       <number>100</number>
+                      </property>
+                      <property name="value">
+                       <number>1000</number>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="4" column="0">
+                     <widget class="QLabel" name="label_netTrainer_snapshotPrefix">
+                      <property name="text">
+                       <string>Snapshot Prefix:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="4" column="1">
+                     <widget class="QLineEdit" name="lineEdit_netTrainer_snapshotPrefix">
+                      <property name="maximumSize">
+                       <size>
+                        <width>80</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>minutiae</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_4">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                     <enum>QSizePolicy::Fixed</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>25</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <layout class="QGridLayout" name="gridLayout_5">
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="label_netTrainer_baseLearningRate">
+                      <property name="text">
+                       <string>Base Learning Rate:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QDoubleSpinBox" name="doubleSpinBox_netTrainer_baseLearningRate">
+                      <property name="maximumSize">
+                       <size>
+                        <width>80</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="maximum">
+                       <double>10.000000000000000</double>
+                      </property>
+                      <property name="singleStep">
+                       <double>0.010000000000000</double>
+                      </property>
+                      <property name="value">
+                       <double>0.010000000000000</double>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="0">
+                     <widget class="QLabel" name="label_netTrainer_momentum">
+                      <property name="text">
+                       <string>Momentum:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="1">
+                     <widget class="QDoubleSpinBox" name="doubleSpinBox_netTrainer_momentum">
+                      <property name="maximumSize">
+                       <size>
+                        <width>80</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="maximum">
+                       <double>20.000000000000000</double>
+                      </property>
+                      <property name="singleStep">
+                       <double>0.100000000000000</double>
+                      </property>
+                      <property name="value">
+                       <double>0.900000000000000</double>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="0">
+                     <widget class="QLabel" name="label_netTrainer_weightDecay">
+                      <property name="text">
+                       <string>Weight Decay:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="2" column="1">
+                     <widget class="QDoubleSpinBox" name="doubleSpinBox_netTrainer_weightDecay">
+                      <property name="maximumSize">
+                       <size>
+                        <width>80</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="decimals">
+                       <number>4</number>
+                      </property>
+                      <property name="maximum">
+                       <double>1.000000000000000</double>
+                      </property>
+                      <property name="singleStep">
+                       <double>0.000100000000000</double>
+                      </property>
+                      <property name="value">
+                       <double>0.000500000000000</double>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="3" column="0">
+                     <widget class="QLabel" name="label_netTrainer_gamma">
+                      <property name="text">
+                       <string>Gamma:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="3" column="1">
+                     <widget class="QDoubleSpinBox" name="doubleSpinBox_netTrainer_gamma">
+                      <property name="maximumSize">
+                       <size>
+                        <width>80</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="decimals">
+                       <number>4</number>
+                      </property>
+                      <property name="maximum">
+                       <double>1.000000000000000</double>
+                      </property>
+                      <property name="singleStep">
+                       <double>0.000100000000000</double>
+                      </property>
+                      <property name="value">
+                       <double>0.000100000000000</double>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="4" column="0">
+                     <widget class="QLabel" name="label_netTrainer_power">
+                      <property name="text">
+                       <string>Power:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="4" column="1">
+                     <widget class="QDoubleSpinBox" name="doubleSpinBox_netTrainer_power">
+                      <property name="maximumSize">
+                       <size>
+                        <width>80</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="maximum">
+                       <double>20.000000000000000</double>
+                      </property>
+                      <property name="singleStep">
+                       <double>0.100000000000000</double>
+                      </property>
+                      <property name="value">
+                       <double>0.750000000000000</double>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
                 </item>
                </layout>
               </widget>
@@ -1418,25 +1693,25 @@
            </widget>
           </item>
           <item>
-           <widget class="QGroupBox" name="groupBox_trainingLog">
+           <widget class="QGroupBox" name="groupBox_netTrainer_training">
             <property name="title">
-             <string>Log</string>
+             <string>Training</string>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_25">
              <item>
-              <widget class="QTextBrowser" name="textBrowser_networkTrainerLog"/>
+              <widget class="QTextBrowser" name="textBrowser_netTrainer_log"/>
              </item>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_12">
                <item>
-                <widget class="QLabel" name="label_trainer_progress">
+                <widget class="QLabel" name="label_netTrainer_progress">
                  <property name="text">
                   <string>Progress:</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QProgressBar" name="progressBar_training">
+                <widget class="QProgressBar" name="progressBar_netTrainer_progress">
                  <property name="value">
                   <number>0</number>
                  </property>
@@ -1446,7 +1721,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="pushButton_startTraining">
+                <widget class="QPushButton" name="pushButton_netTrainer_startTraining">
                  <property name="minimumSize">
                   <size>
                    <width>100</width>
@@ -1458,6 +1733,13 @@
                    <width>100</width>
                    <height>16777215</height>
                   </size>
+                 </property>
+                 <property name="autoFillBackground">
+                  <bool>false</bool>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background: rgb(54, 156, 221);
+color: white;</string>
                  </property>
                  <property name="text">
                   <string>Start Training</string>
@@ -1477,7 +1759,7 @@
        <attribute name="title">
         <string>Minutiae Checker</string>
        </attribute>
-       <layout class="QHBoxLayout" name="horizontalLayout_11">
+       <layout class="QHBoxLayout" name="horizontalLayout_53">
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_15">
           <item>
@@ -1619,9 +1901,9 @@
          </widget>
         </item>
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_26">
+         <layout class="QVBoxLayout" name="verticalLayout_66">
           <item>
-           <widget class="QGroupBox" name="groupBox_checkSettings">
+           <widget class="QGroupBox" name="groupBox_minChecker_checkSettings">
             <property name="minimumSize">
              <size>
               <width>300</width>
@@ -1637,79 +1919,112 @@
             <property name="title">
              <string>Check Settings</string>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout_16">
+            <layout class="QHBoxLayout" name="horizontalLayout_11">
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_3">
-               <item>
-                <widget class="QLabel" name="label_checkBlockSize">
-                 <property name="minimumSize">
-                  <size>
-                   <width>56</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>56</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Block Size:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QSpinBox" name="spinBox_checkBlockSize">
-                 <property name="maximumSize">
-                  <size>
-                   <width>45</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="minimum">
-                  <number>5</number>
-                 </property>
-                 <property name="maximum">
-                  <number>40</number>
-                 </property>
-                 <property name="value">
-                  <number>19</number>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer_3">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeType">
-                  <enum>QSizePolicy::Fixed</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>25</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_variableBlockSize">
-                 <property name="text">
-                  <string>Variable Block Size</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <widget class="Line" name="line">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+              <widget class="QGroupBox" name="groupBox_minChecker_mode">
+               <property name="maximumSize">
+                <size>
+                 <width>90</width>
+                 <height>16777215</height>
+                </size>
                </property>
+               <property name="title">
+                <string>Mode</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_16">
+                <item>
+                 <widget class="QRadioButton" name="radioButton_minChecker_cpuMode">
+                  <property name="text">
+                   <string>CPU</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QRadioButton" name="radioButton_minChecker_gpuMode">
+                  <property name="text">
+                   <string>GPU</string>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </widget>
              </item>
+             <item>
+              <widget class="QGroupBox" name="groupBox_minChecker_extactionSettings">
+               <property name="title">
+                <string>Extraction</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_26">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_3">
+                  <item>
+                   <widget class="QLabel" name="label_checkBlockSize">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>Block Size:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSpinBox" name="spinBox_checkBlockSize">
+                    <property name="maximumSize">
+                     <size>
+                      <width>45</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="minimum">
+                     <number>5</number>
+                    </property>
+                    <property name="maximum">
+                     <number>40</number>
+                    </property>
+                    <property name="value">
+                     <number>19</number>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_variableBlockSize">
+                  <property name="text">
+                   <string>Variable Block Size</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox__minChecker_checkMode">
+            <property name="maximumSize">
+             <size>
+              <width>300</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="title">
+             <string>Check Mode</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_65">
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_10">
                <item>
@@ -1783,16 +2098,35 @@
               </layout>
              </item>
              <item>
-              <widget class="QRadioButton" name="radioButton_heatmap">
-               <property name="text">
-                <string>Heatmap</string>
-               </property>
-              </widget>
-             </item>
-             <item>
               <layout class="QHBoxLayout" name="horizontalLayout_2">
                <item>
+                <widget class="QRadioButton" name="radioButton_heatmap">
+                 <property name="text">
+                  <string>Heatmap</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer_3">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeType">
+                  <enum>QSizePolicy::Fixed</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>30</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
                 <widget class="QLabel" name="label_overlay">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
                  <property name="text">
                   <string>Overlay:</string>
                  </property>
@@ -1800,6 +2134,9 @@
                </item>
                <item>
                 <widget class="QSlider" name="horizontalSlider_overlay">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
                  <property name="maximum">
                   <number>100</number>
                  </property>
@@ -1880,11 +2217,11 @@
             <property name="maximumSize">
              <size>
               <width>300</width>
-              <height>160</height>
+              <height>170</height>
              </size>
             </property>
             <property name="title">
-             <string>Founded Minutia</string>
+             <string>Founded Minutia   </string>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_13">
              <item>
@@ -2069,7 +2406,7 @@
              </size>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="tab_6">
              <attribute name="title">
@@ -2382,6 +2719,9 @@
                    <property name="text">
                     <string>Block Size</string>
                    </property>
+                   <property name="wordWrap">
+                    <bool>true</bool>
+                   </property>
                   </widget>
                  </item>
                  <item>
@@ -2576,180 +2916,6 @@
               </item>
              </layout>
             </widget>
-            <widget class="QWidget" name="tab_features">
-             <attribute name="title">
-              <string>Features</string>
-             </attribute>
-             <layout class="QVBoxLayout" name="verticalLayout_57">
-              <item>
-               <widget class="QGroupBox" name="groupBox_exTester_threadNum">
-                <property name="title">
-                 <string>Threads</string>
-                </property>
-                <layout class="QHBoxLayout" name="horizontalLayout_44">
-                 <item>
-                  <widget class="QLabel" name="label_exTester_threadNum">
-                   <property name="text">
-                    <string>Number of Threads</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <spacer name="horizontalSpacer_38">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>54</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                 <item>
-                  <widget class="QSpinBox" name="spinBox_exTester_threadNum"/>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item>
-               <widget class="QGroupBox" name="groupBox_exTester_preprocessing">
-                <property name="title">
-                 <string>Preprocessing</string>
-                </property>
-                <layout class="QVBoxLayout" name="verticalLayout_56">
-                 <item>
-                  <widget class="QCheckBox" name="checkBox_exTester_contrast">
-                   <property name="text">
-                    <string>Enhance the Contrast</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_43">
-                   <item>
-                    <widget class="QCheckBox" name="checkBox_exTester_removeHoles">
-                     <property name="text">
-                      <string>Remove the Holes</string>
-                     </property>
-                     <property name="checked">
-                      <bool>true</bool>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <spacer name="horizontalSpacer_37">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>40</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item>
-                    <widget class="QLabel" name="label_exTester_removeHoles">
-                     <property name="text">
-                      <string>Size</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QSpinBox" name="spinBox_exTester_holeSize">
-                     <property name="maximumSize">
-                      <size>
-                       <width>45</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="minimum">
-                      <number>1</number>
-                     </property>
-                     <property name="maximum">
-                      <number>99</number>
-                     </property>
-                     <property name="value">
-                      <number>20</number>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="checkBox_exTester_gaborFilterGPU">
-                   <property name="text">
-                    <string>Use GPU for Gabor Filter</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="checkBox_exTester_mask">
-                   <property name="text">
-                    <string>Use the Mask</string>
-                   </property>
-                   <property name="checked">
-                    <bool>false</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="checkBox_exTester_qualityMap">
-                   <property name="text">
-                    <string>Use the Quality Map</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="checkBox_exTester_frequencyMap">
-                   <property name="text">
-                    <string>Use the Frequency Map</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item>
-               <widget class="QGroupBox" name="groupBox_exTester_exFeatures_2">
-                <property name="title">
-                 <string>Extraction Features</string>
-                </property>
-                <layout class="QVBoxLayout" name="verticalLayout_61">
-                 <item>
-                  <widget class="QCheckBox" name="checkBox_exTester_fixOrientations">
-                   <property name="text">
-                    <string>Use the Orientation Fixer</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="checkBox_exTester_useVarBlockSize">
-                   <property name="text">
-                    <string>Use Variable Block Size</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-             </layout>
-            </widget>
             <widget class="QWidget" name="tab_7">
              <attribute name="title">
               <string>Extraction</string>
@@ -2811,29 +2977,95 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QRadioButton" name="radioButton_exTester_fixedOrientations">
+                  <widget class="QRadioButton" name="radioButton_exTester_predictedMinutiae">
                    <property name="text">
-                    <string>Fixed Orientations</string>
+                    <string>Predicted Minutiae</string>
+                   </property>
+                   <property name="checked">
+                    <bool>false</bool>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QRadioButton" name="radioButton_exTester_checkedMinutiae">
+                  <widget class="QRadioButton" name="radioButton_exTester_fixedPredictedMinutiae">
                    <property name="text">
-                    <string>Checked Minutiae</string>
+                    <string>Predicted Fixed Minutiae</string>
                    </property>
                    <property name="checked">
                     <bool>true</bool>
                    </property>
                   </widget>
                  </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="tab_features">
+             <attribute name="title">
+              <string>Features</string>
+             </attribute>
+             <layout class="QVBoxLayout" name="verticalLayout_57">
+              <item>
+               <widget class="QGroupBox" name="groupBox_exTester_mode">
+                <property name="title">
+                 <string>Mode</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_40">
                  <item>
-                  <widget class="QCheckBox" name="checkBox_exTester_highlightDifferences">
+                  <layout class="QHBoxLayout" name="horizontalLayout_44">
+                   <item>
+                    <widget class="QRadioButton" name="radioButton_exTester_cpuMode">
+                     <property name="text">
+                      <string>CPU</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_38">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_exTester_threadNum">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
+                     <property name="text">
+                      <string>Threads:</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="wordWrap">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QSpinBox" name="spinBox_exTester_threadNum">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <widget class="QRadioButton" name="radioButton_exTester_gpuMode">
                    <property name="text">
-                    <string>Highlight Differences</string>
+                    <string>GPU</string>
                    </property>
                    <property name="checked">
-                    <bool>false</bool>
+                    <bool>true</bool>
                    </property>
                   </widget>
                  </item>
@@ -2841,17 +3073,132 @@
                </widget>
               </item>
               <item>
-               <spacer name="verticalSpacer_12">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
+               <widget class="QGroupBox" name="groupBox_exTester_preprocessing">
+                <property name="title">
+                 <string>Preprocessing</string>
                 </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>196</height>
-                 </size>
+                <layout class="QVBoxLayout" name="verticalLayout_56">
+                 <item>
+                  <widget class="QCheckBox" name="checkBox_exTester_contrast">
+                   <property name="text">
+                    <string>Enhance the Contrast</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_43">
+                   <item>
+                    <widget class="QCheckBox" name="checkBox_exTester_holeRemover">
+                     <property name="text">
+                      <string>Remove the Holes</string>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_37">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_exTester_removeHoles">
+                     <property name="text">
+                      <string>Size</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QSpinBox" name="spinBox_exTester_holeSize">
+                     <property name="maximumSize">
+                      <size>
+                       <width>45</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="minimum">
+                      <number>1</number>
+                     </property>
+                     <property name="maximum">
+                      <number>99</number>
+                     </property>
+                     <property name="value">
+                      <number>20</number>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="checkBox_exTester_advancedOMap">
+                   <property name="text">
+                    <string>Use the Advanced Orientation Map</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="checkBox_exTester_mask">
+                   <property name="text">
+                    <string>Use the Mask</string>
+                   </property>
+                   <property name="checked">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="checkBox_exTester_qualityMap">
+                   <property name="text">
+                    <string>Use the Quality Map</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="groupBox_exTester_exFeatures_2">
+                <property name="title">
+                 <string>Extraction</string>
                 </property>
-               </spacer>
+                <layout class="QVBoxLayout" name="verticalLayout_61">
+                 <item>
+                  <widget class="QCheckBox" name="checkBox_exTester_orientationFixer">
+                   <property name="text">
+                    <string>Use the Orientation Fixer</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="checkBox_exTester_varBlockSize">
+                   <property name="text">
+                    <string>Use Variable Block Size</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
               </item>
              </layout>
             </widget>
@@ -2862,7 +3209,7 @@
         <item>
          <widget class="QTabWidget" name="tabWidget_exTester_results">
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_8">
            <attribute name="title">
@@ -3071,6 +3418,44 @@
            <attribute name="title">
             <string>Large View</string>
            </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_63">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_52">
+              <item>
+               <spacer name="horizontalSpacer_5">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox">
+                <property name="minimumSize">
+                 <size>
+                  <width>170</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>170</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QGraphicsView" name="graphicsView"/>
+            </item>
+           </layout>
           </widget>
           <widget class="QWidget" name="tab_log">
            <attribute name="title">
@@ -3110,7 +3495,7 @@
             <property name="maximumSize">
              <size>
               <width>270</width>
-              <height>190</height>
+              <height>260</height>
              </size>
             </property>
             <property name="tabPosition">
@@ -3123,7 +3508,7 @@
              <attribute name="title">
               <string>Input</string>
              </attribute>
-             <layout class="QVBoxLayout" name="verticalLayout_29">
+             <layout class="QVBoxLayout" name="verticalLayout_62">
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_14">
                 <item>
@@ -3265,47 +3650,70 @@
                </layout>
               </item>
               <item>
-               <widget class="Line" name="line_3">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+               <widget class="QGroupBox" name="groupBox_dbTester_mode">
+                <property name="title">
+                 <string>Mode</string>
                 </property>
+                <layout class="QVBoxLayout" name="verticalLayout_29">
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_49">
+                   <item>
+                    <widget class="QRadioButton" name="radioButton_dbTester_cpuMode">
+                     <property name="text">
+                      <string>CPU</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_42">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_dbTester_threadNum">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
+                     <property name="text">
+                      <string>Threads:</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="wordWrap">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QSpinBox" name="spinBox_dbTester_threadNum">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <widget class="QRadioButton" name="radioButton_dbTester_gpuMode">
+                   <property name="text">
+                    <string>GPU</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
                </widget>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_41">
-                <item>
-                 <widget class="QLabel" name="label_imageToProcess">
-                  <property name="text">
-                   <string>Image(s) to process at once:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QSpinBox" name="spinBox_imageToProcess">
-                  <property name="minimumSize">
-                   <size>
-                    <width>55</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>55</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="minimum">
-                   <number>1</number>
-                  </property>
-                  <property name="maximum">
-                   <number>32</number>
-                  </property>
-                  <property name="value">
-                   <number>1</number>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
               </item>
              </layout>
             </widget>
@@ -3313,7 +3721,7 @@
              <attribute name="title">
               <string>Settings</string>
              </attribute>
-             <layout class="QVBoxLayout" name="verticalLayout_36">
+             <layout class="QVBoxLayout" name="verticalLayout_54">
               <item>
                <widget class="QGroupBox" name="groupBox_matcher">
                 <property name="maximumSize">
@@ -3327,9 +3735,9 @@
                 </property>
                 <layout class="QHBoxLayout" name="horizontalLayout_16">
                  <item>
-                  <widget class="QRadioButton" name="radioButton_matcherBozorth">
+                  <widget class="QRadioButton" name="radioButton_matcherSuprema">
                    <property name="text">
-                    <string>Bozorth3</string>
+                    <string>Suprema</string>
                    </property>
                    <property name="checked">
                     <bool>true</bool>
@@ -3337,16 +3745,9 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QRadioButton" name="radioButton_matcherMCC">
+                  <widget class="QRadioButton" name="radioButton_matcherBozorth">
                    <property name="text">
-                    <string>MCC</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QRadioButton" name="radioButton_matcherSuprema">
-                   <property name="text">
-                    <string>Suprema</string>
+                    <string>Bozorth3</string>
                    </property>
                    <property name="checked">
                     <bool>false</bool>
@@ -3357,113 +3758,147 @@
                </widget>
               </item>
               <item>
-               <widget class="QCheckBox" name="checkBox_dbTesterUseMask">
-                <property name="text">
-                 <string>Use Mask</string>
+               <widget class="QGroupBox" name="groupBox_dbTester_preprocessing">
+                <property name="title">
+                 <string>Preprocessing</string>
                 </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_53">
+                 <item>
+                  <widget class="QCheckBox" name="checkBox_dbTester_contrastEnhancement">
+                   <property name="text">
+                    <string>Use Contrast Enhancement</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="checkBox_dbTester_advancedOrientationMap">
+                   <property name="text">
+                    <string>Use Advanced Orientation Map</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="checkBox_dbTester_qualityMap">
+                   <property name="text">
+                    <string>Use Quality Map</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="checkBox_dbTester_mask">
+                   <property name="text">
+                    <string>Use Mask</string>
+                   </property>
+                   <property name="checked">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="checkBox_dbTester_invertedSkeleton">
+                   <property name="text">
+                    <string>Generate Inverted Skeleton</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_47">
+                   <item>
+                    <widget class="QCheckBox" name="checkBox_dbTester_removeHoles">
+                     <property name="text">
+                      <string>Remove Holes</string>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_35">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>13</width>
+                       <height>23</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_dbTester_holeSize">
+                     <property name="text">
+                      <string>Hole Size:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QSpinBox" name="spinBox_dbTester_holeSize">
+                     <property name="minimumSize">
+                      <size>
+                       <width>55</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>60</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="minimum">
+                      <number>1</number>
+                     </property>
+                     <property name="maximum">
+                      <number>50</number>
+                     </property>
+                     <property name="value">
+                      <number>20</number>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
                </widget>
               </item>
               <item>
-               <widget class="QCheckBox" name="checkBox_dbTester_freqMap">
-                <property name="text">
-                 <string>Use Frequency Map</string>
+               <widget class="QGroupBox" name="groupBox_dbTester_Extraction">
+                <property name="title">
+                 <string>Extracition</string>
                 </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="checkBox_dbTesterUseFixOrientations">
-                <property name="text">
-                 <string>Fix Minutiae Orientations</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="checkBox_dbTester_contrastEnhancement">
-                <property name="text">
-                 <string>Use Contrast Enhancement</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <layout class="QGridLayout" name="gridLayout_7">
-                <item row="0" column="2">
-                 <widget class="QLabel" name="label_dbTester_holeSize">
-                  <property name="text">
-                   <string>Hole Size:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="0">
-                 <widget class="QCheckBox" name="checkBox_dbTester_removeHoles">
-                  <property name="text">
-                   <string>Remove Holes</string>
-                  </property>
-                  <property name="checked">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="3">
-                 <widget class="QSpinBox" name="spinBox_dbTester_holeSize">
-                  <property name="minimumSize">
-                   <size>
-                    <width>55</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>60</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="minimum">
-                   <number>1</number>
-                  </property>
-                  <property name="maximum">
-                   <number>50</number>
-                  </property>
-                  <property name="value">
-                   <number>20</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <spacer name="horizontalSpacer_35">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="checkBox_dbTesterUseVariableBlockSize">
-                <property name="text">
-                 <string>Use Variable Block Size</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="checkBox_dbTesterUseDistinctMinutiae">
-                <property name="text">
-                 <string>Distinct Minutiae</string>
-                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_36">
+                 <item>
+                  <widget class="QCheckBox" name="checkBox_dbTester_fixOrientations">
+                   <property name="text">
+                    <string>Fix Minutiae Orientations</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="checkBox_dbTester_variableBlockSize">
+                   <property name="text">
+                    <string>Use Variable Block Size</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
                </widget>
               </item>
              </layout>
@@ -3550,78 +3985,95 @@
                 <property name="title">
                  <string>Frequency Map</string>
                 </property>
-                <layout class="QGridLayout" name="gridLayout_8">
-                 <item row="0" column="0">
-                  <layout class="QVBoxLayout" name="verticalLayout_54">
-                   <item>
-                    <widget class="QLabel" name="label_dbTester_freqBlockSize">
-                     <property name="text">
-                      <string>Block Size:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLabel" name="label_dbTester_freqExBlockSize">
-                     <property name="text">
-                      <string>Extraction Block Size:</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+                <property name="checked">
+                 <bool>false</bool>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_46">
+                 <item>
+                  <widget class="QLabel" name="label_dbTester_freqBlockSize">
+                   <property name="text">
+                    <string>Block Size:</string>
+                   </property>
+                   <property name="wordWrap">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
                  </item>
-                 <item row="0" column="1">
-                  <layout class="QVBoxLayout" name="verticalLayout_53">
-                   <item>
-                    <widget class="QSpinBox" name="spinBox_dbTester_freqBlockSize">
-                     <property name="minimumSize">
-                      <size>
-                       <width>50</width>
-                       <height>0</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>55</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="minimum">
-                      <number>1</number>
-                     </property>
-                     <property name="maximum">
-                      <number>100</number>
-                     </property>
-                     <property name="value">
-                      <number>8</number>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QSpinBox" name="spinBox_dbTester_freqExBlockSize">
-                     <property name="minimumSize">
-                      <size>
-                       <width>50</width>
-                       <height>0</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>55</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="minimum">
-                      <number>1</number>
-                     </property>
-                     <property name="maximum">
-                      <number>100</number>
-                     </property>
-                     <property name="value">
-                      <number>30</number>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
+                 <item>
+                  <widget class="QSpinBox" name="spinBox_dbTester_freqBlockSize">
+                   <property name="minimumSize">
+                    <size>
+                     <width>45</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>55</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="minimum">
+                    <number>1</number>
+                   </property>
+                   <property name="maximum">
+                    <number>100</number>
+                   </property>
+                   <property name="value">
+                    <number>8</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_40">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>13</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_dbTester_freqExBlockSize">
+                   <property name="text">
+                    <string>Extraction Block Size:</string>
+                   </property>
+                   <property name="wordWrap">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="spinBox_dbTester_freqExBlockSize">
+                   <property name="minimumSize">
+                    <size>
+                     <width>45</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>55</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="minimum">
+                    <number>1</number>
+                   </property>
+                   <property name="maximum">
+                    <number>100</number>
+                   </property>
+                   <property name="value">
+                    <number>30</number>
+                   </property>
+                  </widget>
                  </item>
                 </layout>
                </widget>
@@ -3931,118 +4383,6 @@
               </item>
              </layout>
             </widget>
-            <widget class="QWidget" name="tab">
-             <attribute name="title">
-              <string>Test</string>
-             </attribute>
-             <layout class="QVBoxLayout" name="verticalLayout_40">
-              <item>
-               <widget class="QGroupBox" name="groupBox_dbTester_iteration">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>122</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>122</height>
-                 </size>
-                </property>
-                <property name="title">
-                 <string>Parameter Iteration</string>
-                </property>
-                <layout class="QGridLayout" name="gridLayout_5">
-                 <item row="0" column="0">
-                  <widget class="QLabel" name="label_dbTester_iterBlockSize">
-                   <property name="text">
-                    <string> Block Size Increase Iterations</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="1">
-                  <widget class="QSpinBox" name="spinBox_dbTester_iterBlockSize">
-                   <property name="minimumSize">
-                    <size>
-                     <width>50</width>
-                     <height>0</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>50</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
-                   <property name="maximum">
-                    <number>30</number>
-                   </property>
-                   <property name="singleStep">
-                    <number>1</number>
-                   </property>
-                   <property name="value">
-                    <number>0</number>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="0">
-                  <widget class="QLabel" name="label_dbTester_iterSigma">
-                   <property name="text">
-                    <string>Sigma Increase Iterations</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="1">
-                  <widget class="QSpinBox" name="spinBox_dbTester_iterSigma">
-                   <property name="minimumSize">
-                    <size>
-                     <width>50</width>
-                     <height>0</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>50</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
-                   <property name="maximum">
-                    <number>30</number>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="2" column="0">
-                  <widget class="QLabel" name="label_dbTester_iterLambda">
-                   <property name="text">
-                    <string>Lambda Increase Iterations</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="2" column="1">
-                  <widget class="QSpinBox" name="spinBox_dbTester_iterLambda">
-                   <property name="minimumSize">
-                    <size>
-                     <width>50</width>
-                     <height>0</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>50</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
-                   <property name="maximum">
-                    <number>30</number>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-             </layout>
-            </widget>
            </widget>
           </item>
           <item>
@@ -4076,6 +4416,13 @@
                 <width>120</width>
                 <height>16777215</height>
                </size>
+              </property>
+              <property name="autoFillBackground">
+               <bool>false</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background: rgb(54, 156, 221);
+color: white;</string>
               </property>
               <property name="text">
                <string>Start Testing</string>
@@ -4145,7 +4492,7 @@
              </property>
              <widget class="QWidget" name="tab_farfrr">
               <attribute name="title">
-               <string>FAR / FRR</string>
+               <string>FMR / FNMR</string>
               </attribute>
               <layout class="QVBoxLayout" name="verticalLayout_30">
                <item>
@@ -4159,7 +4506,7 @@
               </attribute>
               <layout class="QVBoxLayout" name="verticalLayout_31">
                <item>
-                <widget class="QCustomPlot" name="widget_testRoc" native="true"/>
+                <widget class="QCustomPlot" name="widget_testROC" native="true"/>
                </item>
               </layout>
              </widget>

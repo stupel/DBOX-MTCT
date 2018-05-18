@@ -18,8 +18,8 @@ public:
 
     QString getInputPath() const;
     void setInputPath(const QString &value);
-    void setPreprocessingParams(int numThreads, int blockSize, int basicOMapBlockSize, int advancedOMapBlockSize, double basicOMapSigma, double advancedOMapSigma, double gaborSigma, double gaborLambda, int holeSize);
-    void setFeatures(bool useContrastEnhancement, bool useRemoveHoles, bool useFixOrientations, bool useMask, bool useQualityMap, bool useFrequencyMap);
+    void setPreprocessingParams(int blockSize, int basicOMapBlockSize, int advancedOMapBlockSize, double basicOMapSigma, double advancedOMapSigma, double gaborSigma, double gaborLambda, int holeSize);
+    void setFeatures(bool useContrastEnhancement, bool useAdvancedOrientationMap, bool useRemoveHoles, bool generateIvertedSkeleton, bool useMask, bool useQualityMap, bool useFrequencyMap);
     void setExtractionFeatures(int useOrientationFixer, int useVarBlockSize);
 
     cv::Mat getImgOrig() const;
@@ -55,6 +55,7 @@ private:
     cv::Mat imgSkeleton;
     cv::Mat imgSkeletonInv;
     cv::Mat oMap;
+    cv::Mat qMap;
 
     QVector<MINUTIA> crossingNumber;
     QVector<MINUTIA> fixedOrientations;
@@ -78,7 +79,7 @@ signals:
     void preprocessingResultsSignal(cv::Mat imgOrig, cv::Mat imgOMap, cv::Mat imgEnhanced, cv::Mat imgBinarized, cv::Mat imgSkeleton, cv::Mat imgSkeletonInv, cv::Mat imgMask, cv::Mat imgQMap, cv::Mat imgFMap);
     void sendLogSignal(QString field, QString text);
     void extractionResultsSignal(cv::Mat imgSkeleton, QVector<MINUTIA> crossingNumber, QVector<MINUTIA> fixedOrientations, QVector<MINUTIA> checkedMnutiae);
-
+    void startPreprocessing();
 };
 
 #endif // EXTRACTIONTESTER_H

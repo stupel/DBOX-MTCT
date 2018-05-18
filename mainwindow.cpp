@@ -82,37 +82,86 @@ MainWindow::MainWindow(QWidget *parent) :
 
     this->ui->groupBox_heatmapCreationProgress->setVisible(false);
 
-    this->ui->checkBox_trainerOriginals->setAttribute(Qt::WA_TransparentForMouseEvents);
-    this->ui->checkBox_trainerOriginals->setFocusPolicy(Qt::NoFocus);
+    this->ui->checkBox_netTrainer_original->setAttribute(Qt::WA_TransparentForMouseEvents);
+    this->ui->checkBox_netTrainer_original->setFocusPolicy(Qt::NoFocus);
 
     this->plotParams = {0, 500};
 
     this->eerLabel = new QCPItemText(this->ui->widget_testFmrFnmr);
     this->eerLabel->setVisible(false);
 
+    QPen fmrPen;
+    fmrPen.setWidth(4);
+    fmrPen.setColor(QColor(255,0,0));
+
+    QPen fnmrPen;
+    fnmrPen.setWidth(4);
+    fnmrPen.setColor(QColor(0,0,255));
+
     this->ui->widget_testFmrFnmr->addGraph();
     this->ui->widget_testFmrFnmr->addGraph();
     this->ui->widget_testFmrFnmr->xAxis->setLabel("Similarity threshold");
     this->ui->widget_testFmrFnmr->yAxis->setLabel("FMR/FNMR value");
-    this->ui->widget_testFmrFnmr->xAxis->setRange(this->plotParams.min, this->plotParams.max);
+    this->ui->widget_testFmrFnmr->xAxis->setRange(0, 500);
     this->ui->widget_testFmrFnmr->yAxis->setRange(0, 100);
     this->ui->widget_testFmrFnmr->setInteraction(QCP::iRangeDrag, true);
     this->ui->widget_testFmrFnmr->setInteraction(QCP::iRangeZoom, true);
     this->ui->widget_testFmrFnmr->setInteraction(QCP::iSelectPlottables, true);
     this->ui->widget_testFmrFnmr->graph(0)->setPen(QPen(Qt::blue));
-    this->ui->widget_testFmrFnmr->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20)));
+    this->ui->widget_testFmrFnmr->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 30)));
     this->ui->widget_testFmrFnmr->graph(0)->setName("FNMR");
-    this->ui->widget_testFmrFnmr->graph(0)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssDisc, 5));
+    this->ui->widget_testFmrFnmr->graph(0)->setPen(fnmrPen);
+    this->ui->widget_testFmrFnmr->xAxis->setTickLabelFont(QFont(QFont().family(), 12));
+    this->ui->widget_testFmrFnmr->yAxis->setTickLabelFont(QFont(QFont().family(), 12));
+    this->ui->widget_testFmrFnmr->xAxis->setLabelFont(QFont(QFont().family(), 12, 70));
+    this->ui->widget_testFmrFnmr->yAxis->setLabelFont(QFont(QFont().family(), 12, 70));
     this->ui->widget_testFmrFnmr->graph(1)->setPen(QPen(Qt::red));
-    this->ui->widget_testFmrFnmr->graph(1)->setBrush(QBrush(QColor(255, 0, 0, 20)));
+    this->ui->widget_testFmrFnmr->graph(1)->setBrush(QBrush(QColor(255, 0, 0, 30)));
     this->ui->widget_testFmrFnmr->graph(1)->setName("FMR");
-    this->ui->widget_testFmrFnmr->graph(1)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssDisc, 5));
+    this->ui->widget_testFmrFnmr->graph(1)->setPen(fmrPen);
+    this->ui->widget_testFmrFnmr->legend->setVisible(true);
+    this->ui->widget_testFmrFnmr->legend->setFont(QFont(QFont().family(), 12));
 
     if (this->ui->tabWidget_main->currentWidget()->objectName() == "tab_marker") this->startMinutiaeMarker();
     else if (this->ui->tabWidget_main->currentWidget()->objectName() == "tab_trainer") this->startNetworkTrainer();
     else if (this->ui->tabWidget_main->currentWidget()->objectName() == "tab_checker") this->startMinutiaeChecker();
     else if (this->ui->tabWidget_main->currentWidget()->objectName() == "tab_extractionTester") this->startExtractionTester();
     else if (this->ui->tabWidget_main->currentWidget()->objectName() == "tab_dbTester") this->startDbTester();
+
+    QPen rocPen;
+    rocPen.setWidth(4);
+    rocPen.setColor(QColor(0,150,0));
+
+    QPen rocReference;
+    rocReference.setWidth(4);
+    rocReference.setColor(QColor(80,80,80));
+    rocReference.setStyle(Qt::DotLine);
+
+    this->ui->widget_testROC->addGraph();
+    this->ui->widget_testROC->addGraph();
+    this->ui->widget_testROC->xAxis->setLabel("FMR");
+    this->ui->widget_testROC->yAxis->setLabel("1 - FNMR (True Match Rate)");
+    this->ui->widget_testROC->xAxis->setRange(0, 1);
+    this->ui->widget_testROC->yAxis->setRange(0, 1);
+    this->ui->widget_testROC->setInteraction(QCP::iRangeDrag, true);
+    this->ui->widget_testROC->setInteraction(QCP::iRangeZoom, true);
+    this->ui->widget_testROC->setInteraction(QCP::iSelectPlottables, true);
+    this->ui->widget_testROC->graph(0)->setPen(QPen(Qt::red));
+    this->ui->widget_testROC->graph(0)->setBrush(QBrush(QColor(0, 150, 0, 25)));
+    this->ui->widget_testROC->graph(0)->setName("ROC");
+    this->ui->widget_testROC->graph(0)->setPen(rocPen);
+    this->ui->widget_testROC->xAxis->setTickLabelFont(QFont(QFont().family(), 12));
+    this->ui->widget_testROC->yAxis->setTickLabelFont(QFont(QFont().family(), 12));
+    this->ui->widget_testROC->xAxis->setLabelFont(QFont(QFont().family(), 12, 70));
+    this->ui->widget_testROC->yAxis->setLabelFont(QFont(QFont().family(), 12, 70));
+    this->ui->widget_testROC->legend->setVisible(true);
+    this->ui->widget_testROC->legend->setFont(QFont(QFont().family(), 12));
+    this->ui->widget_testROC->graph(1)->setPen(QPen(Qt::black));
+    this->ui->widget_testROC->graph(1)->setBrush(QBrush(QColor(80, 80, 80, 0)));
+    this->ui->widget_testROC->graph(1)->setLineStyle(QCPGraph::lsLine);
+    this->ui->widget_testROC->graph(1)->setPen(rocReference);
+    this->ui->widget_testROC->legend->removeAt(1);
+    this->ui->widget_testROC->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignBottom|Qt::AlignRight);
 
     //Other Connecter
     connect(this->ui->tableWidget_minutiae, SIGNAL(cellClicked(int, int)), this, SLOT(tableWidgetCellSelected(int, int)));
@@ -175,7 +224,7 @@ void MainWindow::on_listWidget_inputImages_itemClicked(QListWidgetItem *item)
 
     this->ui->graphicsView_fingerprintMarker->setFocus();
 
-    this->updateMinutiaeMarker("remove"); //!!!!!!!!!!!!!!!!!! Preč
+    this->updateMinutiaeMarker("remove");
 }
 
 void MainWindow::on_radioButton_ending_clicked()
@@ -306,7 +355,7 @@ void MainWindow::on_doubleSpinBox_irisBlur_valueChanged(double arg1)
 
 //Network Trainer BEGIN
 
-void MainWindow::on_pushButton_trainerInputDirectory_clicked()
+void MainWindow::on_pushButton_netTrainer_input_clicked()
 {
     QString blocksInputDir = QFileDialog::getExistingDirectory();
     qDebug() << blocksInputDir;
@@ -320,32 +369,32 @@ void MainWindow::on_pushButton_trainerInputDirectory_clicked()
         }
         QModelIndex index = this->trainerDirModel->index(blocksInputDir);
 
-        this->ui->treeView_networkTrainer->setModel(this->trainerDirModel);
-        this->ui->treeView_networkTrainer->header()->close();
-        this->ui->treeView_networkTrainer->hideColumn(1);
-        this->ui->treeView_networkTrainer->hideColumn(2);
-        this->ui->treeView_networkTrainer->hideColumn(3);
-        this->ui->treeView_networkTrainer->setRootIndex(index);
-        this->ui->treeView_networkTrainer->expandToDepth(0);
+        this->ui->treeView_netTrainer_input->setModel(this->trainerDirModel);
+        this->ui->treeView_netTrainer_input->header()->close();
+        this->ui->treeView_netTrainer_input->hideColumn(1);
+        this->ui->treeView_netTrainer_input->hideColumn(2);
+        this->ui->treeView_netTrainer_input->hideColumn(3);
+        this->ui->treeView_netTrainer_input->setRootIndex(index);
+        this->ui->treeView_netTrainer_input->expandToDepth(0);
     }
     else QMessageBox::warning(this, "Warning", "No folder selected");
 
 }
 
-void MainWindow::on_pushButton_outputFolder_clicked()
+void MainWindow::on_pushButton_netTrainer_outputFolder_clicked()
 {
     QString outputPath = QFileDialog::getExistingDirectory();
     if (outputPath != "") {
         this->netTrainerTh->setOutputPath(outputPath);
-        this->ui->lineEdit_trainerOutputFolder->setText(outputPath);
+        this->ui->lineEdit_netTrainer_outputFolder->setText(outputPath);
     }
     else QMessageBox::warning(this, "Warning", "No folder selected");
 }
 
-void MainWindow::on_pushButton_startTraining_clicked()
+void MainWindow::on_pushButton_netTrainer_startTraining_clicked()
 {
     this->netTrainerTh->setFileFormat("bmp");
-    emit startTrainSignal(this->ui->checkBox_trainerRotations->isChecked(), this->ui->checkBox_trainerBlurred->isChecked(), this->ui->checkBox_trainerIrisBlurred->isChecked(), this->ui->spinBox_trainSet->value(), this->ui->spinBox_testSet->value());
+    emit startTrainSignal(this->ui->checkBox_netTrainer_rotation->isChecked(), this->ui->checkBox_netTrainer_blurred->isChecked(), this->ui->checkBox_netTrainer_irisBlurred->isChecked(), this->ui->spinBox_netTrainer_trainSet->value(), this->ui->spinBox_netTrainer_testSet->value());
 }
 
 //Network Trainer END
@@ -384,14 +433,12 @@ void MainWindow::on_listWidget_inputImages_2_itemClicked(QListWidgetItem *item)
 
 void MainWindow::showPredictedMinutia(QPoint xy, const QVector<QPair<QString, float> > predictedData)
 {
-    int blockSize = this->ui->spinBox_checkBlockSize->value();
-
     //MinutiaeRectangles
     QColor color;
     if (this->ui->spinBox_threshold->value() > predictedData[0].second*100) color = QColor(255,255,0);
-    else if (predictedData[0].first == "Ending") color = QColor(0,0,255);
-    else if (predictedData[0].first == "Bifurcation") color = QColor(0,255,0);
-    else if (predictedData[0].first == "Nothing") color = QColor(255,0,0);
+    else if (predictedData[0].first[0].toLower() == 'e') color = QColor(0,0,255);
+    else if (predictedData[0].first[0].toLower() == 'b') color = QColor(0,255,0);
+    else if (predictedData[0].first[0].toLower() == 'n') color = QColor(255,0,0);
 
     this->currentBlock->setVisible(true);
     this->currentBlock->setPos(xy);
@@ -469,13 +516,10 @@ void MainWindow::on_pushButton_startTesting_clicked()
 {
     if(QDir(this->dbTesterTh->getDbInputPath(), "*.png *.jpg *.bmp *.tif").entryInfoList().size() == this->ui->spinBox_numberOfSubject->value() * this->ui->spinBox_imagesPerSubject->value()) {
 
-        QString matcher = "suprema";
-        if (this->ui->radioButton_matcherBozorth->isChecked()) matcher = "bozorth";
+        MATCHER matcher = suprema;
+        if (this->ui->radioButton_matcherBozorth->isChecked()) matcher = bozorth3;
 
-        this->dbTesterTh->setTestIter(this->ui->spinBox_dbTester_iterBlockSize->value(), this->ui->spinBox_dbTester_iterSigma->value(), this->ui->spinBox_dbTester_iterLambda->value());
-
-        this->dbTesterTh->setExtractionSettings(this->ui->checkBox_dbTesterUseMask->isChecked(), this->ui->checkBox_dbTesterUseVariableBlockSize->isChecked(),
-                                                this->ui->checkBox_dbTesterUseFixOrientations->isChecked(), this->ui->checkBox_dbTesterUseDistinctMinutiae->isChecked());
+        this->dbTesterTh->setExtractionFeatures(matcher, this->ui->checkBox_dbTester_variableBlockSize->isChecked(), this->ui->checkBox_dbTester_fixOrientations->isChecked());
 
         this->dbTesterTh->setPreprocessingParams(this->ui->spinBox_dbTester_BlockSize->value(),
                                                  this->ui->spinBox_dbTester_BasicOMapBlockSize->value(), this->ui->spinBox_dbTester_AdvancedOMapBlockSize->value(),
@@ -483,6 +527,7 @@ void MainWindow::on_pushButton_startTesting_clicked()
                                                  this->ui->doubleSpinBox_dbTester_GaborSigma->value(), this->ui->doubleSpinBox_dbTester_GaborLambda->value());
 
         emit this->startDBTestingSignal(matcher, this->ui->spinBox_numberOfSubject->value(), this->ui->spinBox_imagesPerSubject->value());
+        this->ui->pushButton_startTesting->setEnabled(false);
     }
     else {
         QMessageBox::warning(this, "Warning", "File number does not match with subject and item per subject number");
@@ -572,13 +617,15 @@ void MainWindow::startDbTester()
     this->dbTesterTh->start();
 
     qRegisterMetaType<QVector<double>>("QVector<double>");
+    qRegisterMetaType<MATCHER>("MATCHER");
+    qRegisterMetaType<DBTEST_RESULT>("DBTEST_RESULT");
 
     //Database Tester Connecter
-    connect(this, SIGNAL(startDBTestingSignal(QString, int, int)), this->dbTesterTh, SLOT(startTesting(QString, int, int)));
+    connect(this, SIGNAL(startDBTestingSignal(MATCHER, int, int)), this->dbTesterTh, SLOT(startTesting(MATCHER, int, int)));
     connect(this->dbTesterTh, SIGNAL(logSignal(QString,QString)), this, SLOT(addLog(QString,QString)));
     connect(this->dbTesterTh, SIGNAL(updateProgressBarSignal(QString, int, QString)), this, SLOT(updateProgressBar(QString, int, QString)));
     connect(this->dbTesterTh, SIGNAL(warningSignal(QString, QString, QString)), this, SLOT(warningMessageBox(QString, QString, QString)));
-    connect(this->dbTesterTh, SIGNAL(drawGraphSignal(QString, QVector<double>, QVector<double>, double)), this, SLOT(drawGraph(QString, QVector<double>, QVector<double>, double)));
+    connect(this->dbTesterTh, SIGNAL(drawGraphSignal(DBTEST_RESULT)), this, SLOT(drawGraph(DBTEST_RESULT)));
     connect(this->dbTesterTh, SIGNAL(clearLog(QString)), this, SLOT(clearLog(QString)));
 }
 
@@ -614,10 +661,10 @@ void MainWindow::updateProgressBar(QString barName, int value, QString text)
     }
     else if (barName.toLower() == "trainer") {
         if (text != "") {
-            this->ui->progressBar_training->setFormat(text + ": %p%");
+            this->ui->progressBar_netTrainer_progress->setFormat(text + ": %p%");
         }
-        else this->ui->progressBar_training->setFormat("%p%");
-        this->ui->progressBar_training->setValue(value);
+        else this->ui->progressBar_netTrainer_progress->setFormat("%p%");
+        this->ui->progressBar_netTrainer_progress->setValue(value);
     }
     else if (barName.toLower() == "checker") {
         if (text != "") {
@@ -642,7 +689,7 @@ void MainWindow::updateProgressBar(QString barName, int value, QString text)
 void MainWindow::clearLog(QString logFieldName)
 {
     if (logFieldName.toLower() == "networktrainer") {
-        this->ui->textBrowser_networkTrainerLog->clear();
+        this->ui->textBrowser_netTrainer_log->clear();
     }
     else if (logFieldName.toLower() == "dbtester") {
         this->ui->textBrowser_dbTesterLog->clear();
@@ -652,7 +699,7 @@ void MainWindow::clearLog(QString logFieldName)
 void MainWindow::addLog(QString logFieldName, QString text)
 {
     if (logFieldName == "networkTrainer") {
-        this->ui->textBrowser_networkTrainerLog->append(text);
+        this->ui->textBrowser_netTrainer_log->append(text);
     }
     else if (logFieldName == "dbTester") {
         this->ui->textBrowser_dbTesterLog->append(text);
@@ -662,35 +709,32 @@ void MainWindow::addLog(QString logFieldName, QString text)
     }
 }
 
-void MainWindow::drawGraph(QString graphType, QVector<double> x, QVector<double> y, double err)
+void MainWindow::drawGraph(DBTEST_RESULT results)
 {
-    if (this->ui->radioButton_matcherBozorth->isChecked()) this->plotParams = {0, 500};
-    else if (this->ui->radioButton_matcherSuprema->isChecked()) this->plotParams = {0, 1};
+    this->ui->pushButton_startTesting->setEnabled(true);
 
-    this->ui->widget_testFmrFnmr->xAxis->setRange(this->plotParams.min, this->plotParams.max);
+    this->ui->widget_testFmrFnmr->xAxis->setRange(results.plotParams.min, results.plotParams.max);
 
-    if (graphType.toLower() == "fmr") {
-        this->ui->widget_testFmrFnmr->graph(0)->data().data()->clear();
-        this->ui->widget_testFmrFnmr->graph(1)->data().data()->clear();
+    this->ui->widget_testFmrFnmr->graph(0)->data().data()->clear();
+    this->ui->widget_testFmrFnmr->graph(1)->data().data()->clear();
 
-        this->ui->widget_testFmrFnmr->graph(0)->setData(x, y);
-        this->ui->widget_testFmrFnmr->replot();
-    }
-    else if (graphType.toLower() == "fnmr") {
-        this->ui->widget_testFmrFnmr->graph(1)->setData(x, y);
-        this->ui->widget_testFmrFnmr->replot();
-    }
+    this->ui->widget_testFmrFnmr->graph(0)->setData(results.fmrX, results.fmrY);
+    this->ui->widget_testFmrFnmr->graph(1)->setData(results.fnmrX, results.fnmrY);
 
+    QVector<double> rocReference{0,0.1,0.2,0.5,0.8,0.9,1};
+
+    this->ui->widget_testROC->graph(0)->setData(results.rocX, results.rocY);
+    this->ui->widget_testROC->graph(1)->setData(rocReference, rocReference);
+    this->ui->widget_testROC->replot();
+
+    this->eerLabel->position->setType(QCPItemPosition::ptAxisRectRatio);
+    this->eerLabel->position->setCoords(0.9, 0.5); // place position at center/top of axis rect
+    this->eerLabel->setText("EER: " + QString::number(results.eer));
+    this->eerLabel->setFont(QFont(font().family(), 12)); // make font a bit larger
+    this->eerLabel->setVisible(true);
+
+    this->ui->widget_testFmrFnmr->replot();
     this->ui->widget_testFmrFnmr->legend->setVisible(true);
-
-    if (err != 0) {
-        this->eerLabel->setVisible(true);
-        this->eerLabel->position->setType(QCPItemPosition::ptAxisRectRatio);
-        this->eerLabel->position->setCoords(0.9, 0.5); // place position at center/top of axis rect
-        this->eerLabel->setText("EER: " + QString::number(err));
-        this->eerLabel->setFont(QFont(font().family(), 12)); // make font a bit larger
-        this->ui->widget_testFmrFnmr->replot();
-    }
 }
 
 void MainWindow::questionMessageBox(QString question, QString subject = "")
@@ -732,15 +776,15 @@ void MainWindow::runExtractionTester()
     if (this->exTesterTh->getIsImgLoaded()) {
         this->ui->tabWidget_exTester_settings->setEnabled(false);
 
-        this->exTesterTh->setPreprocessingParams(this->ui->spinBox_exTester_threadNum->value(), this->ui->spinBox_exTester_BlockSize->value(),
-                                                 this->ui->spinBox_exTester_BasicOMapBlockSize->value(), this->ui->spinBox_exTester_AdvancedOMapBlockSize->value(),
-                                                 this->ui->doubleSpinBox_exTester_BasicOMapSigma->value(), this->ui->doubleSpinBox_exTester_AdvancedOMapSigma->value(),
-                                                 this->ui->doubleSpinBox_exTester_GaborSigma->value(), this->ui->doubleSpinBox_exTester_GaborLambda->value(),
-                                                 this->ui->spinBox_exTester_holeSize->value());
-        this->exTesterTh->setFeatures(this->ui->checkBox_exTester_contrast->isChecked(), this->ui->checkBox_dbTester_removeHoles->isChecked(),
-                                      this->ui->checkBox_exTester_fixOrientations->isChecked(), this->ui->checkBox_exTester_mask->isChecked(), this->ui->checkBox_exTester_qualityMap->isChecked(), this->ui->checkBox_exTester_frequencyMap->isChecked());
+        this->exTesterTh->setPreprocessingParams(this->ui->spinBox_exTester_BlockSize->value(), this->ui->spinBox_exTester_BasicOMapBlockSize->value(),
+                                                 this->ui->spinBox_exTester_AdvancedOMapBlockSize->value(), this->ui->doubleSpinBox_exTester_BasicOMapSigma->value(),
+                                                 this->ui->doubleSpinBox_exTester_AdvancedOMapSigma->value(), this->ui->doubleSpinBox_exTester_GaborSigma->value(),
+                                                 this->ui->doubleSpinBox_exTester_GaborLambda->value(), this->ui->spinBox_exTester_holeSize->value());
+        this->exTesterTh->setFeatures(this->ui->checkBox_exTester_contrast->isChecked(), this->ui->checkBox_exTester_advancedOMap->isChecked(), this->ui->checkBox_exTester_holeRemover->isChecked(),
+                                      this->ui->checkBox_exTester_orientationFixer->isChecked(), this->ui->checkBox_exTester_mask->isChecked(),
+                                      this->ui->checkBox_exTester_qualityMap->isChecked(), this->ui->groupBox_exTester_frequencyMap->isChecked());
 
-        this->exTesterTh->setExtractionFeatures(this->ui->checkBox_exTester_fixOrientations->isChecked(), this->ui->checkBox_exTester_useVarBlockSize->isChecked());
+        this->exTesterTh->setExtractionFeatures(this->ui->checkBox_exTester_orientationFixer->isChecked(), this->ui->checkBox_exTester_varBlockSize->isChecked());
         emit startExTestingSignal();
     }
 }
@@ -816,19 +860,33 @@ void MainWindow::drawCircles(const MINUTIA &minutia, bool difference)
 
     int arrow = 7;
     int radius = 4;
+    //qDebug() << minutia.xy.x() << minutia.xy.y() << minutia.angle;
 
-    this->sceneTestExtraction->addLine(QLineF(QPointF(minutia.xy.x(), minutia.xy.y()), QPointF(minutia.xy.x() - qCos(minutia.angle) * arrow, minutia.xy.y() - qSin(minutia.angle) * arrow)), QPen(color));
-    this->sceneTestExtraction->addEllipse((qreal)minutia.xy.x() - radius, (qreal)minutia.xy.y() - radius, 2*radius, 2*radius, QPen(color));
+//    float angle = minutia.angle;
+//    if (angle <= M_PI) angle = M_PI - angle;
+//    else angle = 3 * M_PI - angle;
+
+    QGraphicsItem *line = this->sceneTestExtraction->addLine(QLineF(QPointF(minutia.xy.x(), minutia.xy.y()), QPointF(minutia.xy.x() + qCos(minutia.angle) * arrow, minutia.xy.y() - qSin(minutia.angle) * arrow)), QPen(color));
+    line->setOpacity(minutia.quality*1.0/100.0);
+    QGraphicsItem *ellipse = this->sceneTestExtraction->addEllipse((qreal)minutia.xy.x() - radius, (qreal)minutia.xy.y() - radius, 2*radius, 2*radius, QPen(color));
+    ellipse->setOpacity(minutia.quality*1.0/100.0);
+    QGraphicsTextItem *textItem = this->sceneTestExtraction->addText(QString::number((int)(minutia.angle*180/M_PI)) + "º", QFont("Helvetica [Cronyx]", 2));
+    textItem->setDefaultTextColor(QColor("white"));
+    textItem->setPos(minutia.xy.x()+1, minutia.xy.y()-10);
+    QGraphicsTextItem *textItemQuality = this->sceneTestExtraction->addText(QString::number(minutia.quality) + "%", QFont("Helvetica [Cronyx]", 2));
+    textItemQuality->setDefaultTextColor(QColor("white"));
+    textItemQuality->setPos(minutia.xy.x()+1, minutia.xy.y()-4);
 }
 
 void MainWindow::showExtractionTestResults(const cv::Mat &imgSkeleton, const QVector<MINUTIA> &crossingNumber, const QVector<MINUTIA> &fixedOrientations, const QVector<MINUTIA> &checkedOrientations)
 {
     cv::Mat imgMarked;
-    cv::cvtColor(imgSkeleton, imgMarked, cv::COLOR_GRAY2RGB);
+    cv::cvtColor(this->exTesterTh->getImgOrig(), imgMarked, cv::COLOR_GRAY2RGB);
 
     this->sceneTestExtraction->clear();
 
     this->sceneTestExtraction->addPixmap(QPixmap::fromImage(Helper::Mat2QImage(imgMarked, QImage::Format_RGB888)));
+    //this->sceneTestExtraction->addPixmap(QPixmap::fromImage(Helper::Mat2QImage(imgSkeleton, QImage::Format_Grayscale8)))->setOpacity(0.1);
     this->ui->graphicsView_exTester_extraction->setScene(this->sceneTestExtraction);
 
     int cnt = 0;
@@ -838,16 +896,14 @@ void MainWindow::showExtractionTestResults(const cv::Mat &imgSkeleton, const QVe
             this->drawCircles(minutia, difference);
         }
     }
-    else if (this->ui->radioButton_exTester_fixedOrientations->isChecked()) {
+    else if (this->ui->radioButton_exTester_fixedPredictedMinutiae->isChecked()) {
         for (MINUTIA minutia : fixedOrientations) {
-            //if (minutia.angle != crossingNumber[cnt].angle/* && this->ui->checkBox_exTester_highlightDifferences->isChecked()*/) difference = true;
             this->drawCircles(minutia, difference);
             cnt++;
         }
     }
-    else if (this->ui->radioButton_exTester_checkedMinutiae->isChecked()) {
+    else if (this->ui->radioButton_exTester_predictedMinutiae->isChecked()) {
         for (MINUTIA minutia : checkedOrientations) {
-            //if (minutia.angle != fixedOrientations[cnt].angle/* && this->ui->checkBox_exTester_highlightDifferences->isChecked()*/) difference = true;
             this->drawCircles(minutia, difference);
             cnt++;
         }
@@ -890,7 +946,7 @@ void MainWindow::on_spinBox_exTester_holeSize_valueChanged(int arg1)
     this->runExtractionTester();
 }
 
-void MainWindow::on_checkBox_exTester_removeHoles_clicked()
+void MainWindow::on_checkBox_exTester_holeRemover_clicked()
 {
     this->runExtractionTester();
 }
@@ -910,17 +966,12 @@ void MainWindow::on_spinBox_exTester_threadNum_valueChanged(int arg1)
     this->runExtractionTester();
 }
 
-void MainWindow::on_checkBox_exTester_frequencyMap_clicked()
+void MainWindow::on_checkBox_exTester_orientationFixer_clicked()
 {
     this->runExtractionTester();
 }
 
-void MainWindow::on_checkBox_exTester_fixOrientations_clicked()
-{
-    this->runExtractionTester();
-}
-
-void MainWindow::on_checkBox_exTester_gaborFilterGPU_clicked()
+void MainWindow::on_checkBox_exTester_advancedOMap_clicked()
 {
     this->runExtractionTester();
 }
@@ -932,21 +983,28 @@ void MainWindow::on_radioButton_exTester_crossingNumber_clicked(bool checked)
     }
 }
 
-void MainWindow::on_radioButton_exTester_fixedOrientations_clicked(bool checked)
+void MainWindow::on_radioButton_exTester_fixedPredictedMinutiae_clicked(bool checked)
 {
     if (checked) {
         this->showExtractionTestResults(this->exTesterTh->getImgSkeleton(), this->exTesterTh->getCrossingNumber(), this->exTesterTh->getFixedOrientations(), this->exTesterTh->getCheckedMnutiae());
     }
 }
 
-void MainWindow::on_radioButton_exTester_checkedMinutiae_clicked(bool checked)
+void MainWindow::on_radioButton_exTester_predictedMinutiae_clicked(bool checked)
 {
     if (checked) {
         this->showExtractionTestResults(this->exTesterTh->getImgSkeleton(), this->exTesterTh->getCrossingNumber(), this->exTesterTh->getFixedOrientations(), this->exTesterTh->getCheckedMnutiae());
     }
 }
 
-void MainWindow::on_checkBox_exTester_useVarBlockSize_clicked(bool checked)
+void MainWindow::on_checkBox_exTester_varBlockSize_clicked(bool checked)
 {
     this->runExtractionTester();
+}
+
+void MainWindow::on_tabWidget_exTester_settings_currentChanged(int index)
+{
+    this->ui->tabWidget_exTester_settings->widget(index)->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+    this->ui->tabWidget_exTester_settings->widget(index)->resize(this->ui->tabWidget_exTester_settings->widget(index)->minimumSizeHint());
+    this->ui->tabWidget_exTester_settings->setFixedHeight(this->ui->tabWidget_exTester_settings->widget(index)->height()+35);
 }

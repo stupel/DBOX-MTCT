@@ -32,6 +32,7 @@
 #include <QShowEvent>
 #include <QDirModel>
 #include <QCustomPlot/qcustomplot.h>
+#include <QGraphicsTextItem>
 #undef ERROR
 
 #include "graphics_view_zoom.h"
@@ -66,9 +67,9 @@ private slots:
     void tableWidgetCellSelected(int row, int col);
     void on_pushButton_outputDirectory_clicked();
     void on_pushButton_saveBlocks_clicked();
-    void on_pushButton_trainerInputDirectory_clicked();
-    void on_pushButton_startTraining_clicked();
-    void on_pushButton_outputFolder_clicked();
+    void on_pushButton_netTrainer_input_clicked();
+    void on_pushButton_netTrainer_startTraining_clicked();
+    void on_pushButton_netTrainer_outputFolder_clicked();
     void on_pushButton_inputDirectory_2_clicked();
     void on_listWidget_inputImages_2_itemClicked(QListWidgetItem *item);
     void on_tabWidget_main_currentChanged(int index);
@@ -83,7 +84,7 @@ private slots:
     void drawCurrentRectanglePosition(QPoint xy);
     void addLog(QString logFieldName, QString text);
     void clearLog(QString logFieldName);
-    void drawGraph(QString graphType, QVector<double> x, QVector<double> y, double err = 0);
+    void drawGraph(DBTEST_RESULT results);
 
     void questionMessageBox(QString question, QString subject);
     void warningMessageBox(QString boxType, QString text, QString subject);
@@ -105,21 +106,22 @@ private slots:
     void on_comboBox_exTester_map_currentTextChanged(const QString &arg1);
     void on_checkBox_exTester_contrast_clicked();
     void on_spinBox_exTester_holeSize_valueChanged(int arg1);
-    void on_checkBox_exTester_removeHoles_clicked();
+    void on_checkBox_exTester_holeRemover_clicked();
     void on_checkBox_exTester_mask_clicked();
     void on_checkBox_exTester_qualityMap_clicked();
     void on_spinBox_exTester_threadNum_valueChanged(int arg1);
-    void on_checkBox_exTester_frequencyMap_clicked();
-    void on_checkBox_exTester_fixOrientations_clicked();
-    void on_checkBox_exTester_gaborFilterGPU_clicked();
+    void on_checkBox_exTester_orientationFixer_clicked();
+    void on_checkBox_exTester_advancedOMap_clicked();
 
     void on_radioButton_exTester_crossingNumber_clicked(bool checked);
 
-    void on_radioButton_exTester_fixedOrientations_clicked(bool checked);
+    void on_radioButton_exTester_fixedPredictedMinutiae_clicked(bool checked);
 
-    void on_radioButton_exTester_checkedMinutiae_clicked(bool checked);
+    void on_radioButton_exTester_predictedMinutiae_clicked(bool checked);
 
-    void on_checkBox_exTester_useVarBlockSize_clicked(bool checked);
+    void on_checkBox_exTester_varBlockSize_clicked(bool checked);
+
+    void on_tabWidget_exTester_settings_currentChanged(int index);
 
 private:
     Ui::MainWindow *ui;
@@ -187,7 +189,7 @@ signals:
     void updateMinutiaeSignal(QString, QString);
     void questionBoxAnswerSignal(bool answer);
     void startTrainSignal(bool rotations, bool blur, bool irisblur, int, int);
-    void startDBTestingSignal(QString matcher, int numOfSubject, int imgPerSubject);
+    void startDBTestingSignal(MATCHER matcher, int numOfSubject, int imgPerSubject);
     void startExTestingSignal();
 };
 

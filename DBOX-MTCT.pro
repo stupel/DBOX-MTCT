@@ -39,7 +39,8 @@ HEADERS  += mainwindow.h \
     isoconverter.h \
     qmatconverter.h \
     QCustomPlot/qcustomplot.h \
-    extractiontester.h
+    extractiontester.h \
+    helper.h
 
 
 FORMS    += mainwindow.ui
@@ -52,21 +53,9 @@ unix:!macx: LIBS += -L$$PWD/../../../../../opt/cuda/lib64/ -lcudart
 INCLUDEPATH += $$PWD/../../../../../opt/cuda/include
 DEPENDPATH += $$PWD/../../../../../opt/cuda/include
 
-#Preprocessing
-unix:!macx: LIBS += -L$$PWD/../Preprocessing/ -lPreprocessing
-INCLUDEPATH += $$PWD/../Preprocessing
-DEPENDPATH += $$PWD/../Preprocessing
-
-#Bozorth3
-unix:!macx: LIBS += -L$$PWD/../bozorth3m/ -lbozorth3m
-INCLUDEPATH += $$PWD/../bozorth3m
-DEPENDPATH += $$PWD/../bozorth3m
-
 #SupremaSensor
 unix:!macx: LIBS += -L$$PWD/../../../../../opt/suprema/x64/ -lUFMatcher
-unix:!macx: LIBS += -L$$PWD/../../../../../opt/suprema/x64/ -lUFScanner
 INCLUDEPATH += $$PWD/../../../../../opt/suprema/include
-DEPENDPATH += $$PWD/../../../../../opt/suprema/include
 
 #OpenCV
 unix:!macx: LIBS += -L$$PWD/../../../../../usr/local/lib64/ -lopencv_world
@@ -80,7 +69,17 @@ unix:!macx: LIBS += -L$$PWD/../../../../../usr/lib64/ -lboost_system
 unix:!macx: LIBS += -L$$PWD/../../../../../usr/lib64/ -lglog
 unix:!macx: LIBS += -L$$PWD/../../../../../usr/lib64/ -lprotobuf
 
+#Preprocessing
+unix:!macx: LIBS += -L$$PWD/../Preprocessing/ -lPreprocessing
+INCLUDEPATH += $$PWD/../Preprocessing
+DEPENDPATH += $$PWD/../Preprocessing
+
 #Extraction
 unix:!macx: LIBS += -L$$PWD/../Extraction/ -lExtraction
 INCLUDEPATH += $$PWD/../Extraction
 DEPENDPATH += $$PWD/../Extraction
+
+#Matcher
+unix:!macx: LIBS += -L$$PWD/../Matcher/ -lMatcher
+INCLUDEPATH += $$PWD/../Matcher
+DEPENDPATH += $$PWD/../Matcher

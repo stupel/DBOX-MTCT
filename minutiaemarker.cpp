@@ -3,6 +3,7 @@
 MinutiaeMarker::MinutiaeMarker()
 {
     this->setObjectName("marker");
+    this->outputPath = "./output";
 }
 
 void MinutiaeMarker::run()

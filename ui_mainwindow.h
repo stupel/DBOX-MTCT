@@ -16,7 +16,6 @@
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDoubleSpinBox>
-#include <QtWidgets/QFrame>
 #include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
@@ -48,7 +47,7 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QGridLayout *gridLayout_9;
+    QHBoxLayout *horizontalLayout_41;
     QTabWidget *tabWidget_main;
     QWidget *tab_marker;
     QHBoxLayout *horizontalLayout_6;
@@ -125,6 +124,7 @@ public:
     QHBoxLayout *horizontalLayout_4;
     QSpacerItem *horizontalSpacer_2;
     QPushButton *pushButton_outputDirectory;
+    QSpacerItem *verticalSpacer_6;
     QSpacerItem *verticalSpacer_4;
     QHBoxLayout *horizontalLayout;
     QLabel *label_outputFormat;
@@ -133,60 +133,80 @@ public:
     QPushButton *pushButton_saveBlocks;
     QProgressBar *progressBar_savingBlocks;
     QWidget *tab_trainer;
-    QHBoxLayout *horizontalLayout_9;
-    QGroupBox *groupBox_imageBlocksInput;
+    QHBoxLayout *horizontalLayout_51;
+    QGroupBox *groupBox_netTrainer_input;
     QVBoxLayout *verticalLayout_19;
-    QPushButton *pushButton_trainerInputDirectory;
+    QPushButton *pushButton_netTrainer_input;
     QLabel *label_trainerInputDirectory;
-    QTreeView *treeView_networkTrainer;
-    QVBoxLayout *verticalLayout_23;
-    QGroupBox *groupBox_settings_2;
-    QVBoxLayout *verticalLayout_22;
-    QHBoxLayout *horizontalLayout_8;
-    QGroupBox *groupBox_inputBlocks;
-    QVBoxLayout *verticalLayout_20;
-    QCheckBox *checkBox_trainerOriginals;
-    QCheckBox *checkBox_trainerRotations;
-    QCheckBox *checkBox_trainerBlurred;
-    QCheckBox *checkBox_trainerIrisBlurred;
-    QSpacerItem *verticalSpacer_7;
-    QGroupBox *groupBox_training;
+    QTreeView *treeView_netTrainer_input;
     QVBoxLayout *verticalLayout_24;
-    QGridLayout *gridLayout_2;
-    QSpinBox *spinBox_testSet;
-    QSpinBox *spinBox_trainSet;
-    QLabel *label_testSet;
-    QLabel *label_trainSet;
-    QSpacerItem *verticalSpacer_6;
-    QGroupBox *groupBox_caffeModel;
+    QGroupBox *groupBox_netTrainer_settings;
+    QHBoxLayout *horizontalLayout_50;
+    QVBoxLayout *verticalLayout_64;
+    QHBoxLayout *horizontalLayout_48;
+    QGroupBox *groupBox_netTrainer_inputBlocks;
+    QVBoxLayout *verticalLayout_20;
+    QCheckBox *checkBox_netTrainer_original;
+    QCheckBox *checkBox_netTrainer_rotation;
+    QCheckBox *checkBox_netTrainer_blurred;
+    QCheckBox *checkBox_netTrainer_irisBlurred;
+    QSpacerItem *verticalSpacer_7;
+    QVBoxLayout *verticalLayout_23;
+    QGroupBox *groupBox_netTrainer_trainingSettings;
     QVBoxLayout *verticalLayout_21;
-    QHBoxLayout *horizontalLayout_7;
-    QRadioButton *radioButton_defaultCaffeModel;
-    QSpacerItem *horizontalSpacer_5;
-    QRadioButton *radioButton_customCaffeModel;
-    QSpacerItem *horizontalSpacer_4;
-    QFrame *line_2;
-    QGridLayout *gridLayout_3;
-    QLabel *label_caffeModelPrototxt;
-    QLineEdit *lineEdit_caffeModelPrototxt;
-    QPushButton *pushButton_caffeModelPrototxt;
-    QLabel *label_caffeSolverPrototxt;
-    QLineEdit *lineEdit_caffeSolverPrototxt;
-    QPushButton *pushButton_caffeSolverPrototxt;
-    QGroupBox *groupBox_output_2;
+    QGridLayout *gridLayout_2;
+    QSpinBox *spinBox_netTrainer_testSet;
+    QSpinBox *spinBox_netTrainer_trainSet;
+    QLabel *label_netTrainer_testSet;
+    QLabel *label_netTrainer_trainSet;
+    QGroupBox *groupBox_netTrainer_mode;
+    QHBoxLayout *horizontalLayout_8;
+    QRadioButton *radioButton_netTrainer_cpu;
+    QRadioButton *radioButton_netTrainer_gpu;
+    QGroupBox *groupBox_netTrainer_output;
     QHBoxLayout *horizontalLayout_13;
-    QLabel *label_outputFolder;
-    QLineEdit *lineEdit_trainerOutputFolder;
-    QPushButton *pushButton_outputFolder;
-    QGroupBox *groupBox_trainingLog;
+    QLabel *label_netTrainer_outputFolder;
+    QLineEdit *lineEdit_netTrainer_outputFolder;
+    QPushButton *pushButton_netTrainer_outputFolder;
+    QGroupBox *groupBox_netTrainer_solverParams;
+    QVBoxLayout *verticalLayout_22;
+    QHBoxLayout *horizontalLayout_7;
+    QLabel *label_netTrainer_model;
+    QLineEdit *lineEdit_netTrainer_model;
+    QPushButton *pushButton_netTrainer_model;
+    QHBoxLayout *horizontalLayout_9;
+    QGridLayout *gridLayout_3;
+    QLabel *label_netTrainer_testIterations;
+    QSpinBox *spinBox_netTrainer_testIterations;
+    QLabel *label_netTrainer_testInterval;
+    QSpinBox *spinBox_netTrainer_testInterval;
+    QLabel *label_netTrainer_maxIterations;
+    QSpinBox *spinBox_netTrainer_maxIterations;
+    QLabel *label_netTrainer_snapshotInterval;
+    QSpinBox *spinBox_netTrainer_snapshotInterval;
+    QLabel *label_netTrainer_snapshotPrefix;
+    QLineEdit *lineEdit_netTrainer_snapshotPrefix;
+    QSpacerItem *horizontalSpacer_4;
+    QGridLayout *gridLayout_5;
+    QLabel *label_netTrainer_baseLearningRate;
+    QDoubleSpinBox *doubleSpinBox_netTrainer_baseLearningRate;
+    QLabel *label_netTrainer_momentum;
+    QDoubleSpinBox *doubleSpinBox_netTrainer_momentum;
+    QLabel *label_netTrainer_weightDecay;
+    QDoubleSpinBox *doubleSpinBox_netTrainer_weightDecay;
+    QLabel *label_netTrainer_gamma;
+    QDoubleSpinBox *doubleSpinBox_netTrainer_gamma;
+    QLabel *label_netTrainer_power;
+    QDoubleSpinBox *doubleSpinBox_netTrainer_power;
+    QGroupBox *groupBox_netTrainer_training;
     QVBoxLayout *verticalLayout_25;
-    QTextBrowser *textBrowser_networkTrainerLog;
+    QTextBrowser *textBrowser_netTrainer_log;
     QHBoxLayout *horizontalLayout_12;
-    QLabel *label_trainer_progress;
-    QProgressBar *progressBar_training;
-    QPushButton *pushButton_startTraining;
+    QLabel *label_netTrainer_progress;
+    QProgressBar *progressBar_netTrainer_progress;
+    QPushButton *pushButton_netTrainer_startTraining;
     QWidget *tab_checker;
-    QHBoxLayout *horizontalLayout_11;
+    QHBoxLayout *horizontalLayout_53;
     QVBoxLayout *verticalLayout_15;
     QGroupBox *groupBox_inputModel;
     QVBoxLayout *verticalLayout_14;
@@ -201,23 +221,30 @@ public:
     QGroupBox *groupBox_fingerprintImage_2;
     QVBoxLayout *verticalLayout_11;
     QGraphicsView *graphicsView_fingerprintChecker;
-    QVBoxLayout *verticalLayout_26;
-    QGroupBox *groupBox_checkSettings;
+    QVBoxLayout *verticalLayout_66;
+    QGroupBox *groupBox_minChecker_checkSettings;
+    QHBoxLayout *horizontalLayout_11;
+    QGroupBox *groupBox_minChecker_mode;
     QVBoxLayout *verticalLayout_16;
+    QRadioButton *radioButton_minChecker_cpuMode;
+    QRadioButton *radioButton_minChecker_gpuMode;
+    QGroupBox *groupBox_minChecker_extactionSettings;
+    QVBoxLayout *verticalLayout_26;
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_checkBlockSize;
     QSpinBox *spinBox_checkBlockSize;
-    QSpacerItem *horizontalSpacer_3;
     QCheckBox *checkBox_variableBlockSize;
-    QFrame *line;
+    QGroupBox *groupBox__minChecker_checkMode;
+    QVBoxLayout *verticalLayout_65;
     QHBoxLayout *horizontalLayout_10;
     QRadioButton *radioButton_standard;
     QSpacerItem *horizontalSpacer_6;
     QLabel *label_threshold;
     QSpinBox *spinBox_threshold;
     QSpacerItem *horizontalSpacer_7;
-    QRadioButton *radioButton_heatmap;
     QHBoxLayout *horizontalLayout_2;
+    QRadioButton *radioButton_heatmap;
+    QSpacerItem *horizontalSpacer_3;
     QLabel *label_overlay;
     QSlider *horizontalSlider_overlay;
     QGroupBox *groupBox_heatmapCreationProgress;
@@ -285,29 +312,6 @@ public:
     QSpacerItem *horizontalSpacer_31;
     QLabel *label_exTester_GaborLambda;
     QDoubleSpinBox *doubleSpinBox_exTester_GaborLambda;
-    QWidget *tab_features;
-    QVBoxLayout *verticalLayout_57;
-    QGroupBox *groupBox_exTester_threadNum;
-    QHBoxLayout *horizontalLayout_44;
-    QLabel *label_exTester_threadNum;
-    QSpacerItem *horizontalSpacer_38;
-    QSpinBox *spinBox_exTester_threadNum;
-    QGroupBox *groupBox_exTester_preprocessing;
-    QVBoxLayout *verticalLayout_56;
-    QCheckBox *checkBox_exTester_contrast;
-    QHBoxLayout *horizontalLayout_43;
-    QCheckBox *checkBox_exTester_removeHoles;
-    QSpacerItem *horizontalSpacer_37;
-    QLabel *label_exTester_removeHoles;
-    QSpinBox *spinBox_exTester_holeSize;
-    QCheckBox *checkBox_exTester_gaborFilterGPU;
-    QCheckBox *checkBox_exTester_mask;
-    QCheckBox *checkBox_exTester_qualityMap;
-    QCheckBox *checkBox_exTester_frequencyMap;
-    QGroupBox *groupBox_exTester_exFeatures_2;
-    QVBoxLayout *verticalLayout_61;
-    QCheckBox *checkBox_exTester_fixOrientations;
-    QCheckBox *checkBox_exTester_useVarBlockSize;
     QWidget *tab_7;
     QVBoxLayout *verticalLayout_59;
     QGroupBox *groupBox_2;
@@ -318,10 +322,33 @@ public:
     QGroupBox *groupBox_exTester_exResults;
     QVBoxLayout *verticalLayout_60;
     QRadioButton *radioButton_exTester_crossingNumber;
-    QRadioButton *radioButton_exTester_fixedOrientations;
-    QRadioButton *radioButton_exTester_checkedMinutiae;
-    QCheckBox *checkBox_exTester_highlightDifferences;
-    QSpacerItem *verticalSpacer_12;
+    QRadioButton *radioButton_exTester_predictedMinutiae;
+    QRadioButton *radioButton_exTester_fixedPredictedMinutiae;
+    QWidget *tab_features;
+    QVBoxLayout *verticalLayout_57;
+    QGroupBox *groupBox_exTester_mode;
+    QVBoxLayout *verticalLayout_40;
+    QHBoxLayout *horizontalLayout_44;
+    QRadioButton *radioButton_exTester_cpuMode;
+    QSpacerItem *horizontalSpacer_38;
+    QLabel *label_exTester_threadNum;
+    QSpinBox *spinBox_exTester_threadNum;
+    QRadioButton *radioButton_exTester_gpuMode;
+    QGroupBox *groupBox_exTester_preprocessing;
+    QVBoxLayout *verticalLayout_56;
+    QCheckBox *checkBox_exTester_contrast;
+    QHBoxLayout *horizontalLayout_43;
+    QCheckBox *checkBox_exTester_holeRemover;
+    QSpacerItem *horizontalSpacer_37;
+    QLabel *label_exTester_removeHoles;
+    QSpinBox *spinBox_exTester_holeSize;
+    QCheckBox *checkBox_exTester_advancedOMap;
+    QCheckBox *checkBox_exTester_mask;
+    QCheckBox *checkBox_exTester_qualityMap;
+    QGroupBox *groupBox_exTester_exFeatures_2;
+    QVBoxLayout *verticalLayout_61;
+    QCheckBox *checkBox_exTester_orientationFixer;
+    QCheckBox *checkBox_exTester_varBlockSize;
     QTabWidget *tabWidget_exTester_results;
     QWidget *tab_8;
     QGridLayout *gridLayout_6;
@@ -352,6 +379,11 @@ public:
     QVBoxLayout *verticalLayout_58;
     QGraphicsView *graphicsView_exTester_extraction;
     QWidget *tab_large;
+    QVBoxLayout *verticalLayout_63;
+    QHBoxLayout *horizontalLayout_52;
+    QSpacerItem *horizontalSpacer_5;
+    QComboBox *comboBox;
+    QGraphicsView *graphicsView;
     QWidget *tab_log;
     QVBoxLayout *verticalLayout_51;
     QTextBrowser *textBrowser_exTester_log;
@@ -360,7 +392,7 @@ public:
     QVBoxLayout *verticalLayout_37;
     QTabWidget *tabWidget_testerSettings;
     QWidget *tab_3;
-    QVBoxLayout *verticalLayout_29;
+    QVBoxLayout *verticalLayout_62;
     QHBoxLayout *horizontalLayout_14;
     QPushButton *pushButton_inputDatabase;
     QSpacerItem *horizontalSpacer_8;
@@ -372,28 +404,36 @@ public:
     QSpacerItem *horizontalSpacer_12;
     QLabel *label_imagesPerSubject;
     QSpinBox *spinBox_imagesPerSubject;
-    QFrame *line_3;
-    QHBoxLayout *horizontalLayout_41;
-    QLabel *label_imageToProcess;
-    QSpinBox *spinBox_imageToProcess;
+    QGroupBox *groupBox_dbTester_mode;
+    QVBoxLayout *verticalLayout_29;
+    QHBoxLayout *horizontalLayout_49;
+    QRadioButton *radioButton_dbTester_cpuMode;
+    QSpacerItem *horizontalSpacer_42;
+    QLabel *label_dbTester_threadNum;
+    QSpinBox *spinBox_dbTester_threadNum;
+    QRadioButton *radioButton_dbTester_gpuMode;
     QWidget *tab_4;
-    QVBoxLayout *verticalLayout_36;
+    QVBoxLayout *verticalLayout_54;
     QGroupBox *groupBox_matcher;
     QHBoxLayout *horizontalLayout_16;
-    QRadioButton *radioButton_matcherBozorth;
-    QRadioButton *radioButton_matcherMCC;
     QRadioButton *radioButton_matcherSuprema;
-    QCheckBox *checkBox_dbTesterUseMask;
-    QCheckBox *checkBox_dbTester_freqMap;
-    QCheckBox *checkBox_dbTesterUseFixOrientations;
+    QRadioButton *radioButton_matcherBozorth;
+    QGroupBox *groupBox_dbTester_preprocessing;
+    QVBoxLayout *verticalLayout_53;
     QCheckBox *checkBox_dbTester_contrastEnhancement;
-    QGridLayout *gridLayout_7;
-    QLabel *label_dbTester_holeSize;
+    QCheckBox *checkBox_dbTester_advancedOrientationMap;
+    QCheckBox *checkBox_dbTester_qualityMap;
+    QCheckBox *checkBox_dbTester_mask;
+    QCheckBox *checkBox_dbTester_invertedSkeleton;
+    QHBoxLayout *horizontalLayout_47;
     QCheckBox *checkBox_dbTester_removeHoles;
-    QSpinBox *spinBox_dbTester_holeSize;
     QSpacerItem *horizontalSpacer_35;
-    QCheckBox *checkBox_dbTesterUseVariableBlockSize;
-    QCheckBox *checkBox_dbTesterUseDistinctMinutiae;
+    QLabel *label_dbTester_holeSize;
+    QSpinBox *spinBox_dbTester_holeSize;
+    QGroupBox *groupBox_dbTester_Extraction;
+    QVBoxLayout *verticalLayout_36;
+    QCheckBox *checkBox_dbTester_fixOrientations;
+    QCheckBox *checkBox_dbTester_variableBlockSize;
     QWidget *tab_5;
     QVBoxLayout *verticalLayout_38;
     QGroupBox *groupBox_dbTester_ParameterGeneral;
@@ -402,12 +442,11 @@ public:
     QSpacerItem *horizontalSpacer_25;
     QSpinBox *spinBox_dbTester_BlockSize;
     QGroupBox *groupBox;
-    QGridLayout *gridLayout_8;
-    QVBoxLayout *verticalLayout_54;
+    QHBoxLayout *horizontalLayout_46;
     QLabel *label_dbTester_freqBlockSize;
-    QLabel *label_dbTester_freqExBlockSize;
-    QVBoxLayout *verticalLayout_53;
     QSpinBox *spinBox_dbTester_freqBlockSize;
+    QSpacerItem *horizontalSpacer_40;
+    QLabel *label_dbTester_freqExBlockSize;
     QSpinBox *spinBox_dbTester_freqExBlockSize;
     QGroupBox *groupBox_dbTester_ParameterOMap;
     QVBoxLayout *verticalLayout_27;
@@ -434,16 +473,6 @@ public:
     QSpacerItem *horizontalSpacer_29;
     QLabel *label_dbTester_GaborLambda;
     QDoubleSpinBox *doubleSpinBox_dbTester_GaborLambda;
-    QWidget *tab;
-    QVBoxLayout *verticalLayout_40;
-    QGroupBox *groupBox_dbTester_iteration;
-    QGridLayout *gridLayout_5;
-    QLabel *label_dbTester_iterBlockSize;
-    QSpinBox *spinBox_dbTester_iterBlockSize;
-    QLabel *label_dbTester_iterSigma;
-    QSpinBox *spinBox_dbTester_iterSigma;
-    QLabel *label_dbTester_iterLambda;
-    QSpinBox *spinBox_dbTester_iterLambda;
     QHBoxLayout *horizontalLayout_15;
     QSpacerItem *horizontalSpacer_11;
     QPushButton *pushButton_startTesting;
@@ -459,7 +488,7 @@ public:
     QCustomPlot *widget_testFmrFnmr;
     QWidget *tab_roc;
     QVBoxLayout *verticalLayout_31;
-    QCustomPlot *widget_testRoc;
+    QCustomPlot *widget_testROC;
     QMenuBar *menuBar;
     QStatusBar *statusBar;
 
@@ -467,13 +496,14 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(1168, 751);
+        MainWindow->resize(1168, 725);
+        MainWindow->setMaximumSize(QSize(16777215, 725));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        gridLayout_9 = new QGridLayout(centralWidget);
-        gridLayout_9->setSpacing(6);
-        gridLayout_9->setContentsMargins(11, 11, 11, 11);
-        gridLayout_9->setObjectName(QStringLiteral("gridLayout_9"));
+        horizontalLayout_41 = new QHBoxLayout(centralWidget);
+        horizontalLayout_41->setSpacing(6);
+        horizontalLayout_41->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_41->setObjectName(QStringLiteral("horizontalLayout_41"));
         tabWidget_main = new QTabWidget(centralWidget);
         tabWidget_main->setObjectName(QStringLiteral("tabWidget_main"));
         tab_marker = new QWidget();
@@ -860,8 +890,8 @@ public:
         label_blockIrisBlur->setObjectName(QStringLiteral("label_blockIrisBlur"));
         sizePolicy4.setHeightForWidth(label_blockIrisBlur->sizePolicy().hasHeightForWidth());
         label_blockIrisBlur->setSizePolicy(sizePolicy4);
-        label_blockIrisBlur->setMinimumSize(QSize(60, 0));
-        label_blockIrisBlur->setMaximumSize(QSize(60, 16777215));
+        label_blockIrisBlur->setMinimumSize(QSize(65, 0));
+        label_blockIrisBlur->setMaximumSize(QSize(65, 16777215));
         label_blockIrisBlur->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_23->addWidget(label_blockIrisBlur);
@@ -909,8 +939,8 @@ public:
 
         groupBox_output = new QGroupBox(tab_marker);
         groupBox_output->setObjectName(QStringLiteral("groupBox_output"));
-        groupBox_output->setMinimumSize(QSize(0, 145));
-        groupBox_output->setMaximumSize(QSize(270, 160));
+        groupBox_output->setMinimumSize(QSize(0, 160));
+        groupBox_output->setMaximumSize(QSize(270, 180));
         verticalLayout_10 = new QVBoxLayout(groupBox_output);
         verticalLayout_10->setSpacing(6);
         verticalLayout_10->setContentsMargins(11, 11, 11, 11);
@@ -952,6 +982,10 @@ public:
 
         verticalLayout_10->addLayout(horizontalLayout_4);
 
+        verticalSpacer_6 = new QSpacerItem(20, 10, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        verticalLayout_10->addItem(verticalSpacer_6);
+
         verticalSpacer_4 = new QSpacerItem(20, 4, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout_10->addItem(verticalSpacer_4);
@@ -961,6 +995,8 @@ public:
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         label_outputFormat = new QLabel(groupBox_output);
         label_outputFormat->setObjectName(QStringLiteral("label_outputFormat"));
+        label_outputFormat->setMinimumSize(QSize(0, 25));
+        label_outputFormat->setWordWrap(true);
 
         horizontalLayout->addWidget(label_outputFormat);
 
@@ -968,6 +1004,7 @@ public:
         comboBox_outputFormat->addItem(QString());
         comboBox_outputFormat->addItem(QString());
         comboBox_outputFormat->setObjectName(QStringLiteral("comboBox_outputFormat"));
+        comboBox_outputFormat->setMinimumSize(QSize(70, 0));
 
         horizontalLayout->addWidget(comboBox_outputFormat);
 
@@ -978,7 +1015,11 @@ public:
         pushButton_saveBlocks = new QPushButton(groupBox_output);
         pushButton_saveBlocks->setObjectName(QStringLiteral("pushButton_saveBlocks"));
         pushButton_saveBlocks->setMinimumSize(QSize(100, 0));
-        pushButton_saveBlocks->setMaximumSize(QSize(120, 16777215));
+        pushButton_saveBlocks->setMaximumSize(QSize(100, 16777215));
+        pushButton_saveBlocks->setAutoFillBackground(false);
+        pushButton_saveBlocks->setStyleSheet(QLatin1String("background: rgb(54, 156, 221);\n"
+"color: white;"));
+        pushButton_saveBlocks->setCheckable(false);
 
         horizontalLayout->addWidget(pushButton_saveBlocks);
 
@@ -1002,24 +1043,24 @@ public:
         tabWidget_main->addTab(tab_marker, QString());
         tab_trainer = new QWidget();
         tab_trainer->setObjectName(QStringLiteral("tab_trainer"));
-        horizontalLayout_9 = new QHBoxLayout(tab_trainer);
-        horizontalLayout_9->setSpacing(6);
-        horizontalLayout_9->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
-        groupBox_imageBlocksInput = new QGroupBox(tab_trainer);
-        groupBox_imageBlocksInput->setObjectName(QStringLiteral("groupBox_imageBlocksInput"));
-        groupBox_imageBlocksInput->setMaximumSize(QSize(280, 16777215));
-        verticalLayout_19 = new QVBoxLayout(groupBox_imageBlocksInput);
+        horizontalLayout_51 = new QHBoxLayout(tab_trainer);
+        horizontalLayout_51->setSpacing(6);
+        horizontalLayout_51->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_51->setObjectName(QStringLiteral("horizontalLayout_51"));
+        groupBox_netTrainer_input = new QGroupBox(tab_trainer);
+        groupBox_netTrainer_input->setObjectName(QStringLiteral("groupBox_netTrainer_input"));
+        groupBox_netTrainer_input->setMaximumSize(QSize(280, 16777215));
+        verticalLayout_19 = new QVBoxLayout(groupBox_netTrainer_input);
         verticalLayout_19->setSpacing(6);
         verticalLayout_19->setContentsMargins(11, 11, 11, 11);
         verticalLayout_19->setObjectName(QStringLiteral("verticalLayout_19"));
-        pushButton_trainerInputDirectory = new QPushButton(groupBox_imageBlocksInput);
-        pushButton_trainerInputDirectory->setObjectName(QStringLiteral("pushButton_trainerInputDirectory"));
-        pushButton_trainerInputDirectory->setMaximumSize(QSize(100, 16777215));
+        pushButton_netTrainer_input = new QPushButton(groupBox_netTrainer_input);
+        pushButton_netTrainer_input->setObjectName(QStringLiteral("pushButton_netTrainer_input"));
+        pushButton_netTrainer_input->setMaximumSize(QSize(100, 16777215));
 
-        verticalLayout_19->addWidget(pushButton_trainerInputDirectory);
+        verticalLayout_19->addWidget(pushButton_netTrainer_input);
 
-        label_trainerInputDirectory = new QLabel(groupBox_imageBlocksInput);
+        label_trainerInputDirectory = new QLabel(groupBox_netTrainer_input);
         label_trainerInputDirectory->setObjectName(QStringLiteral("label_trainerInputDirectory"));
         QSizePolicy sizePolicy5(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
         sizePolicy5.setHorizontalStretch(0);
@@ -1030,287 +1071,427 @@ public:
 
         verticalLayout_19->addWidget(label_trainerInputDirectory);
 
-        treeView_networkTrainer = new QTreeView(groupBox_imageBlocksInput);
-        treeView_networkTrainer->setObjectName(QStringLiteral("treeView_networkTrainer"));
-        treeView_networkTrainer->setMaximumSize(QSize(260, 16777215));
+        treeView_netTrainer_input = new QTreeView(groupBox_netTrainer_input);
+        treeView_netTrainer_input->setObjectName(QStringLiteral("treeView_netTrainer_input"));
+        treeView_netTrainer_input->setMaximumSize(QSize(260, 16777215));
 
-        verticalLayout_19->addWidget(treeView_networkTrainer);
+        verticalLayout_19->addWidget(treeView_netTrainer_input);
 
 
-        horizontalLayout_9->addWidget(groupBox_imageBlocksInput);
+        horizontalLayout_51->addWidget(groupBox_netTrainer_input);
 
-        verticalLayout_23 = new QVBoxLayout();
-        verticalLayout_23->setSpacing(6);
-        verticalLayout_23->setObjectName(QStringLiteral("verticalLayout_23"));
-        groupBox_settings_2 = new QGroupBox(tab_trainer);
-        groupBox_settings_2->setObjectName(QStringLiteral("groupBox_settings_2"));
-        groupBox_settings_2->setMaximumSize(QSize(16777215, 250));
-        verticalLayout_22 = new QVBoxLayout(groupBox_settings_2);
-        verticalLayout_22->setSpacing(6);
-        verticalLayout_22->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_22->setObjectName(QStringLiteral("verticalLayout_22"));
-        horizontalLayout_8 = new QHBoxLayout();
-        horizontalLayout_8->setSpacing(6);
-        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
-        groupBox_inputBlocks = new QGroupBox(groupBox_settings_2);
-        groupBox_inputBlocks->setObjectName(QStringLiteral("groupBox_inputBlocks"));
-        groupBox_inputBlocks->setEnabled(true);
-        groupBox_inputBlocks->setMinimumSize(QSize(130, 0));
-        verticalLayout_20 = new QVBoxLayout(groupBox_inputBlocks);
+        verticalLayout_24 = new QVBoxLayout();
+        verticalLayout_24->setSpacing(6);
+        verticalLayout_24->setObjectName(QStringLiteral("verticalLayout_24"));
+        groupBox_netTrainer_settings = new QGroupBox(tab_trainer);
+        groupBox_netTrainer_settings->setObjectName(QStringLiteral("groupBox_netTrainer_settings"));
+        groupBox_netTrainer_settings->setMaximumSize(QSize(16777215, 300));
+        horizontalLayout_50 = new QHBoxLayout(groupBox_netTrainer_settings);
+        horizontalLayout_50->setSpacing(6);
+        horizontalLayout_50->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_50->setObjectName(QStringLiteral("horizontalLayout_50"));
+        verticalLayout_64 = new QVBoxLayout();
+        verticalLayout_64->setSpacing(6);
+        verticalLayout_64->setObjectName(QStringLiteral("verticalLayout_64"));
+        horizontalLayout_48 = new QHBoxLayout();
+        horizontalLayout_48->setSpacing(6);
+        horizontalLayout_48->setObjectName(QStringLiteral("horizontalLayout_48"));
+        groupBox_netTrainer_inputBlocks = new QGroupBox(groupBox_netTrainer_settings);
+        groupBox_netTrainer_inputBlocks->setObjectName(QStringLiteral("groupBox_netTrainer_inputBlocks"));
+        groupBox_netTrainer_inputBlocks->setEnabled(true);
+        groupBox_netTrainer_inputBlocks->setMinimumSize(QSize(0, 0));
+        verticalLayout_20 = new QVBoxLayout(groupBox_netTrainer_inputBlocks);
         verticalLayout_20->setSpacing(6);
         verticalLayout_20->setContentsMargins(11, 11, 11, 11);
         verticalLayout_20->setObjectName(QStringLiteral("verticalLayout_20"));
-        checkBox_trainerOriginals = new QCheckBox(groupBox_inputBlocks);
-        checkBox_trainerOriginals->setObjectName(QStringLiteral("checkBox_trainerOriginals"));
-        checkBox_trainerOriginals->setCheckable(true);
-        checkBox_trainerOriginals->setChecked(true);
+        checkBox_netTrainer_original = new QCheckBox(groupBox_netTrainer_inputBlocks);
+        checkBox_netTrainer_original->setObjectName(QStringLiteral("checkBox_netTrainer_original"));
+        checkBox_netTrainer_original->setCheckable(true);
+        checkBox_netTrainer_original->setChecked(true);
 
-        verticalLayout_20->addWidget(checkBox_trainerOriginals);
+        verticalLayout_20->addWidget(checkBox_netTrainer_original);
 
-        checkBox_trainerRotations = new QCheckBox(groupBox_inputBlocks);
-        checkBox_trainerRotations->setObjectName(QStringLiteral("checkBox_trainerRotations"));
-        checkBox_trainerRotations->setChecked(true);
+        checkBox_netTrainer_rotation = new QCheckBox(groupBox_netTrainer_inputBlocks);
+        checkBox_netTrainer_rotation->setObjectName(QStringLiteral("checkBox_netTrainer_rotation"));
+        checkBox_netTrainer_rotation->setChecked(true);
 
-        verticalLayout_20->addWidget(checkBox_trainerRotations);
+        verticalLayout_20->addWidget(checkBox_netTrainer_rotation);
 
-        checkBox_trainerBlurred = new QCheckBox(groupBox_inputBlocks);
-        checkBox_trainerBlurred->setObjectName(QStringLiteral("checkBox_trainerBlurred"));
-        checkBox_trainerBlurred->setChecked(true);
+        checkBox_netTrainer_blurred = new QCheckBox(groupBox_netTrainer_inputBlocks);
+        checkBox_netTrainer_blurred->setObjectName(QStringLiteral("checkBox_netTrainer_blurred"));
+        checkBox_netTrainer_blurred->setChecked(true);
 
-        verticalLayout_20->addWidget(checkBox_trainerBlurred);
+        verticalLayout_20->addWidget(checkBox_netTrainer_blurred);
 
-        checkBox_trainerIrisBlurred = new QCheckBox(groupBox_inputBlocks);
-        checkBox_trainerIrisBlurred->setObjectName(QStringLiteral("checkBox_trainerIrisBlurred"));
-        checkBox_trainerIrisBlurred->setChecked(true);
+        checkBox_netTrainer_irisBlurred = new QCheckBox(groupBox_netTrainer_inputBlocks);
+        checkBox_netTrainer_irisBlurred->setObjectName(QStringLiteral("checkBox_netTrainer_irisBlurred"));
+        checkBox_netTrainer_irisBlurred->setChecked(true);
 
-        verticalLayout_20->addWidget(checkBox_trainerIrisBlurred);
+        verticalLayout_20->addWidget(checkBox_netTrainer_irisBlurred);
 
         verticalSpacer_7 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout_20->addItem(verticalSpacer_7);
 
 
-        horizontalLayout_8->addWidget(groupBox_inputBlocks);
+        horizontalLayout_48->addWidget(groupBox_netTrainer_inputBlocks);
 
-        groupBox_training = new QGroupBox(groupBox_settings_2);
-        groupBox_training->setObjectName(QStringLiteral("groupBox_training"));
-        groupBox_training->setEnabled(true);
-        verticalLayout_24 = new QVBoxLayout(groupBox_training);
-        verticalLayout_24->setSpacing(6);
-        verticalLayout_24->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_24->setObjectName(QStringLiteral("verticalLayout_24"));
-        gridLayout_2 = new QGridLayout();
-        gridLayout_2->setSpacing(6);
-        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
-        spinBox_testSet = new QSpinBox(groupBox_training);
-        spinBox_testSet->setObjectName(QStringLiteral("spinBox_testSet"));
-        spinBox_testSet->setMinimumSize(QSize(50, 0));
-        spinBox_testSet->setMaximumSize(QSize(50, 16777215));
-        spinBox_testSet->setMinimum(1);
-        spinBox_testSet->setMaximum(100);
-        spinBox_testSet->setSingleStep(1);
-        spinBox_testSet->setValue(20);
-
-        gridLayout_2->addWidget(spinBox_testSet, 1, 1, 1, 1);
-
-        spinBox_trainSet = new QSpinBox(groupBox_training);
-        spinBox_trainSet->setObjectName(QStringLiteral("spinBox_trainSet"));
-        spinBox_trainSet->setMinimumSize(QSize(50, 0));
-        spinBox_trainSet->setMaximumSize(QSize(50, 16777215));
-        spinBox_trainSet->setMinimum(1);
-        spinBox_trainSet->setMaximum(100);
-        spinBox_trainSet->setSingleStep(1);
-        spinBox_trainSet->setValue(100);
-
-        gridLayout_2->addWidget(spinBox_trainSet, 0, 1, 1, 1);
-
-        label_testSet = new QLabel(groupBox_training);
-        label_testSet->setObjectName(QStringLiteral("label_testSet"));
-
-        gridLayout_2->addWidget(label_testSet, 1, 0, 1, 1);
-
-        label_trainSet = new QLabel(groupBox_training);
-        label_trainSet->setObjectName(QStringLiteral("label_trainSet"));
-
-        gridLayout_2->addWidget(label_trainSet, 0, 0, 1, 1);
-
-
-        verticalLayout_24->addLayout(gridLayout_2);
-
-        verticalSpacer_6 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_24->addItem(verticalSpacer_6);
-
-
-        horizontalLayout_8->addWidget(groupBox_training);
-
-        groupBox_caffeModel = new QGroupBox(groupBox_settings_2);
-        groupBox_caffeModel->setObjectName(QStringLiteral("groupBox_caffeModel"));
-        groupBox_caffeModel->setEnabled(false);
-        groupBox_caffeModel->setMaximumSize(QSize(16777215, 160));
-        verticalLayout_21 = new QVBoxLayout(groupBox_caffeModel);
+        verticalLayout_23 = new QVBoxLayout();
+        verticalLayout_23->setSpacing(6);
+        verticalLayout_23->setObjectName(QStringLiteral("verticalLayout_23"));
+        groupBox_netTrainer_trainingSettings = new QGroupBox(groupBox_netTrainer_settings);
+        groupBox_netTrainer_trainingSettings->setObjectName(QStringLiteral("groupBox_netTrainer_trainingSettings"));
+        groupBox_netTrainer_trainingSettings->setEnabled(true);
+        verticalLayout_21 = new QVBoxLayout(groupBox_netTrainer_trainingSettings);
         verticalLayout_21->setSpacing(6);
         verticalLayout_21->setContentsMargins(11, 11, 11, 11);
         verticalLayout_21->setObjectName(QStringLiteral("verticalLayout_21"));
-        horizontalLayout_7 = new QHBoxLayout();
-        horizontalLayout_7->setSpacing(6);
-        horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
-        radioButton_defaultCaffeModel = new QRadioButton(groupBox_caffeModel);
-        radioButton_defaultCaffeModel->setObjectName(QStringLiteral("radioButton_defaultCaffeModel"));
-        radioButton_defaultCaffeModel->setMaximumSize(QSize(85, 16777215));
-        radioButton_defaultCaffeModel->setChecked(true);
+        gridLayout_2 = new QGridLayout();
+        gridLayout_2->setSpacing(6);
+        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+        spinBox_netTrainer_testSet = new QSpinBox(groupBox_netTrainer_trainingSettings);
+        spinBox_netTrainer_testSet->setObjectName(QStringLiteral("spinBox_netTrainer_testSet"));
+        spinBox_netTrainer_testSet->setMinimumSize(QSize(50, 0));
+        spinBox_netTrainer_testSet->setMaximumSize(QSize(50, 16777215));
+        spinBox_netTrainer_testSet->setMinimum(1);
+        spinBox_netTrainer_testSet->setMaximum(100);
+        spinBox_netTrainer_testSet->setSingleStep(1);
+        spinBox_netTrainer_testSet->setValue(20);
 
-        horizontalLayout_7->addWidget(radioButton_defaultCaffeModel);
+        gridLayout_2->addWidget(spinBox_netTrainer_testSet, 1, 1, 1, 1);
 
-        horizontalSpacer_5 = new QSpacerItem(20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+        spinBox_netTrainer_trainSet = new QSpinBox(groupBox_netTrainer_trainingSettings);
+        spinBox_netTrainer_trainSet->setObjectName(QStringLiteral("spinBox_netTrainer_trainSet"));
+        spinBox_netTrainer_trainSet->setMinimumSize(QSize(50, 0));
+        spinBox_netTrainer_trainSet->setMaximumSize(QSize(50, 16777215));
+        spinBox_netTrainer_trainSet->setMinimum(1);
+        spinBox_netTrainer_trainSet->setMaximum(100);
+        spinBox_netTrainer_trainSet->setSingleStep(1);
+        spinBox_netTrainer_trainSet->setValue(100);
 
-        horizontalLayout_7->addItem(horizontalSpacer_5);
+        gridLayout_2->addWidget(spinBox_netTrainer_trainSet, 0, 1, 1, 1);
 
-        radioButton_customCaffeModel = new QRadioButton(groupBox_caffeModel);
-        radioButton_customCaffeModel->setObjectName(QStringLiteral("radioButton_customCaffeModel"));
+        label_netTrainer_testSet = new QLabel(groupBox_netTrainer_trainingSettings);
+        label_netTrainer_testSet->setObjectName(QStringLiteral("label_netTrainer_testSet"));
 
-        horizontalLayout_7->addWidget(radioButton_customCaffeModel);
+        gridLayout_2->addWidget(label_netTrainer_testSet, 1, 0, 1, 1);
 
-        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        label_netTrainer_trainSet = new QLabel(groupBox_netTrainer_trainingSettings);
+        label_netTrainer_trainSet->setObjectName(QStringLiteral("label_netTrainer_trainSet"));
 
-        horizontalLayout_7->addItem(horizontalSpacer_4);
-
-
-        verticalLayout_21->addLayout(horizontalLayout_7);
-
-        line_2 = new QFrame(groupBox_caffeModel);
-        line_2->setObjectName(QStringLiteral("line_2"));
-        line_2->setFrameShape(QFrame::HLine);
-        line_2->setFrameShadow(QFrame::Sunken);
-
-        verticalLayout_21->addWidget(line_2);
-
-        gridLayout_3 = new QGridLayout();
-        gridLayout_3->setSpacing(6);
-        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
-        label_caffeModelPrototxt = new QLabel(groupBox_caffeModel);
-        label_caffeModelPrototxt->setObjectName(QStringLiteral("label_caffeModelPrototxt"));
-        label_caffeModelPrototxt->setEnabled(false);
-
-        gridLayout_3->addWidget(label_caffeModelPrototxt, 0, 0, 1, 1);
-
-        lineEdit_caffeModelPrototxt = new QLineEdit(groupBox_caffeModel);
-        lineEdit_caffeModelPrototxt->setObjectName(QStringLiteral("lineEdit_caffeModelPrototxt"));
-        lineEdit_caffeModelPrototxt->setEnabled(false);
-
-        gridLayout_3->addWidget(lineEdit_caffeModelPrototxt, 0, 1, 1, 1);
-
-        pushButton_caffeModelPrototxt = new QPushButton(groupBox_caffeModel);
-        pushButton_caffeModelPrototxt->setObjectName(QStringLiteral("pushButton_caffeModelPrototxt"));
-        pushButton_caffeModelPrototxt->setEnabled(false);
-        pushButton_caffeModelPrototxt->setMaximumSize(QSize(16777215, 16777215));
-
-        gridLayout_3->addWidget(pushButton_caffeModelPrototxt, 0, 2, 1, 1);
-
-        label_caffeSolverPrototxt = new QLabel(groupBox_caffeModel);
-        label_caffeSolverPrototxt->setObjectName(QStringLiteral("label_caffeSolverPrototxt"));
-        label_caffeSolverPrototxt->setEnabled(false);
-
-        gridLayout_3->addWidget(label_caffeSolverPrototxt, 1, 0, 1, 1);
-
-        lineEdit_caffeSolverPrototxt = new QLineEdit(groupBox_caffeModel);
-        lineEdit_caffeSolverPrototxt->setObjectName(QStringLiteral("lineEdit_caffeSolverPrototxt"));
-        lineEdit_caffeSolverPrototxt->setEnabled(false);
-
-        gridLayout_3->addWidget(lineEdit_caffeSolverPrototxt, 1, 1, 1, 1);
-
-        pushButton_caffeSolverPrototxt = new QPushButton(groupBox_caffeModel);
-        pushButton_caffeSolverPrototxt->setObjectName(QStringLiteral("pushButton_caffeSolverPrototxt"));
-        pushButton_caffeSolverPrototxt->setEnabled(false);
-
-        gridLayout_3->addWidget(pushButton_caffeSolverPrototxt, 1, 2, 1, 1);
+        gridLayout_2->addWidget(label_netTrainer_trainSet, 0, 0, 1, 1);
 
 
-        verticalLayout_21->addLayout(gridLayout_3);
+        verticalLayout_21->addLayout(gridLayout_2);
 
 
-        horizontalLayout_8->addWidget(groupBox_caffeModel);
+        verticalLayout_23->addWidget(groupBox_netTrainer_trainingSettings);
+
+        groupBox_netTrainer_mode = new QGroupBox(groupBox_netTrainer_settings);
+        groupBox_netTrainer_mode->setObjectName(QStringLiteral("groupBox_netTrainer_mode"));
+        horizontalLayout_8 = new QHBoxLayout(groupBox_netTrainer_mode);
+        horizontalLayout_8->setSpacing(6);
+        horizontalLayout_8->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
+        radioButton_netTrainer_cpu = new QRadioButton(groupBox_netTrainer_mode);
+        radioButton_netTrainer_cpu->setObjectName(QStringLiteral("radioButton_netTrainer_cpu"));
+
+        horizontalLayout_8->addWidget(radioButton_netTrainer_cpu);
+
+        radioButton_netTrainer_gpu = new QRadioButton(groupBox_netTrainer_mode);
+        radioButton_netTrainer_gpu->setObjectName(QStringLiteral("radioButton_netTrainer_gpu"));
+        radioButton_netTrainer_gpu->setChecked(true);
+
+        horizontalLayout_8->addWidget(radioButton_netTrainer_gpu);
 
 
-        verticalLayout_22->addLayout(horizontalLayout_8);
+        verticalLayout_23->addWidget(groupBox_netTrainer_mode);
 
-        groupBox_output_2 = new QGroupBox(groupBox_settings_2);
-        groupBox_output_2->setObjectName(QStringLiteral("groupBox_output_2"));
-        horizontalLayout_13 = new QHBoxLayout(groupBox_output_2);
+
+        horizontalLayout_48->addLayout(verticalLayout_23);
+
+
+        verticalLayout_64->addLayout(horizontalLayout_48);
+
+        groupBox_netTrainer_output = new QGroupBox(groupBox_netTrainer_settings);
+        groupBox_netTrainer_output->setObjectName(QStringLiteral("groupBox_netTrainer_output"));
+        horizontalLayout_13 = new QHBoxLayout(groupBox_netTrainer_output);
         horizontalLayout_13->setSpacing(6);
         horizontalLayout_13->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_13->setObjectName(QStringLiteral("horizontalLayout_13"));
-        label_outputFolder = new QLabel(groupBox_output_2);
-        label_outputFolder->setObjectName(QStringLiteral("label_outputFolder"));
+        label_netTrainer_outputFolder = new QLabel(groupBox_netTrainer_output);
+        label_netTrainer_outputFolder->setObjectName(QStringLiteral("label_netTrainer_outputFolder"));
 
-        horizontalLayout_13->addWidget(label_outputFolder);
+        horizontalLayout_13->addWidget(label_netTrainer_outputFolder);
 
-        lineEdit_trainerOutputFolder = new QLineEdit(groupBox_output_2);
-        lineEdit_trainerOutputFolder->setObjectName(QStringLiteral("lineEdit_trainerOutputFolder"));
-        lineEdit_trainerOutputFolder->setReadOnly(true);
+        lineEdit_netTrainer_outputFolder = new QLineEdit(groupBox_netTrainer_output);
+        lineEdit_netTrainer_outputFolder->setObjectName(QStringLiteral("lineEdit_netTrainer_outputFolder"));
+        lineEdit_netTrainer_outputFolder->setReadOnly(true);
 
-        horizontalLayout_13->addWidget(lineEdit_trainerOutputFolder);
+        horizontalLayout_13->addWidget(lineEdit_netTrainer_outputFolder);
 
-        pushButton_outputFolder = new QPushButton(groupBox_output_2);
-        pushButton_outputFolder->setObjectName(QStringLiteral("pushButton_outputFolder"));
+        pushButton_netTrainer_outputFolder = new QPushButton(groupBox_netTrainer_output);
+        pushButton_netTrainer_outputFolder->setObjectName(QStringLiteral("pushButton_netTrainer_outputFolder"));
 
-        horizontalLayout_13->addWidget(pushButton_outputFolder);
-
-
-        verticalLayout_22->addWidget(groupBox_output_2);
+        horizontalLayout_13->addWidget(pushButton_netTrainer_outputFolder);
 
 
-        verticalLayout_23->addWidget(groupBox_settings_2);
+        verticalLayout_64->addWidget(groupBox_netTrainer_output);
 
-        groupBox_trainingLog = new QGroupBox(tab_trainer);
-        groupBox_trainingLog->setObjectName(QStringLiteral("groupBox_trainingLog"));
-        verticalLayout_25 = new QVBoxLayout(groupBox_trainingLog);
+
+        horizontalLayout_50->addLayout(verticalLayout_64);
+
+        groupBox_netTrainer_solverParams = new QGroupBox(groupBox_netTrainer_settings);
+        groupBox_netTrainer_solverParams->setObjectName(QStringLiteral("groupBox_netTrainer_solverParams"));
+        groupBox_netTrainer_solverParams->setEnabled(true);
+        groupBox_netTrainer_solverParams->setMaximumSize(QSize(16777215, 16777215));
+        verticalLayout_22 = new QVBoxLayout(groupBox_netTrainer_solverParams);
+        verticalLayout_22->setSpacing(6);
+        verticalLayout_22->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_22->setObjectName(QStringLiteral("verticalLayout_22"));
+        horizontalLayout_7 = new QHBoxLayout();
+        horizontalLayout_7->setSpacing(6);
+        horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
+        label_netTrainer_model = new QLabel(groupBox_netTrainer_solverParams);
+        label_netTrainer_model->setObjectName(QStringLiteral("label_netTrainer_model"));
+        label_netTrainer_model->setEnabled(true);
+
+        horizontalLayout_7->addWidget(label_netTrainer_model);
+
+        lineEdit_netTrainer_model = new QLineEdit(groupBox_netTrainer_solverParams);
+        lineEdit_netTrainer_model->setObjectName(QStringLiteral("lineEdit_netTrainer_model"));
+        lineEdit_netTrainer_model->setEnabled(true);
+
+        horizontalLayout_7->addWidget(lineEdit_netTrainer_model);
+
+        pushButton_netTrainer_model = new QPushButton(groupBox_netTrainer_solverParams);
+        pushButton_netTrainer_model->setObjectName(QStringLiteral("pushButton_netTrainer_model"));
+        pushButton_netTrainer_model->setEnabled(true);
+        pushButton_netTrainer_model->setMaximumSize(QSize(16777215, 16777215));
+
+        horizontalLayout_7->addWidget(pushButton_netTrainer_model);
+
+
+        verticalLayout_22->addLayout(horizontalLayout_7);
+
+        horizontalLayout_9 = new QHBoxLayout();
+        horizontalLayout_9->setSpacing(6);
+        horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
+        gridLayout_3 = new QGridLayout();
+        gridLayout_3->setSpacing(6);
+        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
+        label_netTrainer_testIterations = new QLabel(groupBox_netTrainer_solverParams);
+        label_netTrainer_testIterations->setObjectName(QStringLiteral("label_netTrainer_testIterations"));
+
+        gridLayout_3->addWidget(label_netTrainer_testIterations, 0, 0, 1, 1);
+
+        spinBox_netTrainer_testIterations = new QSpinBox(groupBox_netTrainer_solverParams);
+        spinBox_netTrainer_testIterations->setObjectName(QStringLiteral("spinBox_netTrainer_testIterations"));
+        spinBox_netTrainer_testIterations->setMaximumSize(QSize(80, 16777215));
+        spinBox_netTrainer_testIterations->setMaximum(500);
+        spinBox_netTrainer_testIterations->setValue(100);
+
+        gridLayout_3->addWidget(spinBox_netTrainer_testIterations, 0, 1, 1, 1);
+
+        label_netTrainer_testInterval = new QLabel(groupBox_netTrainer_solverParams);
+        label_netTrainer_testInterval->setObjectName(QStringLiteral("label_netTrainer_testInterval"));
+
+        gridLayout_3->addWidget(label_netTrainer_testInterval, 1, 0, 1, 1);
+
+        spinBox_netTrainer_testInterval = new QSpinBox(groupBox_netTrainer_solverParams);
+        spinBox_netTrainer_testInterval->setObjectName(QStringLiteral("spinBox_netTrainer_testInterval"));
+        spinBox_netTrainer_testInterval->setMaximumSize(QSize(80, 16777215));
+        spinBox_netTrainer_testInterval->setMaximum(2000);
+        spinBox_netTrainer_testInterval->setValue(500);
+
+        gridLayout_3->addWidget(spinBox_netTrainer_testInterval, 1, 1, 1, 1);
+
+        label_netTrainer_maxIterations = new QLabel(groupBox_netTrainer_solverParams);
+        label_netTrainer_maxIterations->setObjectName(QStringLiteral("label_netTrainer_maxIterations"));
+
+        gridLayout_3->addWidget(label_netTrainer_maxIterations, 2, 0, 1, 1);
+
+        spinBox_netTrainer_maxIterations = new QSpinBox(groupBox_netTrainer_solverParams);
+        spinBox_netTrainer_maxIterations->setObjectName(QStringLiteral("spinBox_netTrainer_maxIterations"));
+        spinBox_netTrainer_maxIterations->setMaximumSize(QSize(80, 16777215));
+        spinBox_netTrainer_maxIterations->setMaximum(100000);
+        spinBox_netTrainer_maxIterations->setSingleStep(1000);
+        spinBox_netTrainer_maxIterations->setValue(25000);
+
+        gridLayout_3->addWidget(spinBox_netTrainer_maxIterations, 2, 1, 1, 1);
+
+        label_netTrainer_snapshotInterval = new QLabel(groupBox_netTrainer_solverParams);
+        label_netTrainer_snapshotInterval->setObjectName(QStringLiteral("label_netTrainer_snapshotInterval"));
+        label_netTrainer_snapshotInterval->setMaximumSize(QSize(120, 16777215));
+
+        gridLayout_3->addWidget(label_netTrainer_snapshotInterval, 3, 0, 1, 1);
+
+        spinBox_netTrainer_snapshotInterval = new QSpinBox(groupBox_netTrainer_solverParams);
+        spinBox_netTrainer_snapshotInterval->setObjectName(QStringLiteral("spinBox_netTrainer_snapshotInterval"));
+        spinBox_netTrainer_snapshotInterval->setMaximumSize(QSize(80, 16777215));
+        spinBox_netTrainer_snapshotInterval->setMaximum(5000);
+        spinBox_netTrainer_snapshotInterval->setSingleStep(100);
+        spinBox_netTrainer_snapshotInterval->setValue(1000);
+
+        gridLayout_3->addWidget(spinBox_netTrainer_snapshotInterval, 3, 1, 1, 1);
+
+        label_netTrainer_snapshotPrefix = new QLabel(groupBox_netTrainer_solverParams);
+        label_netTrainer_snapshotPrefix->setObjectName(QStringLiteral("label_netTrainer_snapshotPrefix"));
+
+        gridLayout_3->addWidget(label_netTrainer_snapshotPrefix, 4, 0, 1, 1);
+
+        lineEdit_netTrainer_snapshotPrefix = new QLineEdit(groupBox_netTrainer_solverParams);
+        lineEdit_netTrainer_snapshotPrefix->setObjectName(QStringLiteral("lineEdit_netTrainer_snapshotPrefix"));
+        lineEdit_netTrainer_snapshotPrefix->setMaximumSize(QSize(80, 16777215));
+
+        gridLayout_3->addWidget(lineEdit_netTrainer_snapshotPrefix, 4, 1, 1, 1);
+
+
+        horizontalLayout_9->addLayout(gridLayout_3);
+
+        horizontalSpacer_4 = new QSpacerItem(25, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout_9->addItem(horizontalSpacer_4);
+
+        gridLayout_5 = new QGridLayout();
+        gridLayout_5->setSpacing(6);
+        gridLayout_5->setObjectName(QStringLiteral("gridLayout_5"));
+        label_netTrainer_baseLearningRate = new QLabel(groupBox_netTrainer_solverParams);
+        label_netTrainer_baseLearningRate->setObjectName(QStringLiteral("label_netTrainer_baseLearningRate"));
+
+        gridLayout_5->addWidget(label_netTrainer_baseLearningRate, 0, 0, 1, 1);
+
+        doubleSpinBox_netTrainer_baseLearningRate = new QDoubleSpinBox(groupBox_netTrainer_solverParams);
+        doubleSpinBox_netTrainer_baseLearningRate->setObjectName(QStringLiteral("doubleSpinBox_netTrainer_baseLearningRate"));
+        doubleSpinBox_netTrainer_baseLearningRate->setMaximumSize(QSize(80, 16777215));
+        doubleSpinBox_netTrainer_baseLearningRate->setMaximum(10);
+        doubleSpinBox_netTrainer_baseLearningRate->setSingleStep(0.01);
+        doubleSpinBox_netTrainer_baseLearningRate->setValue(0.01);
+
+        gridLayout_5->addWidget(doubleSpinBox_netTrainer_baseLearningRate, 0, 1, 1, 1);
+
+        label_netTrainer_momentum = new QLabel(groupBox_netTrainer_solverParams);
+        label_netTrainer_momentum->setObjectName(QStringLiteral("label_netTrainer_momentum"));
+
+        gridLayout_5->addWidget(label_netTrainer_momentum, 1, 0, 1, 1);
+
+        doubleSpinBox_netTrainer_momentum = new QDoubleSpinBox(groupBox_netTrainer_solverParams);
+        doubleSpinBox_netTrainer_momentum->setObjectName(QStringLiteral("doubleSpinBox_netTrainer_momentum"));
+        doubleSpinBox_netTrainer_momentum->setMaximumSize(QSize(80, 16777215));
+        doubleSpinBox_netTrainer_momentum->setMaximum(20);
+        doubleSpinBox_netTrainer_momentum->setSingleStep(0.1);
+        doubleSpinBox_netTrainer_momentum->setValue(0.9);
+
+        gridLayout_5->addWidget(doubleSpinBox_netTrainer_momentum, 1, 1, 1, 1);
+
+        label_netTrainer_weightDecay = new QLabel(groupBox_netTrainer_solverParams);
+        label_netTrainer_weightDecay->setObjectName(QStringLiteral("label_netTrainer_weightDecay"));
+
+        gridLayout_5->addWidget(label_netTrainer_weightDecay, 2, 0, 1, 1);
+
+        doubleSpinBox_netTrainer_weightDecay = new QDoubleSpinBox(groupBox_netTrainer_solverParams);
+        doubleSpinBox_netTrainer_weightDecay->setObjectName(QStringLiteral("doubleSpinBox_netTrainer_weightDecay"));
+        doubleSpinBox_netTrainer_weightDecay->setMaximumSize(QSize(80, 16777215));
+        doubleSpinBox_netTrainer_weightDecay->setDecimals(4);
+        doubleSpinBox_netTrainer_weightDecay->setMaximum(1);
+        doubleSpinBox_netTrainer_weightDecay->setSingleStep(0.0001);
+        doubleSpinBox_netTrainer_weightDecay->setValue(0.0005);
+
+        gridLayout_5->addWidget(doubleSpinBox_netTrainer_weightDecay, 2, 1, 1, 1);
+
+        label_netTrainer_gamma = new QLabel(groupBox_netTrainer_solverParams);
+        label_netTrainer_gamma->setObjectName(QStringLiteral("label_netTrainer_gamma"));
+
+        gridLayout_5->addWidget(label_netTrainer_gamma, 3, 0, 1, 1);
+
+        doubleSpinBox_netTrainer_gamma = new QDoubleSpinBox(groupBox_netTrainer_solverParams);
+        doubleSpinBox_netTrainer_gamma->setObjectName(QStringLiteral("doubleSpinBox_netTrainer_gamma"));
+        doubleSpinBox_netTrainer_gamma->setMaximumSize(QSize(80, 16777215));
+        doubleSpinBox_netTrainer_gamma->setDecimals(4);
+        doubleSpinBox_netTrainer_gamma->setMaximum(1);
+        doubleSpinBox_netTrainer_gamma->setSingleStep(0.0001);
+        doubleSpinBox_netTrainer_gamma->setValue(0.0001);
+
+        gridLayout_5->addWidget(doubleSpinBox_netTrainer_gamma, 3, 1, 1, 1);
+
+        label_netTrainer_power = new QLabel(groupBox_netTrainer_solverParams);
+        label_netTrainer_power->setObjectName(QStringLiteral("label_netTrainer_power"));
+
+        gridLayout_5->addWidget(label_netTrainer_power, 4, 0, 1, 1);
+
+        doubleSpinBox_netTrainer_power = new QDoubleSpinBox(groupBox_netTrainer_solverParams);
+        doubleSpinBox_netTrainer_power->setObjectName(QStringLiteral("doubleSpinBox_netTrainer_power"));
+        doubleSpinBox_netTrainer_power->setMaximumSize(QSize(80, 16777215));
+        doubleSpinBox_netTrainer_power->setMaximum(20);
+        doubleSpinBox_netTrainer_power->setSingleStep(0.1);
+        doubleSpinBox_netTrainer_power->setValue(0.75);
+
+        gridLayout_5->addWidget(doubleSpinBox_netTrainer_power, 4, 1, 1, 1);
+
+
+        horizontalLayout_9->addLayout(gridLayout_5);
+
+
+        verticalLayout_22->addLayout(horizontalLayout_9);
+
+
+        horizontalLayout_50->addWidget(groupBox_netTrainer_solverParams);
+
+
+        verticalLayout_24->addWidget(groupBox_netTrainer_settings);
+
+        groupBox_netTrainer_training = new QGroupBox(tab_trainer);
+        groupBox_netTrainer_training->setObjectName(QStringLiteral("groupBox_netTrainer_training"));
+        verticalLayout_25 = new QVBoxLayout(groupBox_netTrainer_training);
         verticalLayout_25->setSpacing(6);
         verticalLayout_25->setContentsMargins(11, 11, 11, 11);
         verticalLayout_25->setObjectName(QStringLiteral("verticalLayout_25"));
-        textBrowser_networkTrainerLog = new QTextBrowser(groupBox_trainingLog);
-        textBrowser_networkTrainerLog->setObjectName(QStringLiteral("textBrowser_networkTrainerLog"));
+        textBrowser_netTrainer_log = new QTextBrowser(groupBox_netTrainer_training);
+        textBrowser_netTrainer_log->setObjectName(QStringLiteral("textBrowser_netTrainer_log"));
 
-        verticalLayout_25->addWidget(textBrowser_networkTrainerLog);
+        verticalLayout_25->addWidget(textBrowser_netTrainer_log);
 
         horizontalLayout_12 = new QHBoxLayout();
         horizontalLayout_12->setSpacing(6);
         horizontalLayout_12->setObjectName(QStringLiteral("horizontalLayout_12"));
-        label_trainer_progress = new QLabel(groupBox_trainingLog);
-        label_trainer_progress->setObjectName(QStringLiteral("label_trainer_progress"));
+        label_netTrainer_progress = new QLabel(groupBox_netTrainer_training);
+        label_netTrainer_progress->setObjectName(QStringLiteral("label_netTrainer_progress"));
 
-        horizontalLayout_12->addWidget(label_trainer_progress);
+        horizontalLayout_12->addWidget(label_netTrainer_progress);
 
-        progressBar_training = new QProgressBar(groupBox_trainingLog);
-        progressBar_training->setObjectName(QStringLiteral("progressBar_training"));
-        progressBar_training->setValue(0);
-        progressBar_training->setAlignment(Qt::AlignCenter);
+        progressBar_netTrainer_progress = new QProgressBar(groupBox_netTrainer_training);
+        progressBar_netTrainer_progress->setObjectName(QStringLiteral("progressBar_netTrainer_progress"));
+        progressBar_netTrainer_progress->setValue(0);
+        progressBar_netTrainer_progress->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_12->addWidget(progressBar_training);
+        horizontalLayout_12->addWidget(progressBar_netTrainer_progress);
 
-        pushButton_startTraining = new QPushButton(groupBox_trainingLog);
-        pushButton_startTraining->setObjectName(QStringLiteral("pushButton_startTraining"));
-        pushButton_startTraining->setMinimumSize(QSize(100, 0));
-        pushButton_startTraining->setMaximumSize(QSize(100, 16777215));
+        pushButton_netTrainer_startTraining = new QPushButton(groupBox_netTrainer_training);
+        pushButton_netTrainer_startTraining->setObjectName(QStringLiteral("pushButton_netTrainer_startTraining"));
+        pushButton_netTrainer_startTraining->setMinimumSize(QSize(100, 0));
+        pushButton_netTrainer_startTraining->setMaximumSize(QSize(100, 16777215));
+        pushButton_netTrainer_startTraining->setAutoFillBackground(false);
+        pushButton_netTrainer_startTraining->setStyleSheet(QLatin1String("background: rgb(54, 156, 221);\n"
+"color: white;"));
 
-        horizontalLayout_12->addWidget(pushButton_startTraining);
+        horizontalLayout_12->addWidget(pushButton_netTrainer_startTraining);
 
 
         verticalLayout_25->addLayout(horizontalLayout_12);
 
 
-        verticalLayout_23->addWidget(groupBox_trainingLog);
+        verticalLayout_24->addWidget(groupBox_netTrainer_training);
 
 
-        horizontalLayout_9->addLayout(verticalLayout_23);
+        horizontalLayout_51->addLayout(verticalLayout_24);
 
         tabWidget_main->addTab(tab_trainer, QString());
         tab_checker = new QWidget();
         tab_checker->setObjectName(QStringLiteral("tab_checker"));
-        horizontalLayout_11 = new QHBoxLayout(tab_checker);
-        horizontalLayout_11->setSpacing(6);
-        horizontalLayout_11->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_11->setObjectName(QStringLiteral("horizontalLayout_11"));
+        horizontalLayout_53 = new QHBoxLayout(tab_checker);
+        horizontalLayout_53->setSpacing(6);
+        horizontalLayout_53->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_53->setObjectName(QStringLiteral("horizontalLayout_53"));
         verticalLayout_15 = new QVBoxLayout();
         verticalLayout_15->setSpacing(6);
         verticalLayout_15->setObjectName(QStringLiteral("verticalLayout_15"));
@@ -1373,7 +1554,7 @@ public:
         verticalLayout_15->addWidget(groupBox_inputImages_2);
 
 
-        horizontalLayout_11->addLayout(verticalLayout_15);
+        horizontalLayout_53->addLayout(verticalLayout_15);
 
         groupBox_fingerprintImage_2 = new QGroupBox(tab_checker);
         groupBox_fingerprintImage_2->setObjectName(QStringLiteral("groupBox_fingerprintImage_2"));
@@ -1389,30 +1570,57 @@ public:
         verticalLayout_11->addWidget(graphicsView_fingerprintChecker);
 
 
-        horizontalLayout_11->addWidget(groupBox_fingerprintImage_2);
+        horizontalLayout_53->addWidget(groupBox_fingerprintImage_2);
 
-        verticalLayout_26 = new QVBoxLayout();
-        verticalLayout_26->setSpacing(6);
-        verticalLayout_26->setObjectName(QStringLiteral("verticalLayout_26"));
-        groupBox_checkSettings = new QGroupBox(tab_checker);
-        groupBox_checkSettings->setObjectName(QStringLiteral("groupBox_checkSettings"));
-        groupBox_checkSettings->setMinimumSize(QSize(300, 0));
-        groupBox_checkSettings->setMaximumSize(QSize(300, 16777215));
-        verticalLayout_16 = new QVBoxLayout(groupBox_checkSettings);
+        verticalLayout_66 = new QVBoxLayout();
+        verticalLayout_66->setSpacing(6);
+        verticalLayout_66->setObjectName(QStringLiteral("verticalLayout_66"));
+        groupBox_minChecker_checkSettings = new QGroupBox(tab_checker);
+        groupBox_minChecker_checkSettings->setObjectName(QStringLiteral("groupBox_minChecker_checkSettings"));
+        groupBox_minChecker_checkSettings->setMinimumSize(QSize(300, 0));
+        groupBox_minChecker_checkSettings->setMaximumSize(QSize(300, 16777215));
+        horizontalLayout_11 = new QHBoxLayout(groupBox_minChecker_checkSettings);
+        horizontalLayout_11->setSpacing(6);
+        horizontalLayout_11->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_11->setObjectName(QStringLiteral("horizontalLayout_11"));
+        groupBox_minChecker_mode = new QGroupBox(groupBox_minChecker_checkSettings);
+        groupBox_minChecker_mode->setObjectName(QStringLiteral("groupBox_minChecker_mode"));
+        groupBox_minChecker_mode->setMaximumSize(QSize(90, 16777215));
+        verticalLayout_16 = new QVBoxLayout(groupBox_minChecker_mode);
         verticalLayout_16->setSpacing(6);
         verticalLayout_16->setContentsMargins(11, 11, 11, 11);
         verticalLayout_16->setObjectName(QStringLiteral("verticalLayout_16"));
+        radioButton_minChecker_cpuMode = new QRadioButton(groupBox_minChecker_mode);
+        radioButton_minChecker_cpuMode->setObjectName(QStringLiteral("radioButton_minChecker_cpuMode"));
+
+        verticalLayout_16->addWidget(radioButton_minChecker_cpuMode);
+
+        radioButton_minChecker_gpuMode = new QRadioButton(groupBox_minChecker_mode);
+        radioButton_minChecker_gpuMode->setObjectName(QStringLiteral("radioButton_minChecker_gpuMode"));
+        radioButton_minChecker_gpuMode->setChecked(true);
+
+        verticalLayout_16->addWidget(radioButton_minChecker_gpuMode);
+
+
+        horizontalLayout_11->addWidget(groupBox_minChecker_mode);
+
+        groupBox_minChecker_extactionSettings = new QGroupBox(groupBox_minChecker_checkSettings);
+        groupBox_minChecker_extactionSettings->setObjectName(QStringLiteral("groupBox_minChecker_extactionSettings"));
+        verticalLayout_26 = new QVBoxLayout(groupBox_minChecker_extactionSettings);
+        verticalLayout_26->setSpacing(6);
+        verticalLayout_26->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_26->setObjectName(QStringLiteral("verticalLayout_26"));
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        label_checkBlockSize = new QLabel(groupBox_checkSettings);
+        label_checkBlockSize = new QLabel(groupBox_minChecker_extactionSettings);
         label_checkBlockSize->setObjectName(QStringLiteral("label_checkBlockSize"));
-        label_checkBlockSize->setMinimumSize(QSize(56, 0));
-        label_checkBlockSize->setMaximumSize(QSize(56, 16777215));
+        label_checkBlockSize->setMinimumSize(QSize(0, 0));
+        label_checkBlockSize->setMaximumSize(QSize(16777215, 16777215));
 
         horizontalLayout_3->addWidget(label_checkBlockSize);
 
-        spinBox_checkBlockSize = new QSpinBox(groupBox_checkSettings);
+        spinBox_checkBlockSize = new QSpinBox(groupBox_minChecker_extactionSettings);
         spinBox_checkBlockSize->setObjectName(QStringLiteral("spinBox_checkBlockSize"));
         spinBox_checkBlockSize->setMaximumSize(QSize(45, 16777215));
         spinBox_checkBlockSize->setMinimum(5);
@@ -1421,29 +1629,31 @@ public:
 
         horizontalLayout_3->addWidget(spinBox_checkBlockSize);
 
-        horizontalSpacer_3 = new QSpacerItem(25, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
-        horizontalLayout_3->addItem(horizontalSpacer_3);
+        verticalLayout_26->addLayout(horizontalLayout_3);
 
-        checkBox_variableBlockSize = new QCheckBox(groupBox_checkSettings);
+        checkBox_variableBlockSize = new QCheckBox(groupBox_minChecker_extactionSettings);
         checkBox_variableBlockSize->setObjectName(QStringLiteral("checkBox_variableBlockSize"));
 
-        horizontalLayout_3->addWidget(checkBox_variableBlockSize);
+        verticalLayout_26->addWidget(checkBox_variableBlockSize);
 
 
-        verticalLayout_16->addLayout(horizontalLayout_3);
+        horizontalLayout_11->addWidget(groupBox_minChecker_extactionSettings);
 
-        line = new QFrame(groupBox_checkSettings);
-        line->setObjectName(QStringLiteral("line"));
-        line->setFrameShape(QFrame::HLine);
-        line->setFrameShadow(QFrame::Sunken);
 
-        verticalLayout_16->addWidget(line);
+        verticalLayout_66->addWidget(groupBox_minChecker_checkSettings);
 
+        groupBox__minChecker_checkMode = new QGroupBox(tab_checker);
+        groupBox__minChecker_checkMode->setObjectName(QStringLiteral("groupBox__minChecker_checkMode"));
+        groupBox__minChecker_checkMode->setMaximumSize(QSize(300, 16777215));
+        verticalLayout_65 = new QVBoxLayout(groupBox__minChecker_checkMode);
+        verticalLayout_65->setSpacing(6);
+        verticalLayout_65->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_65->setObjectName(QStringLiteral("verticalLayout_65"));
         horizontalLayout_10 = new QHBoxLayout();
         horizontalLayout_10->setSpacing(6);
         horizontalLayout_10->setObjectName(QStringLiteral("horizontalLayout_10"));
-        radioButton_standard = new QRadioButton(groupBox_checkSettings);
+        radioButton_standard = new QRadioButton(groupBox__minChecker_checkMode);
         radioButton_standard->setObjectName(QStringLiteral("radioButton_standard"));
         radioButton_standard->setChecked(true);
 
@@ -1453,12 +1663,12 @@ public:
 
         horizontalLayout_10->addItem(horizontalSpacer_6);
 
-        label_threshold = new QLabel(groupBox_checkSettings);
+        label_threshold = new QLabel(groupBox__minChecker_checkMode);
         label_threshold->setObjectName(QStringLiteral("label_threshold"));
 
         horizontalLayout_10->addWidget(label_threshold);
 
-        spinBox_threshold = new QSpinBox(groupBox_checkSettings);
+        spinBox_threshold = new QSpinBox(groupBox__minChecker_checkMode);
         spinBox_threshold->setObjectName(QStringLiteral("spinBox_threshold"));
         spinBox_threshold->setMinimumSize(QSize(45, 0));
         spinBox_threshold->setMaximumSize(QSize(45, 16777215));
@@ -1472,23 +1682,29 @@ public:
         horizontalLayout_10->addItem(horizontalSpacer_7);
 
 
-        verticalLayout_16->addLayout(horizontalLayout_10);
-
-        radioButton_heatmap = new QRadioButton(groupBox_checkSettings);
-        radioButton_heatmap->setObjectName(QStringLiteral("radioButton_heatmap"));
-
-        verticalLayout_16->addWidget(radioButton_heatmap);
+        verticalLayout_65->addLayout(horizontalLayout_10);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        label_overlay = new QLabel(groupBox_checkSettings);
+        radioButton_heatmap = new QRadioButton(groupBox__minChecker_checkMode);
+        radioButton_heatmap->setObjectName(QStringLiteral("radioButton_heatmap"));
+
+        horizontalLayout_2->addWidget(radioButton_heatmap);
+
+        horizontalSpacer_3 = new QSpacerItem(30, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_3);
+
+        label_overlay = new QLabel(groupBox__minChecker_checkMode);
         label_overlay->setObjectName(QStringLiteral("label_overlay"));
+        label_overlay->setEnabled(true);
 
         horizontalLayout_2->addWidget(label_overlay);
 
-        horizontalSlider_overlay = new QSlider(groupBox_checkSettings);
+        horizontalSlider_overlay = new QSlider(groupBox__minChecker_checkMode);
         horizontalSlider_overlay->setObjectName(QStringLiteral("horizontalSlider_overlay"));
+        horizontalSlider_overlay->setEnabled(true);
         horizontalSlider_overlay->setMaximum(100);
         horizontalSlider_overlay->setValue(100);
         horizontalSlider_overlay->setOrientation(Qt::Horizontal);
@@ -1496,10 +1712,10 @@ public:
         horizontalLayout_2->addWidget(horizontalSlider_overlay);
 
 
-        verticalLayout_16->addLayout(horizontalLayout_2);
+        verticalLayout_65->addLayout(horizontalLayout_2);
 
 
-        verticalLayout_26->addWidget(groupBox_checkSettings);
+        verticalLayout_66->addWidget(groupBox__minChecker_checkMode);
 
         groupBox_heatmapCreationProgress = new QGroupBox(tab_checker);
         groupBox_heatmapCreationProgress->setObjectName(QStringLiteral("groupBox_heatmapCreationProgress"));
@@ -1519,16 +1735,16 @@ public:
         verticalLayout_17->addWidget(progressBar_heatmap);
 
 
-        verticalLayout_26->addWidget(groupBox_heatmapCreationProgress);
+        verticalLayout_66->addWidget(groupBox_heatmapCreationProgress);
 
         verticalSpacer_3 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
-        verticalLayout_26->addItem(verticalSpacer_3);
+        verticalLayout_66->addItem(verticalSpacer_3);
 
         groupBox_foundedMinutia = new QGroupBox(tab_checker);
         groupBox_foundedMinutia->setObjectName(QStringLiteral("groupBox_foundedMinutia"));
         groupBox_foundedMinutia->setMinimumSize(QSize(300, 0));
-        groupBox_foundedMinutia->setMaximumSize(QSize(300, 160));
+        groupBox_foundedMinutia->setMaximumSize(QSize(300, 170));
         verticalLayout_13 = new QVBoxLayout(groupBox_foundedMinutia);
         verticalLayout_13->setSpacing(6);
         verticalLayout_13->setContentsMargins(11, 11, 11, 11);
@@ -1541,14 +1757,14 @@ public:
         verticalLayout_13->addWidget(tableWidget_foundedMinutia);
 
 
-        verticalLayout_26->addWidget(groupBox_foundedMinutia);
+        verticalLayout_66->addWidget(groupBox_foundedMinutia);
 
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_26->addItem(verticalSpacer);
+        verticalLayout_66->addItem(verticalSpacer);
 
 
-        horizontalLayout_11->addLayout(verticalLayout_26);
+        horizontalLayout_53->addLayout(verticalLayout_66);
 
         tabWidget_main->addTab(tab_checker, QString());
         tab_extractionTester = new QWidget();
@@ -1798,6 +2014,7 @@ public:
         horizontalLayout_39->setObjectName(QStringLiteral("horizontalLayout_39"));
         label_exTester_freqBlockSize = new QLabel(groupBox_exTester_frequencyMap);
         label_exTester_freqBlockSize->setObjectName(QStringLiteral("label_exTester_freqBlockSize"));
+        label_exTester_freqBlockSize->setWordWrap(true);
 
         horizontalLayout_39->addWidget(label_exTester_freqBlockSize);
 
@@ -1888,124 +2105,6 @@ public:
         verticalLayout_44->addWidget(groupBox_exTester_ParameterGabor);
 
         tabWidget_exTester_settings->addTab(tab_6, QString());
-        tab_features = new QWidget();
-        tab_features->setObjectName(QStringLiteral("tab_features"));
-        verticalLayout_57 = new QVBoxLayout(tab_features);
-        verticalLayout_57->setSpacing(6);
-        verticalLayout_57->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_57->setObjectName(QStringLiteral("verticalLayout_57"));
-        groupBox_exTester_threadNum = new QGroupBox(tab_features);
-        groupBox_exTester_threadNum->setObjectName(QStringLiteral("groupBox_exTester_threadNum"));
-        horizontalLayout_44 = new QHBoxLayout(groupBox_exTester_threadNum);
-        horizontalLayout_44->setSpacing(6);
-        horizontalLayout_44->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_44->setObjectName(QStringLiteral("horizontalLayout_44"));
-        label_exTester_threadNum = new QLabel(groupBox_exTester_threadNum);
-        label_exTester_threadNum->setObjectName(QStringLiteral("label_exTester_threadNum"));
-
-        horizontalLayout_44->addWidget(label_exTester_threadNum);
-
-        horizontalSpacer_38 = new QSpacerItem(54, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_44->addItem(horizontalSpacer_38);
-
-        spinBox_exTester_threadNum = new QSpinBox(groupBox_exTester_threadNum);
-        spinBox_exTester_threadNum->setObjectName(QStringLiteral("spinBox_exTester_threadNum"));
-
-        horizontalLayout_44->addWidget(spinBox_exTester_threadNum);
-
-
-        verticalLayout_57->addWidget(groupBox_exTester_threadNum);
-
-        groupBox_exTester_preprocessing = new QGroupBox(tab_features);
-        groupBox_exTester_preprocessing->setObjectName(QStringLiteral("groupBox_exTester_preprocessing"));
-        verticalLayout_56 = new QVBoxLayout(groupBox_exTester_preprocessing);
-        verticalLayout_56->setSpacing(6);
-        verticalLayout_56->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_56->setObjectName(QStringLiteral("verticalLayout_56"));
-        checkBox_exTester_contrast = new QCheckBox(groupBox_exTester_preprocessing);
-        checkBox_exTester_contrast->setObjectName(QStringLiteral("checkBox_exTester_contrast"));
-        checkBox_exTester_contrast->setChecked(true);
-
-        verticalLayout_56->addWidget(checkBox_exTester_contrast);
-
-        horizontalLayout_43 = new QHBoxLayout();
-        horizontalLayout_43->setSpacing(6);
-        horizontalLayout_43->setObjectName(QStringLiteral("horizontalLayout_43"));
-        checkBox_exTester_removeHoles = new QCheckBox(groupBox_exTester_preprocessing);
-        checkBox_exTester_removeHoles->setObjectName(QStringLiteral("checkBox_exTester_removeHoles"));
-        checkBox_exTester_removeHoles->setChecked(true);
-
-        horizontalLayout_43->addWidget(checkBox_exTester_removeHoles);
-
-        horizontalSpacer_37 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_43->addItem(horizontalSpacer_37);
-
-        label_exTester_removeHoles = new QLabel(groupBox_exTester_preprocessing);
-        label_exTester_removeHoles->setObjectName(QStringLiteral("label_exTester_removeHoles"));
-
-        horizontalLayout_43->addWidget(label_exTester_removeHoles);
-
-        spinBox_exTester_holeSize = new QSpinBox(groupBox_exTester_preprocessing);
-        spinBox_exTester_holeSize->setObjectName(QStringLiteral("spinBox_exTester_holeSize"));
-        spinBox_exTester_holeSize->setMaximumSize(QSize(45, 16777215));
-        spinBox_exTester_holeSize->setMinimum(1);
-        spinBox_exTester_holeSize->setMaximum(99);
-        spinBox_exTester_holeSize->setValue(20);
-
-        horizontalLayout_43->addWidget(spinBox_exTester_holeSize);
-
-
-        verticalLayout_56->addLayout(horizontalLayout_43);
-
-        checkBox_exTester_gaborFilterGPU = new QCheckBox(groupBox_exTester_preprocessing);
-        checkBox_exTester_gaborFilterGPU->setObjectName(QStringLiteral("checkBox_exTester_gaborFilterGPU"));
-        checkBox_exTester_gaborFilterGPU->setChecked(true);
-
-        verticalLayout_56->addWidget(checkBox_exTester_gaborFilterGPU);
-
-        checkBox_exTester_mask = new QCheckBox(groupBox_exTester_preprocessing);
-        checkBox_exTester_mask->setObjectName(QStringLiteral("checkBox_exTester_mask"));
-        checkBox_exTester_mask->setChecked(false);
-
-        verticalLayout_56->addWidget(checkBox_exTester_mask);
-
-        checkBox_exTester_qualityMap = new QCheckBox(groupBox_exTester_preprocessing);
-        checkBox_exTester_qualityMap->setObjectName(QStringLiteral("checkBox_exTester_qualityMap"));
-        checkBox_exTester_qualityMap->setChecked(true);
-
-        verticalLayout_56->addWidget(checkBox_exTester_qualityMap);
-
-        checkBox_exTester_frequencyMap = new QCheckBox(groupBox_exTester_preprocessing);
-        checkBox_exTester_frequencyMap->setObjectName(QStringLiteral("checkBox_exTester_frequencyMap"));
-
-        verticalLayout_56->addWidget(checkBox_exTester_frequencyMap);
-
-
-        verticalLayout_57->addWidget(groupBox_exTester_preprocessing);
-
-        groupBox_exTester_exFeatures_2 = new QGroupBox(tab_features);
-        groupBox_exTester_exFeatures_2->setObjectName(QStringLiteral("groupBox_exTester_exFeatures_2"));
-        verticalLayout_61 = new QVBoxLayout(groupBox_exTester_exFeatures_2);
-        verticalLayout_61->setSpacing(6);
-        verticalLayout_61->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_61->setObjectName(QStringLiteral("verticalLayout_61"));
-        checkBox_exTester_fixOrientations = new QCheckBox(groupBox_exTester_exFeatures_2);
-        checkBox_exTester_fixOrientations->setObjectName(QStringLiteral("checkBox_exTester_fixOrientations"));
-        checkBox_exTester_fixOrientations->setChecked(true);
-
-        verticalLayout_61->addWidget(checkBox_exTester_fixOrientations);
-
-        checkBox_exTester_useVarBlockSize = new QCheckBox(groupBox_exTester_exFeatures_2);
-        checkBox_exTester_useVarBlockSize->setObjectName(QStringLiteral("checkBox_exTester_useVarBlockSize"));
-
-        verticalLayout_61->addWidget(checkBox_exTester_useVarBlockSize);
-
-
-        verticalLayout_57->addWidget(groupBox_exTester_exFeatures_2);
-
-        tabWidget_exTester_settings->addTab(tab_features, QString());
         tab_7 = new QWidget();
         tab_7->setObjectName(QStringLiteral("tab_7"));
         verticalLayout_59 = new QVBoxLayout(tab_7);
@@ -2048,31 +2147,156 @@ public:
 
         verticalLayout_60->addWidget(radioButton_exTester_crossingNumber);
 
-        radioButton_exTester_fixedOrientations = new QRadioButton(groupBox_exTester_exResults);
-        radioButton_exTester_fixedOrientations->setObjectName(QStringLiteral("radioButton_exTester_fixedOrientations"));
+        radioButton_exTester_predictedMinutiae = new QRadioButton(groupBox_exTester_exResults);
+        radioButton_exTester_predictedMinutiae->setObjectName(QStringLiteral("radioButton_exTester_predictedMinutiae"));
+        radioButton_exTester_predictedMinutiae->setChecked(false);
 
-        verticalLayout_60->addWidget(radioButton_exTester_fixedOrientations);
+        verticalLayout_60->addWidget(radioButton_exTester_predictedMinutiae);
 
-        radioButton_exTester_checkedMinutiae = new QRadioButton(groupBox_exTester_exResults);
-        radioButton_exTester_checkedMinutiae->setObjectName(QStringLiteral("radioButton_exTester_checkedMinutiae"));
-        radioButton_exTester_checkedMinutiae->setChecked(true);
+        radioButton_exTester_fixedPredictedMinutiae = new QRadioButton(groupBox_exTester_exResults);
+        radioButton_exTester_fixedPredictedMinutiae->setObjectName(QStringLiteral("radioButton_exTester_fixedPredictedMinutiae"));
+        radioButton_exTester_fixedPredictedMinutiae->setChecked(true);
 
-        verticalLayout_60->addWidget(radioButton_exTester_checkedMinutiae);
-
-        checkBox_exTester_highlightDifferences = new QCheckBox(groupBox_exTester_exResults);
-        checkBox_exTester_highlightDifferences->setObjectName(QStringLiteral("checkBox_exTester_highlightDifferences"));
-        checkBox_exTester_highlightDifferences->setChecked(false);
-
-        verticalLayout_60->addWidget(checkBox_exTester_highlightDifferences);
+        verticalLayout_60->addWidget(radioButton_exTester_fixedPredictedMinutiae);
 
 
         verticalLayout_59->addWidget(groupBox_exTester_exResults);
 
-        verticalSpacer_12 = new QSpacerItem(20, 196, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_59->addItem(verticalSpacer_12);
-
         tabWidget_exTester_settings->addTab(tab_7, QString());
+        tab_features = new QWidget();
+        tab_features->setObjectName(QStringLiteral("tab_features"));
+        verticalLayout_57 = new QVBoxLayout(tab_features);
+        verticalLayout_57->setSpacing(6);
+        verticalLayout_57->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_57->setObjectName(QStringLiteral("verticalLayout_57"));
+        groupBox_exTester_mode = new QGroupBox(tab_features);
+        groupBox_exTester_mode->setObjectName(QStringLiteral("groupBox_exTester_mode"));
+        verticalLayout_40 = new QVBoxLayout(groupBox_exTester_mode);
+        verticalLayout_40->setSpacing(6);
+        verticalLayout_40->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_40->setObjectName(QStringLiteral("verticalLayout_40"));
+        horizontalLayout_44 = new QHBoxLayout();
+        horizontalLayout_44->setSpacing(6);
+        horizontalLayout_44->setObjectName(QStringLiteral("horizontalLayout_44"));
+        radioButton_exTester_cpuMode = new QRadioButton(groupBox_exTester_mode);
+        radioButton_exTester_cpuMode->setObjectName(QStringLiteral("radioButton_exTester_cpuMode"));
+
+        horizontalLayout_44->addWidget(radioButton_exTester_cpuMode);
+
+        horizontalSpacer_38 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_44->addItem(horizontalSpacer_38);
+
+        label_exTester_threadNum = new QLabel(groupBox_exTester_mode);
+        label_exTester_threadNum->setObjectName(QStringLiteral("label_exTester_threadNum"));
+        label_exTester_threadNum->setEnabled(false);
+        label_exTester_threadNum->setAlignment(Qt::AlignCenter);
+        label_exTester_threadNum->setWordWrap(true);
+
+        horizontalLayout_44->addWidget(label_exTester_threadNum);
+
+        spinBox_exTester_threadNum = new QSpinBox(groupBox_exTester_mode);
+        spinBox_exTester_threadNum->setObjectName(QStringLiteral("spinBox_exTester_threadNum"));
+        spinBox_exTester_threadNum->setEnabled(false);
+
+        horizontalLayout_44->addWidget(spinBox_exTester_threadNum);
+
+
+        verticalLayout_40->addLayout(horizontalLayout_44);
+
+        radioButton_exTester_gpuMode = new QRadioButton(groupBox_exTester_mode);
+        radioButton_exTester_gpuMode->setObjectName(QStringLiteral("radioButton_exTester_gpuMode"));
+        radioButton_exTester_gpuMode->setChecked(true);
+
+        verticalLayout_40->addWidget(radioButton_exTester_gpuMode);
+
+
+        verticalLayout_57->addWidget(groupBox_exTester_mode);
+
+        groupBox_exTester_preprocessing = new QGroupBox(tab_features);
+        groupBox_exTester_preprocessing->setObjectName(QStringLiteral("groupBox_exTester_preprocessing"));
+        verticalLayout_56 = new QVBoxLayout(groupBox_exTester_preprocessing);
+        verticalLayout_56->setSpacing(6);
+        verticalLayout_56->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_56->setObjectName(QStringLiteral("verticalLayout_56"));
+        checkBox_exTester_contrast = new QCheckBox(groupBox_exTester_preprocessing);
+        checkBox_exTester_contrast->setObjectName(QStringLiteral("checkBox_exTester_contrast"));
+        checkBox_exTester_contrast->setChecked(true);
+
+        verticalLayout_56->addWidget(checkBox_exTester_contrast);
+
+        horizontalLayout_43 = new QHBoxLayout();
+        horizontalLayout_43->setSpacing(6);
+        horizontalLayout_43->setObjectName(QStringLiteral("horizontalLayout_43"));
+        checkBox_exTester_holeRemover = new QCheckBox(groupBox_exTester_preprocessing);
+        checkBox_exTester_holeRemover->setObjectName(QStringLiteral("checkBox_exTester_holeRemover"));
+        checkBox_exTester_holeRemover->setChecked(true);
+
+        horizontalLayout_43->addWidget(checkBox_exTester_holeRemover);
+
+        horizontalSpacer_37 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_43->addItem(horizontalSpacer_37);
+
+        label_exTester_removeHoles = new QLabel(groupBox_exTester_preprocessing);
+        label_exTester_removeHoles->setObjectName(QStringLiteral("label_exTester_removeHoles"));
+
+        horizontalLayout_43->addWidget(label_exTester_removeHoles);
+
+        spinBox_exTester_holeSize = new QSpinBox(groupBox_exTester_preprocessing);
+        spinBox_exTester_holeSize->setObjectName(QStringLiteral("spinBox_exTester_holeSize"));
+        spinBox_exTester_holeSize->setMaximumSize(QSize(45, 16777215));
+        spinBox_exTester_holeSize->setMinimum(1);
+        spinBox_exTester_holeSize->setMaximum(99);
+        spinBox_exTester_holeSize->setValue(20);
+
+        horizontalLayout_43->addWidget(spinBox_exTester_holeSize);
+
+
+        verticalLayout_56->addLayout(horizontalLayout_43);
+
+        checkBox_exTester_advancedOMap = new QCheckBox(groupBox_exTester_preprocessing);
+        checkBox_exTester_advancedOMap->setObjectName(QStringLiteral("checkBox_exTester_advancedOMap"));
+        checkBox_exTester_advancedOMap->setChecked(true);
+
+        verticalLayout_56->addWidget(checkBox_exTester_advancedOMap);
+
+        checkBox_exTester_mask = new QCheckBox(groupBox_exTester_preprocessing);
+        checkBox_exTester_mask->setObjectName(QStringLiteral("checkBox_exTester_mask"));
+        checkBox_exTester_mask->setChecked(false);
+
+        verticalLayout_56->addWidget(checkBox_exTester_mask);
+
+        checkBox_exTester_qualityMap = new QCheckBox(groupBox_exTester_preprocessing);
+        checkBox_exTester_qualityMap->setObjectName(QStringLiteral("checkBox_exTester_qualityMap"));
+        checkBox_exTester_qualityMap->setChecked(true);
+
+        verticalLayout_56->addWidget(checkBox_exTester_qualityMap);
+
+
+        verticalLayout_57->addWidget(groupBox_exTester_preprocessing);
+
+        groupBox_exTester_exFeatures_2 = new QGroupBox(tab_features);
+        groupBox_exTester_exFeatures_2->setObjectName(QStringLiteral("groupBox_exTester_exFeatures_2"));
+        verticalLayout_61 = new QVBoxLayout(groupBox_exTester_exFeatures_2);
+        verticalLayout_61->setSpacing(6);
+        verticalLayout_61->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_61->setObjectName(QStringLiteral("verticalLayout_61"));
+        checkBox_exTester_orientationFixer = new QCheckBox(groupBox_exTester_exFeatures_2);
+        checkBox_exTester_orientationFixer->setObjectName(QStringLiteral("checkBox_exTester_orientationFixer"));
+        checkBox_exTester_orientationFixer->setChecked(true);
+
+        verticalLayout_61->addWidget(checkBox_exTester_orientationFixer);
+
+        checkBox_exTester_varBlockSize = new QCheckBox(groupBox_exTester_exFeatures_2);
+        checkBox_exTester_varBlockSize->setObjectName(QStringLiteral("checkBox_exTester_varBlockSize"));
+
+        verticalLayout_61->addWidget(checkBox_exTester_varBlockSize);
+
+
+        verticalLayout_57->addWidget(groupBox_exTester_exFeatures_2);
+
+        tabWidget_exTester_settings->addTab(tab_features, QString());
 
         verticalLayout_7->addWidget(tabWidget_exTester_settings);
 
@@ -2238,6 +2462,32 @@ public:
         tabWidget_exTester_results->addTab(tab_extraction, QString());
         tab_large = new QWidget();
         tab_large->setObjectName(QStringLiteral("tab_large"));
+        verticalLayout_63 = new QVBoxLayout(tab_large);
+        verticalLayout_63->setSpacing(6);
+        verticalLayout_63->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_63->setObjectName(QStringLiteral("verticalLayout_63"));
+        horizontalLayout_52 = new QHBoxLayout();
+        horizontalLayout_52->setSpacing(6);
+        horizontalLayout_52->setObjectName(QStringLiteral("horizontalLayout_52"));
+        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_52->addItem(horizontalSpacer_5);
+
+        comboBox = new QComboBox(tab_large);
+        comboBox->setObjectName(QStringLiteral("comboBox"));
+        comboBox->setMinimumSize(QSize(170, 0));
+        comboBox->setMaximumSize(QSize(170, 16777215));
+
+        horizontalLayout_52->addWidget(comboBox);
+
+
+        verticalLayout_63->addLayout(horizontalLayout_52);
+
+        graphicsView = new QGraphicsView(tab_large);
+        graphicsView->setObjectName(QStringLiteral("graphicsView"));
+
+        verticalLayout_63->addWidget(graphicsView);
+
         tabWidget_exTester_results->addTab(tab_large, QString());
         tab_log = new QWidget();
         tab_log->setObjectName(QStringLiteral("tab_log"));
@@ -2269,14 +2519,14 @@ public:
         sizePolicy4.setHeightForWidth(tabWidget_testerSettings->sizePolicy().hasHeightForWidth());
         tabWidget_testerSettings->setSizePolicy(sizePolicy4);
         tabWidget_testerSettings->setMinimumSize(QSize(0, 0));
-        tabWidget_testerSettings->setMaximumSize(QSize(270, 190));
+        tabWidget_testerSettings->setMaximumSize(QSize(270, 260));
         tabWidget_testerSettings->setTabPosition(QTabWidget::North);
         tab_3 = new QWidget();
         tab_3->setObjectName(QStringLiteral("tab_3"));
-        verticalLayout_29 = new QVBoxLayout(tab_3);
-        verticalLayout_29->setSpacing(6);
-        verticalLayout_29->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_29->setObjectName(QStringLiteral("verticalLayout_29"));
+        verticalLayout_62 = new QVBoxLayout(tab_3);
+        verticalLayout_62->setSpacing(6);
+        verticalLayout_62->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_62->setObjectName(QStringLiteral("verticalLayout_62"));
         horizontalLayout_14 = new QHBoxLayout();
         horizontalLayout_14->setSpacing(6);
         horizontalLayout_14->setObjectName(QStringLiteral("horizontalLayout_14"));
@@ -2299,11 +2549,11 @@ public:
         horizontalLayout_14->addWidget(label_selectedDbName);
 
 
-        verticalLayout_29->addLayout(horizontalLayout_14);
+        verticalLayout_62->addLayout(horizontalLayout_14);
 
         verticalSpacer_5 = new QSpacerItem(20, 5, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_29->addItem(verticalSpacer_5);
+        verticalLayout_62->addItem(verticalSpacer_5);
 
         gridLayout_4 = new QGridLayout();
         gridLayout_4->setSpacing(6);
@@ -2341,43 +2591,59 @@ public:
         gridLayout_4->addWidget(spinBox_imagesPerSubject, 1, 1, 1, 1);
 
 
-        verticalLayout_29->addLayout(gridLayout_4);
+        verticalLayout_62->addLayout(gridLayout_4);
 
-        line_3 = new QFrame(tab_3);
-        line_3->setObjectName(QStringLiteral("line_3"));
-        line_3->setFrameShape(QFrame::HLine);
-        line_3->setFrameShadow(QFrame::Sunken);
+        groupBox_dbTester_mode = new QGroupBox(tab_3);
+        groupBox_dbTester_mode->setObjectName(QStringLiteral("groupBox_dbTester_mode"));
+        verticalLayout_29 = new QVBoxLayout(groupBox_dbTester_mode);
+        verticalLayout_29->setSpacing(6);
+        verticalLayout_29->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_29->setObjectName(QStringLiteral("verticalLayout_29"));
+        horizontalLayout_49 = new QHBoxLayout();
+        horizontalLayout_49->setSpacing(6);
+        horizontalLayout_49->setObjectName(QStringLiteral("horizontalLayout_49"));
+        radioButton_dbTester_cpuMode = new QRadioButton(groupBox_dbTester_mode);
+        radioButton_dbTester_cpuMode->setObjectName(QStringLiteral("radioButton_dbTester_cpuMode"));
 
-        verticalLayout_29->addWidget(line_3);
+        horizontalLayout_49->addWidget(radioButton_dbTester_cpuMode);
 
-        horizontalLayout_41 = new QHBoxLayout();
-        horizontalLayout_41->setSpacing(6);
-        horizontalLayout_41->setObjectName(QStringLiteral("horizontalLayout_41"));
-        label_imageToProcess = new QLabel(tab_3);
-        label_imageToProcess->setObjectName(QStringLiteral("label_imageToProcess"));
+        horizontalSpacer_42 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_41->addWidget(label_imageToProcess);
+        horizontalLayout_49->addItem(horizontalSpacer_42);
 
-        spinBox_imageToProcess = new QSpinBox(tab_3);
-        spinBox_imageToProcess->setObjectName(QStringLiteral("spinBox_imageToProcess"));
-        spinBox_imageToProcess->setMinimumSize(QSize(55, 0));
-        spinBox_imageToProcess->setMaximumSize(QSize(55, 16777215));
-        spinBox_imageToProcess->setMinimum(1);
-        spinBox_imageToProcess->setMaximum(32);
-        spinBox_imageToProcess->setValue(1);
+        label_dbTester_threadNum = new QLabel(groupBox_dbTester_mode);
+        label_dbTester_threadNum->setObjectName(QStringLiteral("label_dbTester_threadNum"));
+        label_dbTester_threadNum->setEnabled(false);
+        label_dbTester_threadNum->setAlignment(Qt::AlignCenter);
+        label_dbTester_threadNum->setWordWrap(true);
 
-        horizontalLayout_41->addWidget(spinBox_imageToProcess);
+        horizontalLayout_49->addWidget(label_dbTester_threadNum);
+
+        spinBox_dbTester_threadNum = new QSpinBox(groupBox_dbTester_mode);
+        spinBox_dbTester_threadNum->setObjectName(QStringLiteral("spinBox_dbTester_threadNum"));
+        spinBox_dbTester_threadNum->setEnabled(false);
+
+        horizontalLayout_49->addWidget(spinBox_dbTester_threadNum);
 
 
-        verticalLayout_29->addLayout(horizontalLayout_41);
+        verticalLayout_29->addLayout(horizontalLayout_49);
+
+        radioButton_dbTester_gpuMode = new QRadioButton(groupBox_dbTester_mode);
+        radioButton_dbTester_gpuMode->setObjectName(QStringLiteral("radioButton_dbTester_gpuMode"));
+        radioButton_dbTester_gpuMode->setChecked(true);
+
+        verticalLayout_29->addWidget(radioButton_dbTester_gpuMode);
+
+
+        verticalLayout_62->addWidget(groupBox_dbTester_mode);
 
         tabWidget_testerSettings->addTab(tab_3, QString());
         tab_4 = new QWidget();
         tab_4->setObjectName(QStringLiteral("tab_4"));
-        verticalLayout_36 = new QVBoxLayout(tab_4);
-        verticalLayout_36->setSpacing(6);
-        verticalLayout_36->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_36->setObjectName(QStringLiteral("verticalLayout_36"));
+        verticalLayout_54 = new QVBoxLayout(tab_4);
+        verticalLayout_54->setSpacing(6);
+        verticalLayout_54->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_54->setObjectName(QStringLiteral("verticalLayout_54"));
         groupBox_matcher = new QGroupBox(tab_4);
         groupBox_matcher->setObjectName(QStringLiteral("groupBox_matcher"));
         groupBox_matcher->setMaximumSize(QSize(16777215, 65));
@@ -2385,64 +2651,76 @@ public:
         horizontalLayout_16->setSpacing(6);
         horizontalLayout_16->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_16->setObjectName(QStringLiteral("horizontalLayout_16"));
-        radioButton_matcherBozorth = new QRadioButton(groupBox_matcher);
-        radioButton_matcherBozorth->setObjectName(QStringLiteral("radioButton_matcherBozorth"));
-        radioButton_matcherBozorth->setChecked(true);
-
-        horizontalLayout_16->addWidget(radioButton_matcherBozorth);
-
-        radioButton_matcherMCC = new QRadioButton(groupBox_matcher);
-        radioButton_matcherMCC->setObjectName(QStringLiteral("radioButton_matcherMCC"));
-
-        horizontalLayout_16->addWidget(radioButton_matcherMCC);
-
         radioButton_matcherSuprema = new QRadioButton(groupBox_matcher);
         radioButton_matcherSuprema->setObjectName(QStringLiteral("radioButton_matcherSuprema"));
-        radioButton_matcherSuprema->setChecked(false);
+        radioButton_matcherSuprema->setChecked(true);
 
         horizontalLayout_16->addWidget(radioButton_matcherSuprema);
 
+        radioButton_matcherBozorth = new QRadioButton(groupBox_matcher);
+        radioButton_matcherBozorth->setObjectName(QStringLiteral("radioButton_matcherBozorth"));
+        radioButton_matcherBozorth->setChecked(false);
 
-        verticalLayout_36->addWidget(groupBox_matcher);
+        horizontalLayout_16->addWidget(radioButton_matcherBozorth);
 
-        checkBox_dbTesterUseMask = new QCheckBox(tab_4);
-        checkBox_dbTesterUseMask->setObjectName(QStringLiteral("checkBox_dbTesterUseMask"));
-        checkBox_dbTesterUseMask->setChecked(true);
 
-        verticalLayout_36->addWidget(checkBox_dbTesterUseMask);
+        verticalLayout_54->addWidget(groupBox_matcher);
 
-        checkBox_dbTester_freqMap = new QCheckBox(tab_4);
-        checkBox_dbTester_freqMap->setObjectName(QStringLiteral("checkBox_dbTester_freqMap"));
-
-        verticalLayout_36->addWidget(checkBox_dbTester_freqMap);
-
-        checkBox_dbTesterUseFixOrientations = new QCheckBox(tab_4);
-        checkBox_dbTesterUseFixOrientations->setObjectName(QStringLiteral("checkBox_dbTesterUseFixOrientations"));
-        checkBox_dbTesterUseFixOrientations->setChecked(true);
-
-        verticalLayout_36->addWidget(checkBox_dbTesterUseFixOrientations);
-
-        checkBox_dbTester_contrastEnhancement = new QCheckBox(tab_4);
+        groupBox_dbTester_preprocessing = new QGroupBox(tab_4);
+        groupBox_dbTester_preprocessing->setObjectName(QStringLiteral("groupBox_dbTester_preprocessing"));
+        verticalLayout_53 = new QVBoxLayout(groupBox_dbTester_preprocessing);
+        verticalLayout_53->setSpacing(6);
+        verticalLayout_53->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_53->setObjectName(QStringLiteral("verticalLayout_53"));
+        checkBox_dbTester_contrastEnhancement = new QCheckBox(groupBox_dbTester_preprocessing);
         checkBox_dbTester_contrastEnhancement->setObjectName(QStringLiteral("checkBox_dbTester_contrastEnhancement"));
         checkBox_dbTester_contrastEnhancement->setChecked(true);
 
-        verticalLayout_36->addWidget(checkBox_dbTester_contrastEnhancement);
+        verticalLayout_53->addWidget(checkBox_dbTester_contrastEnhancement);
 
-        gridLayout_7 = new QGridLayout();
-        gridLayout_7->setSpacing(6);
-        gridLayout_7->setObjectName(QStringLiteral("gridLayout_7"));
-        label_dbTester_holeSize = new QLabel(tab_4);
-        label_dbTester_holeSize->setObjectName(QStringLiteral("label_dbTester_holeSize"));
+        checkBox_dbTester_advancedOrientationMap = new QCheckBox(groupBox_dbTester_preprocessing);
+        checkBox_dbTester_advancedOrientationMap->setObjectName(QStringLiteral("checkBox_dbTester_advancedOrientationMap"));
+        checkBox_dbTester_advancedOrientationMap->setChecked(true);
 
-        gridLayout_7->addWidget(label_dbTester_holeSize, 0, 2, 1, 1);
+        verticalLayout_53->addWidget(checkBox_dbTester_advancedOrientationMap);
 
-        checkBox_dbTester_removeHoles = new QCheckBox(tab_4);
+        checkBox_dbTester_qualityMap = new QCheckBox(groupBox_dbTester_preprocessing);
+        checkBox_dbTester_qualityMap->setObjectName(QStringLiteral("checkBox_dbTester_qualityMap"));
+        checkBox_dbTester_qualityMap->setChecked(true);
+
+        verticalLayout_53->addWidget(checkBox_dbTester_qualityMap);
+
+        checkBox_dbTester_mask = new QCheckBox(groupBox_dbTester_preprocessing);
+        checkBox_dbTester_mask->setObjectName(QStringLiteral("checkBox_dbTester_mask"));
+        checkBox_dbTester_mask->setChecked(false);
+
+        verticalLayout_53->addWidget(checkBox_dbTester_mask);
+
+        checkBox_dbTester_invertedSkeleton = new QCheckBox(groupBox_dbTester_preprocessing);
+        checkBox_dbTester_invertedSkeleton->setObjectName(QStringLiteral("checkBox_dbTester_invertedSkeleton"));
+        checkBox_dbTester_invertedSkeleton->setChecked(true);
+
+        verticalLayout_53->addWidget(checkBox_dbTester_invertedSkeleton);
+
+        horizontalLayout_47 = new QHBoxLayout();
+        horizontalLayout_47->setSpacing(6);
+        horizontalLayout_47->setObjectName(QStringLiteral("horizontalLayout_47"));
+        checkBox_dbTester_removeHoles = new QCheckBox(groupBox_dbTester_preprocessing);
         checkBox_dbTester_removeHoles->setObjectName(QStringLiteral("checkBox_dbTester_removeHoles"));
         checkBox_dbTester_removeHoles->setChecked(true);
 
-        gridLayout_7->addWidget(checkBox_dbTester_removeHoles, 0, 0, 1, 1);
+        horizontalLayout_47->addWidget(checkBox_dbTester_removeHoles);
 
-        spinBox_dbTester_holeSize = new QSpinBox(tab_4);
+        horizontalSpacer_35 = new QSpacerItem(13, 23, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_47->addItem(horizontalSpacer_35);
+
+        label_dbTester_holeSize = new QLabel(groupBox_dbTester_preprocessing);
+        label_dbTester_holeSize->setObjectName(QStringLiteral("label_dbTester_holeSize"));
+
+        horizontalLayout_47->addWidget(label_dbTester_holeSize);
+
+        spinBox_dbTester_holeSize = new QSpinBox(groupBox_dbTester_preprocessing);
         spinBox_dbTester_holeSize->setObjectName(QStringLiteral("spinBox_dbTester_holeSize"));
         spinBox_dbTester_holeSize->setMinimumSize(QSize(55, 0));
         spinBox_dbTester_holeSize->setMaximumSize(QSize(60, 16777215));
@@ -2450,24 +2728,33 @@ public:
         spinBox_dbTester_holeSize->setMaximum(50);
         spinBox_dbTester_holeSize->setValue(20);
 
-        gridLayout_7->addWidget(spinBox_dbTester_holeSize, 0, 3, 1, 1);
-
-        horizontalSpacer_35 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_7->addItem(horizontalSpacer_35, 0, 1, 1, 1);
+        horizontalLayout_47->addWidget(spinBox_dbTester_holeSize);
 
 
-        verticalLayout_36->addLayout(gridLayout_7);
+        verticalLayout_53->addLayout(horizontalLayout_47);
 
-        checkBox_dbTesterUseVariableBlockSize = new QCheckBox(tab_4);
-        checkBox_dbTesterUseVariableBlockSize->setObjectName(QStringLiteral("checkBox_dbTesterUseVariableBlockSize"));
 
-        verticalLayout_36->addWidget(checkBox_dbTesterUseVariableBlockSize);
+        verticalLayout_54->addWidget(groupBox_dbTester_preprocessing);
 
-        checkBox_dbTesterUseDistinctMinutiae = new QCheckBox(tab_4);
-        checkBox_dbTesterUseDistinctMinutiae->setObjectName(QStringLiteral("checkBox_dbTesterUseDistinctMinutiae"));
+        groupBox_dbTester_Extraction = new QGroupBox(tab_4);
+        groupBox_dbTester_Extraction->setObjectName(QStringLiteral("groupBox_dbTester_Extraction"));
+        verticalLayout_36 = new QVBoxLayout(groupBox_dbTester_Extraction);
+        verticalLayout_36->setSpacing(6);
+        verticalLayout_36->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_36->setObjectName(QStringLiteral("verticalLayout_36"));
+        checkBox_dbTester_fixOrientations = new QCheckBox(groupBox_dbTester_Extraction);
+        checkBox_dbTester_fixOrientations->setObjectName(QStringLiteral("checkBox_dbTester_fixOrientations"));
+        checkBox_dbTester_fixOrientations->setChecked(true);
 
-        verticalLayout_36->addWidget(checkBox_dbTesterUseDistinctMinutiae);
+        verticalLayout_36->addWidget(checkBox_dbTester_fixOrientations);
+
+        checkBox_dbTester_variableBlockSize = new QCheckBox(groupBox_dbTester_Extraction);
+        checkBox_dbTester_variableBlockSize->setObjectName(QStringLiteral("checkBox_dbTester_variableBlockSize"));
+
+        verticalLayout_36->addWidget(checkBox_dbTester_variableBlockSize);
+
+
+        verticalLayout_54->addWidget(groupBox_dbTester_Extraction);
 
         tabWidget_testerSettings->addTab(tab_4, QString());
         tab_5 = new QWidget();
@@ -2509,51 +2796,47 @@ public:
 
         groupBox = new QGroupBox(tab_5);
         groupBox->setObjectName(QStringLiteral("groupBox"));
-        gridLayout_8 = new QGridLayout(groupBox);
-        gridLayout_8->setSpacing(6);
-        gridLayout_8->setContentsMargins(11, 11, 11, 11);
-        gridLayout_8->setObjectName(QStringLiteral("gridLayout_8"));
-        verticalLayout_54 = new QVBoxLayout();
-        verticalLayout_54->setSpacing(6);
-        verticalLayout_54->setObjectName(QStringLiteral("verticalLayout_54"));
+        groupBox->setCheckable(true);
+        groupBox->setChecked(false);
+        horizontalLayout_46 = new QHBoxLayout(groupBox);
+        horizontalLayout_46->setSpacing(6);
+        horizontalLayout_46->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_46->setObjectName(QStringLiteral("horizontalLayout_46"));
         label_dbTester_freqBlockSize = new QLabel(groupBox);
         label_dbTester_freqBlockSize->setObjectName(QStringLiteral("label_dbTester_freqBlockSize"));
+        label_dbTester_freqBlockSize->setWordWrap(true);
 
-        verticalLayout_54->addWidget(label_dbTester_freqBlockSize);
+        horizontalLayout_46->addWidget(label_dbTester_freqBlockSize);
 
-        label_dbTester_freqExBlockSize = new QLabel(groupBox);
-        label_dbTester_freqExBlockSize->setObjectName(QStringLiteral("label_dbTester_freqExBlockSize"));
-
-        verticalLayout_54->addWidget(label_dbTester_freqExBlockSize);
-
-
-        gridLayout_8->addLayout(verticalLayout_54, 0, 0, 1, 1);
-
-        verticalLayout_53 = new QVBoxLayout();
-        verticalLayout_53->setSpacing(6);
-        verticalLayout_53->setObjectName(QStringLiteral("verticalLayout_53"));
         spinBox_dbTester_freqBlockSize = new QSpinBox(groupBox);
         spinBox_dbTester_freqBlockSize->setObjectName(QStringLiteral("spinBox_dbTester_freqBlockSize"));
-        spinBox_dbTester_freqBlockSize->setMinimumSize(QSize(50, 0));
+        spinBox_dbTester_freqBlockSize->setMinimumSize(QSize(45, 0));
         spinBox_dbTester_freqBlockSize->setMaximumSize(QSize(55, 16777215));
         spinBox_dbTester_freqBlockSize->setMinimum(1);
         spinBox_dbTester_freqBlockSize->setMaximum(100);
         spinBox_dbTester_freqBlockSize->setValue(8);
 
-        verticalLayout_53->addWidget(spinBox_dbTester_freqBlockSize);
+        horizontalLayout_46->addWidget(spinBox_dbTester_freqBlockSize);
+
+        horizontalSpacer_40 = new QSpacerItem(13, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_46->addItem(horizontalSpacer_40);
+
+        label_dbTester_freqExBlockSize = new QLabel(groupBox);
+        label_dbTester_freqExBlockSize->setObjectName(QStringLiteral("label_dbTester_freqExBlockSize"));
+        label_dbTester_freqExBlockSize->setWordWrap(true);
+
+        horizontalLayout_46->addWidget(label_dbTester_freqExBlockSize);
 
         spinBox_dbTester_freqExBlockSize = new QSpinBox(groupBox);
         spinBox_dbTester_freqExBlockSize->setObjectName(QStringLiteral("spinBox_dbTester_freqExBlockSize"));
-        spinBox_dbTester_freqExBlockSize->setMinimumSize(QSize(50, 0));
+        spinBox_dbTester_freqExBlockSize->setMinimumSize(QSize(45, 0));
         spinBox_dbTester_freqExBlockSize->setMaximumSize(QSize(55, 16777215));
         spinBox_dbTester_freqExBlockSize->setMinimum(1);
         spinBox_dbTester_freqExBlockSize->setMaximum(100);
         spinBox_dbTester_freqExBlockSize->setValue(30);
 
-        verticalLayout_53->addWidget(spinBox_dbTester_freqExBlockSize);
-
-
-        gridLayout_8->addLayout(verticalLayout_53, 0, 1, 1, 1);
+        horizontalLayout_46->addWidget(spinBox_dbTester_freqExBlockSize);
 
 
         verticalLayout_38->addWidget(groupBox);
@@ -2713,65 +2996,6 @@ public:
         verticalLayout_38->addWidget(groupBox_dbTester_ParameterGabor);
 
         tabWidget_testerSettings->addTab(tab_5, QString());
-        tab = new QWidget();
-        tab->setObjectName(QStringLiteral("tab"));
-        verticalLayout_40 = new QVBoxLayout(tab);
-        verticalLayout_40->setSpacing(6);
-        verticalLayout_40->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_40->setObjectName(QStringLiteral("verticalLayout_40"));
-        groupBox_dbTester_iteration = new QGroupBox(tab);
-        groupBox_dbTester_iteration->setObjectName(QStringLiteral("groupBox_dbTester_iteration"));
-        groupBox_dbTester_iteration->setMinimumSize(QSize(0, 122));
-        groupBox_dbTester_iteration->setMaximumSize(QSize(16777215, 122));
-        gridLayout_5 = new QGridLayout(groupBox_dbTester_iteration);
-        gridLayout_5->setSpacing(6);
-        gridLayout_5->setContentsMargins(11, 11, 11, 11);
-        gridLayout_5->setObjectName(QStringLiteral("gridLayout_5"));
-        label_dbTester_iterBlockSize = new QLabel(groupBox_dbTester_iteration);
-        label_dbTester_iterBlockSize->setObjectName(QStringLiteral("label_dbTester_iterBlockSize"));
-
-        gridLayout_5->addWidget(label_dbTester_iterBlockSize, 0, 0, 1, 1);
-
-        spinBox_dbTester_iterBlockSize = new QSpinBox(groupBox_dbTester_iteration);
-        spinBox_dbTester_iterBlockSize->setObjectName(QStringLiteral("spinBox_dbTester_iterBlockSize"));
-        spinBox_dbTester_iterBlockSize->setMinimumSize(QSize(50, 0));
-        spinBox_dbTester_iterBlockSize->setMaximumSize(QSize(50, 16777215));
-        spinBox_dbTester_iterBlockSize->setMaximum(30);
-        spinBox_dbTester_iterBlockSize->setSingleStep(1);
-        spinBox_dbTester_iterBlockSize->setValue(0);
-
-        gridLayout_5->addWidget(spinBox_dbTester_iterBlockSize, 0, 1, 1, 1);
-
-        label_dbTester_iterSigma = new QLabel(groupBox_dbTester_iteration);
-        label_dbTester_iterSigma->setObjectName(QStringLiteral("label_dbTester_iterSigma"));
-
-        gridLayout_5->addWidget(label_dbTester_iterSigma, 1, 0, 1, 1);
-
-        spinBox_dbTester_iterSigma = new QSpinBox(groupBox_dbTester_iteration);
-        spinBox_dbTester_iterSigma->setObjectName(QStringLiteral("spinBox_dbTester_iterSigma"));
-        spinBox_dbTester_iterSigma->setMinimumSize(QSize(50, 0));
-        spinBox_dbTester_iterSigma->setMaximumSize(QSize(50, 16777215));
-        spinBox_dbTester_iterSigma->setMaximum(30);
-
-        gridLayout_5->addWidget(spinBox_dbTester_iterSigma, 1, 1, 1, 1);
-
-        label_dbTester_iterLambda = new QLabel(groupBox_dbTester_iteration);
-        label_dbTester_iterLambda->setObjectName(QStringLiteral("label_dbTester_iterLambda"));
-
-        gridLayout_5->addWidget(label_dbTester_iterLambda, 2, 0, 1, 1);
-
-        spinBox_dbTester_iterLambda = new QSpinBox(groupBox_dbTester_iteration);
-        spinBox_dbTester_iterLambda->setObjectName(QStringLiteral("spinBox_dbTester_iterLambda"));
-        spinBox_dbTester_iterLambda->setMinimumSize(QSize(50, 0));
-        spinBox_dbTester_iterLambda->setMaximumSize(QSize(50, 16777215));
-        spinBox_dbTester_iterLambda->setMaximum(30);
-
-        gridLayout_5->addWidget(spinBox_dbTester_iterLambda, 2, 1, 1, 1);
-
-
-        verticalLayout_40->addWidget(groupBox_dbTester_iteration);
-
-        tabWidget_testerSettings->addTab(tab, QString());
 
         verticalLayout_37->addWidget(tabWidget_testerSettings);
 
@@ -2786,6 +3010,9 @@ public:
         pushButton_startTesting->setObjectName(QStringLiteral("pushButton_startTesting"));
         pushButton_startTesting->setMinimumSize(QSize(120, 0));
         pushButton_startTesting->setMaximumSize(QSize(120, 16777215));
+        pushButton_startTesting->setAutoFillBackground(false);
+        pushButton_startTesting->setStyleSheet(QLatin1String("background: rgb(54, 156, 221);\n"
+"color: white;"));
 
         horizontalLayout_15->addWidget(pushButton_startTesting);
 
@@ -2850,10 +3077,10 @@ public:
         verticalLayout_31->setSpacing(6);
         verticalLayout_31->setContentsMargins(11, 11, 11, 11);
         verticalLayout_31->setObjectName(QStringLiteral("verticalLayout_31"));
-        widget_testRoc = new QCustomPlot(tab_roc);
-        widget_testRoc->setObjectName(QStringLiteral("widget_testRoc"));
+        widget_testROC = new QCustomPlot(tab_roc);
+        widget_testROC->setObjectName(QStringLiteral("widget_testROC"));
 
-        verticalLayout_31->addWidget(widget_testRoc);
+        verticalLayout_31->addWidget(widget_testROC);
 
         tabWidget_testResults->addTab(tab_roc, QString());
 
@@ -2864,7 +3091,7 @@ public:
 
         tabWidget_main->addTab(tab_dbTester, QString());
 
-        gridLayout_9->addWidget(tabWidget_main, 0, 0, 1, 1);
+        horizontalLayout_41->addWidget(tabWidget_main);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
@@ -2877,9 +3104,9 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget_main->setCurrentIndex(3);
-        tabWidget_exTester_settings->setCurrentIndex(1);
-        tabWidget_exTester_results->setCurrentIndex(1);
+        tabWidget_main->setCurrentIndex(1);
+        tabWidget_exTester_settings->setCurrentIndex(2);
+        tabWidget_exTester_results->setCurrentIndex(0);
         tabWidget_testerSettings->setCurrentIndex(0);
         tabWidget_testResults->setCurrentIndex(0);
 
@@ -2889,7 +3116,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "DBOX MTCT", nullptr));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "DBOX-MTCT", nullptr));
         groupBox_inputImages->setTitle(QApplication::translate("MainWindow", "Input Images", nullptr));
         pushButton_inputDirectory->setText(QApplication::translate("MainWindow", "Select Directory", nullptr));
         groupBox_settings->setTitle(QApplication::translate("MainWindow", "Settings", nullptr));
@@ -2911,6 +3138,7 @@ public:
         groupBox_minutiaeList->setTitle(QApplication::translate("MainWindow", "Minutiae List", nullptr));
         groupBox_output->setTitle(QApplication::translate("MainWindow", "Output", nullptr));
         label_outputPath->setText(QApplication::translate("MainWindow", "Path:", nullptr));
+        lineEdit_outputDirectory->setText(QApplication::translate("MainWindow", "./output", nullptr));
         pushButton_outputDirectory->setText(QApplication::translate("MainWindow", "Browse", nullptr));
         label_outputFormat->setText(QApplication::translate("MainWindow", "File Format:", nullptr));
         comboBox_outputFormat->setItemText(0, QApplication::translate("MainWindow", "*.BMP", nullptr));
@@ -2918,31 +3146,43 @@ public:
 
         pushButton_saveBlocks->setText(QApplication::translate("MainWindow", "Save Blocks", nullptr));
         tabWidget_main->setTabText(tabWidget_main->indexOf(tab_marker), QApplication::translate("MainWindow", "Minutiae Marker", nullptr));
-        groupBox_imageBlocksInput->setTitle(QApplication::translate("MainWindow", "Image Blocks Input", nullptr));
-        pushButton_trainerInputDirectory->setText(QApplication::translate("MainWindow", "Select Directory", nullptr));
+        groupBox_netTrainer_input->setTitle(QApplication::translate("MainWindow", "Image Blocks Input", nullptr));
+        pushButton_netTrainer_input->setText(QApplication::translate("MainWindow", "Select Directory", nullptr));
         label_trainerInputDirectory->setText(QString());
-        groupBox_settings_2->setTitle(QApplication::translate("MainWindow", "Settings", nullptr));
-        groupBox_inputBlocks->setTitle(QApplication::translate("MainWindow", "Input Blocks", nullptr));
-        checkBox_trainerOriginals->setText(QApplication::translate("MainWindow", "Originals", nullptr));
-        checkBox_trainerRotations->setText(QApplication::translate("MainWindow", "Rotations", nullptr));
-        checkBox_trainerBlurred->setText(QApplication::translate("MainWindow", "Blurred", nullptr));
-        checkBox_trainerIrisBlurred->setText(QApplication::translate("MainWindow", "Iris Blurred", nullptr));
-        groupBox_training->setTitle(QApplication::translate("MainWindow", "Training", nullptr));
-        label_testSet->setText(QApplication::translate("MainWindow", "Test set (%)", nullptr));
-        label_trainSet->setText(QApplication::translate("MainWindow", "Train set (%):", nullptr));
-        groupBox_caffeModel->setTitle(QApplication::translate("MainWindow", "Caffe Model", nullptr));
-        radioButton_defaultCaffeModel->setText(QApplication::translate("MainWindow", "Use Default", nullptr));
-        radioButton_customCaffeModel->setText(QApplication::translate("MainWindow", "Load Custom", nullptr));
-        label_caffeModelPrototxt->setText(QApplication::translate("MainWindow", "Model Prototxt:", nullptr));
-        pushButton_caffeModelPrototxt->setText(QApplication::translate("MainWindow", "Browse", nullptr));
-        label_caffeSolverPrototxt->setText(QApplication::translate("MainWindow", "Solver Prototxt:", nullptr));
-        pushButton_caffeSolverPrototxt->setText(QApplication::translate("MainWindow", "Browse", nullptr));
-        groupBox_output_2->setTitle(QApplication::translate("MainWindow", "Output", nullptr));
-        label_outputFolder->setText(QApplication::translate("MainWindow", "Output folder:", nullptr));
-        pushButton_outputFolder->setText(QApplication::translate("MainWindow", "Browse", nullptr));
-        groupBox_trainingLog->setTitle(QApplication::translate("MainWindow", "Log", nullptr));
-        label_trainer_progress->setText(QApplication::translate("MainWindow", "Progress:", nullptr));
-        pushButton_startTraining->setText(QApplication::translate("MainWindow", "Start Training", nullptr));
+        groupBox_netTrainer_settings->setTitle(QApplication::translate("MainWindow", "Settings", nullptr));
+        groupBox_netTrainer_inputBlocks->setTitle(QApplication::translate("MainWindow", "Input Blocks", nullptr));
+        checkBox_netTrainer_original->setText(QApplication::translate("MainWindow", "Original", nullptr));
+        checkBox_netTrainer_rotation->setText(QApplication::translate("MainWindow", "Rotation", nullptr));
+        checkBox_netTrainer_blurred->setText(QApplication::translate("MainWindow", "Blurred", nullptr));
+        checkBox_netTrainer_irisBlurred->setText(QApplication::translate("MainWindow", "Iris Blurred", nullptr));
+        groupBox_netTrainer_trainingSettings->setTitle(QApplication::translate("MainWindow", "Training Settings", nullptr));
+        label_netTrainer_testSet->setText(QApplication::translate("MainWindow", "Test set (%)", nullptr));
+        label_netTrainer_trainSet->setText(QApplication::translate("MainWindow", "Train set (%):", nullptr));
+        groupBox_netTrainer_mode->setTitle(QApplication::translate("MainWindow", "Mode", nullptr));
+        radioButton_netTrainer_cpu->setText(QApplication::translate("MainWindow", "CPU", nullptr));
+        radioButton_netTrainer_gpu->setText(QApplication::translate("MainWindow", "GPU", nullptr));
+        groupBox_netTrainer_output->setTitle(QApplication::translate("MainWindow", "Output", nullptr));
+        label_netTrainer_outputFolder->setText(QApplication::translate("MainWindow", "Output folder:", nullptr));
+        lineEdit_netTrainer_outputFolder->setText(QApplication::translate("MainWindow", "./output", nullptr));
+        pushButton_netTrainer_outputFolder->setText(QApplication::translate("MainWindow", "Browse", nullptr));
+        groupBox_netTrainer_solverParams->setTitle(QApplication::translate("MainWindow", "Solver Parameters", nullptr));
+        label_netTrainer_model->setText(QApplication::translate("MainWindow", "Model (.prototxt):", nullptr));
+        lineEdit_netTrainer_model->setText(QApplication::translate("MainWindow", "./core/config/Caffe/model.prototxt", nullptr));
+        pushButton_netTrainer_model->setText(QApplication::translate("MainWindow", "Browse", nullptr));
+        label_netTrainer_testIterations->setText(QApplication::translate("MainWindow", "Test Iterations:", nullptr));
+        label_netTrainer_testInterval->setText(QApplication::translate("MainWindow", "Test Interval:", nullptr));
+        label_netTrainer_maxIterations->setText(QApplication::translate("MainWindow", "Max Iterations:", nullptr));
+        label_netTrainer_snapshotInterval->setText(QApplication::translate("MainWindow", "Snapshot Interval:", nullptr));
+        label_netTrainer_snapshotPrefix->setText(QApplication::translate("MainWindow", "Snapshot Prefix:", nullptr));
+        lineEdit_netTrainer_snapshotPrefix->setText(QApplication::translate("MainWindow", "minutiae", nullptr));
+        label_netTrainer_baseLearningRate->setText(QApplication::translate("MainWindow", "Base Learning Rate:", nullptr));
+        label_netTrainer_momentum->setText(QApplication::translate("MainWindow", "Momentum:", nullptr));
+        label_netTrainer_weightDecay->setText(QApplication::translate("MainWindow", "Weight Decay:", nullptr));
+        label_netTrainer_gamma->setText(QApplication::translate("MainWindow", "Gamma:", nullptr));
+        label_netTrainer_power->setText(QApplication::translate("MainWindow", "Power:", nullptr));
+        groupBox_netTrainer_training->setTitle(QApplication::translate("MainWindow", "Training", nullptr));
+        label_netTrainer_progress->setText(QApplication::translate("MainWindow", "Progress:", nullptr));
+        pushButton_netTrainer_startTraining->setText(QApplication::translate("MainWindow", "Start Training", nullptr));
         tabWidget_main->setTabText(tabWidget_main->indexOf(tab_trainer), QApplication::translate("MainWindow", "Network Trainer", nullptr));
         groupBox_inputModel->setTitle(QApplication::translate("MainWindow", "Input Model", nullptr));
         pushButton_inputModel->setText(QApplication::translate("MainWindow", "Select Model", nullptr));
@@ -2951,15 +3191,20 @@ public:
         groupBox_inputImages_2->setTitle(QApplication::translate("MainWindow", "Input Images", nullptr));
         pushButton_inputDirectory_2->setText(QApplication::translate("MainWindow", "Select Directory", nullptr));
         groupBox_fingerprintImage_2->setTitle(QApplication::translate("MainWindow", "Fingerprint Image", nullptr));
-        groupBox_checkSettings->setTitle(QApplication::translate("MainWindow", "Check Settings", nullptr));
+        groupBox_minChecker_checkSettings->setTitle(QApplication::translate("MainWindow", "Check Settings", nullptr));
+        groupBox_minChecker_mode->setTitle(QApplication::translate("MainWindow", "Mode", nullptr));
+        radioButton_minChecker_cpuMode->setText(QApplication::translate("MainWindow", "CPU", nullptr));
+        radioButton_minChecker_gpuMode->setText(QApplication::translate("MainWindow", "GPU", nullptr));
+        groupBox_minChecker_extactionSettings->setTitle(QApplication::translate("MainWindow", "Extraction", nullptr));
         label_checkBlockSize->setText(QApplication::translate("MainWindow", "Block Size:", nullptr));
         checkBox_variableBlockSize->setText(QApplication::translate("MainWindow", "Variable Block Size", nullptr));
+        groupBox__minChecker_checkMode->setTitle(QApplication::translate("MainWindow", "Check Mode", nullptr));
         radioButton_standard->setText(QApplication::translate("MainWindow", "Standard", nullptr));
         label_threshold->setText(QApplication::translate("MainWindow", "Threshold:", nullptr));
         radioButton_heatmap->setText(QApplication::translate("MainWindow", "Heatmap", nullptr));
         label_overlay->setText(QApplication::translate("MainWindow", "Overlay:", nullptr));
         groupBox_heatmapCreationProgress->setTitle(QApplication::translate("MainWindow", "Heatmap Creation Progress", nullptr));
-        groupBox_foundedMinutia->setTitle(QApplication::translate("MainWindow", "Founded Minutia", nullptr));
+        groupBox_foundedMinutia->setTitle(QApplication::translate("MainWindow", "Founded Minutia   ", nullptr));
         tabWidget_main->setTabText(tabWidget_main->indexOf(tab_checker), QApplication::translate("MainWindow", "Minutiae Checker", nullptr));
         groupBox_exTester_inputImages->setTitle(QApplication::translate("MainWindow", "Input Images", nullptr));
         pushButton_exTester_inputDir->setText(QApplication::translate("MainWindow", "Browse", nullptr));
@@ -2981,28 +3226,28 @@ public:
         label_exTester_GaborSigma->setText(QApplication::translate("MainWindow", "Sigma", nullptr));
         label_exTester_GaborLambda->setText(QApplication::translate("MainWindow", "Lambda", nullptr));
         tabWidget_exTester_settings->setTabText(tabWidget_exTester_settings->indexOf(tab_6), QApplication::translate("MainWindow", "Preprocessing", nullptr));
-        groupBox_exTester_threadNum->setTitle(QApplication::translate("MainWindow", "Threads", nullptr));
-        label_exTester_threadNum->setText(QApplication::translate("MainWindow", "Number of Threads", nullptr));
-        groupBox_exTester_preprocessing->setTitle(QApplication::translate("MainWindow", "Preprocessing", nullptr));
-        checkBox_exTester_contrast->setText(QApplication::translate("MainWindow", "Enhance the Contrast", nullptr));
-        checkBox_exTester_removeHoles->setText(QApplication::translate("MainWindow", "Remove the Holes", nullptr));
-        label_exTester_removeHoles->setText(QApplication::translate("MainWindow", "Size", nullptr));
-        checkBox_exTester_gaborFilterGPU->setText(QApplication::translate("MainWindow", "Use GPU for Gabor Filter", nullptr));
-        checkBox_exTester_mask->setText(QApplication::translate("MainWindow", "Use the Mask", nullptr));
-        checkBox_exTester_qualityMap->setText(QApplication::translate("MainWindow", "Use the Quality Map", nullptr));
-        checkBox_exTester_frequencyMap->setText(QApplication::translate("MainWindow", "Use the Frequency Map", nullptr));
-        groupBox_exTester_exFeatures_2->setTitle(QApplication::translate("MainWindow", "Extraction Features", nullptr));
-        checkBox_exTester_fixOrientations->setText(QApplication::translate("MainWindow", "Use the Orientation Fixer", nullptr));
-        checkBox_exTester_useVarBlockSize->setText(QApplication::translate("MainWindow", "Use Variable Block Size", nullptr));
-        tabWidget_exTester_settings->setTabText(tabWidget_exTester_settings->indexOf(tab_features), QApplication::translate("MainWindow", "Features", nullptr));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "Extraction Settings", nullptr));
         label_exTester_exBlockSize->setText(QApplication::translate("MainWindow", "Block Size", nullptr));
         groupBox_exTester_exResults->setTitle(QApplication::translate("MainWindow", "Results", nullptr));
         radioButton_exTester_crossingNumber->setText(QApplication::translate("MainWindow", "Crossing Number", nullptr));
-        radioButton_exTester_fixedOrientations->setText(QApplication::translate("MainWindow", "Fixed Orientations", nullptr));
-        radioButton_exTester_checkedMinutiae->setText(QApplication::translate("MainWindow", "Checked Minutiae", nullptr));
-        checkBox_exTester_highlightDifferences->setText(QApplication::translate("MainWindow", "Highlight Differences", nullptr));
+        radioButton_exTester_predictedMinutiae->setText(QApplication::translate("MainWindow", "Predicted Minutiae", nullptr));
+        radioButton_exTester_fixedPredictedMinutiae->setText(QApplication::translate("MainWindow", "Predicted Fixed Minutiae", nullptr));
         tabWidget_exTester_settings->setTabText(tabWidget_exTester_settings->indexOf(tab_7), QApplication::translate("MainWindow", "Extraction", nullptr));
+        groupBox_exTester_mode->setTitle(QApplication::translate("MainWindow", "Mode", nullptr));
+        radioButton_exTester_cpuMode->setText(QApplication::translate("MainWindow", "CPU", nullptr));
+        label_exTester_threadNum->setText(QApplication::translate("MainWindow", "Threads:", nullptr));
+        radioButton_exTester_gpuMode->setText(QApplication::translate("MainWindow", "GPU", nullptr));
+        groupBox_exTester_preprocessing->setTitle(QApplication::translate("MainWindow", "Preprocessing", nullptr));
+        checkBox_exTester_contrast->setText(QApplication::translate("MainWindow", "Enhance the Contrast", nullptr));
+        checkBox_exTester_holeRemover->setText(QApplication::translate("MainWindow", "Remove the Holes", nullptr));
+        label_exTester_removeHoles->setText(QApplication::translate("MainWindow", "Size", nullptr));
+        checkBox_exTester_advancedOMap->setText(QApplication::translate("MainWindow", "Use the Advanced Orientation Map", nullptr));
+        checkBox_exTester_mask->setText(QApplication::translate("MainWindow", "Use the Mask", nullptr));
+        checkBox_exTester_qualityMap->setText(QApplication::translate("MainWindow", "Use the Quality Map", nullptr));
+        groupBox_exTester_exFeatures_2->setTitle(QApplication::translate("MainWindow", "Extraction", nullptr));
+        checkBox_exTester_orientationFixer->setText(QApplication::translate("MainWindow", "Use the Orientation Fixer", nullptr));
+        checkBox_exTester_varBlockSize->setText(QApplication::translate("MainWindow", "Use Variable Block Size", nullptr));
+        tabWidget_exTester_settings->setTabText(tabWidget_exTester_settings->indexOf(tab_features), QApplication::translate("MainWindow", "Features", nullptr));
         label_exExter_original->setText(QApplication::translate("MainWindow", "Original", nullptr));
         label_exExter_mask->setText(QApplication::translate("MainWindow", "Mask", nullptr));
         label_exExter_omap->setText(QApplication::translate("MainWindow", "Map", nullptr));
@@ -3023,20 +3268,25 @@ public:
         label_selectedDbName->setText(QString());
         label_numberOfSubject->setText(QApplication::translate("MainWindow", "Number of subjects:", nullptr));
         label_imagesPerSubject->setText(QApplication::translate("MainWindow", "Images per subjects:", nullptr));
-        label_imageToProcess->setText(QApplication::translate("MainWindow", "Image(s) to process at once:", nullptr));
+        groupBox_dbTester_mode->setTitle(QApplication::translate("MainWindow", "Mode", nullptr));
+        radioButton_dbTester_cpuMode->setText(QApplication::translate("MainWindow", "CPU", nullptr));
+        label_dbTester_threadNum->setText(QApplication::translate("MainWindow", "Threads:", nullptr));
+        radioButton_dbTester_gpuMode->setText(QApplication::translate("MainWindow", "GPU", nullptr));
         tabWidget_testerSettings->setTabText(tabWidget_testerSettings->indexOf(tab_3), QApplication::translate("MainWindow", "Input", nullptr));
         groupBox_matcher->setTitle(QApplication::translate("MainWindow", "Matcher", nullptr));
-        radioButton_matcherBozorth->setText(QApplication::translate("MainWindow", "Bozorth3", nullptr));
-        radioButton_matcherMCC->setText(QApplication::translate("MainWindow", "MCC", nullptr));
         radioButton_matcherSuprema->setText(QApplication::translate("MainWindow", "Suprema", nullptr));
-        checkBox_dbTesterUseMask->setText(QApplication::translate("MainWindow", "Use Mask", nullptr));
-        checkBox_dbTester_freqMap->setText(QApplication::translate("MainWindow", "Use Frequency Map", nullptr));
-        checkBox_dbTesterUseFixOrientations->setText(QApplication::translate("MainWindow", "Fix Minutiae Orientations", nullptr));
+        radioButton_matcherBozorth->setText(QApplication::translate("MainWindow", "Bozorth3", nullptr));
+        groupBox_dbTester_preprocessing->setTitle(QApplication::translate("MainWindow", "Preprocessing", nullptr));
         checkBox_dbTester_contrastEnhancement->setText(QApplication::translate("MainWindow", "Use Contrast Enhancement", nullptr));
-        label_dbTester_holeSize->setText(QApplication::translate("MainWindow", "Hole Size:", nullptr));
+        checkBox_dbTester_advancedOrientationMap->setText(QApplication::translate("MainWindow", "Use Advanced Orientation Map", nullptr));
+        checkBox_dbTester_qualityMap->setText(QApplication::translate("MainWindow", "Use Quality Map", nullptr));
+        checkBox_dbTester_mask->setText(QApplication::translate("MainWindow", "Use Mask", nullptr));
+        checkBox_dbTester_invertedSkeleton->setText(QApplication::translate("MainWindow", "Generate Inverted Skeleton", nullptr));
         checkBox_dbTester_removeHoles->setText(QApplication::translate("MainWindow", "Remove Holes", nullptr));
-        checkBox_dbTesterUseVariableBlockSize->setText(QApplication::translate("MainWindow", "Use Variable Block Size", nullptr));
-        checkBox_dbTesterUseDistinctMinutiae->setText(QApplication::translate("MainWindow", "Distinct Minutiae", nullptr));
+        label_dbTester_holeSize->setText(QApplication::translate("MainWindow", "Hole Size:", nullptr));
+        groupBox_dbTester_Extraction->setTitle(QApplication::translate("MainWindow", "Extracition", nullptr));
+        checkBox_dbTester_fixOrientations->setText(QApplication::translate("MainWindow", "Fix Minutiae Orientations", nullptr));
+        checkBox_dbTester_variableBlockSize->setText(QApplication::translate("MainWindow", "Use Variable Block Size", nullptr));
         tabWidget_testerSettings->setTabText(tabWidget_testerSettings->indexOf(tab_4), QApplication::translate("MainWindow", "Settings", nullptr));
         groupBox_dbTester_ParameterGeneral->setTitle(QApplication::translate("MainWindow", "General", nullptr));
         label_dbTester_BlockSize->setText(QApplication::translate("MainWindow", "Block Size for Orientation Map and Gabor Filter", nullptr));
@@ -3054,15 +3304,10 @@ public:
         label_dbTester_GaborSigma->setText(QApplication::translate("MainWindow", "Sigma", nullptr));
         label_dbTester_GaborLambda->setText(QApplication::translate("MainWindow", "Lambda", nullptr));
         tabWidget_testerSettings->setTabText(tabWidget_testerSettings->indexOf(tab_5), QApplication::translate("MainWindow", "Parameters", nullptr));
-        groupBox_dbTester_iteration->setTitle(QApplication::translate("MainWindow", "Parameter Iteration", nullptr));
-        label_dbTester_iterBlockSize->setText(QApplication::translate("MainWindow", " Block Size Increase Iterations", nullptr));
-        label_dbTester_iterSigma->setText(QApplication::translate("MainWindow", "Sigma Increase Iterations", nullptr));
-        label_dbTester_iterLambda->setText(QApplication::translate("MainWindow", "Lambda Increase Iterations", nullptr));
-        tabWidget_testerSettings->setTabText(tabWidget_testerSettings->indexOf(tab), QApplication::translate("MainWindow", "Test", nullptr));
         pushButton_startTesting->setText(QApplication::translate("MainWindow", "Start Testing", nullptr));
         groupBox_dbTester_Log->setTitle(QApplication::translate("MainWindow", "Log", nullptr));
         groupBox_dbTester_Results->setTitle(QApplication::translate("MainWindow", "Results", nullptr));
-        tabWidget_testResults->setTabText(tabWidget_testResults->indexOf(tab_farfrr), QApplication::translate("MainWindow", "FAR / FRR", nullptr));
+        tabWidget_testResults->setTabText(tabWidget_testResults->indexOf(tab_farfrr), QApplication::translate("MainWindow", "FMR / FNMR", nullptr));
         tabWidget_testResults->setTabText(tabWidget_testResults->indexOf(tab_roc), QApplication::translate("MainWindow", "ROC", nullptr));
         tabWidget_main->setTabText(tabWidget_main->indexOf(tab_dbTester), QApplication::translate("MainWindow", "Database Tester", nullptr));
     } // retranslateUi
