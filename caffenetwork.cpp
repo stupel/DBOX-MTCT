@@ -242,7 +242,7 @@ void CaffeNetwork::preprocessBatch(const vector<cv::Mat> imgs, std::vector< std:
         cv::Mat sample_normalized;
 
         cv::subtract(sample_float, this->mean_, sample_normalized);
-
+        sample_normalized /= 255.0;
         /* This operation will write the separate BGR planes directly to the
          * input layer of the network because it is wrapped by the cv::Mat
          * objects in input_channels. */
