@@ -143,7 +143,7 @@ int MinutiaeMarker::countOutputFiles()
     return fileCnt;
 }
 
-void MinutiaeMarker::generateBlocks(int blockSize, int additionalBlocks, QString outputFormat, bool rotations, bool blur, double blurValue, bool irisBlur, double irisBlurValue)
+void MinutiaeMarker::generateBlocks(int blockSize, int additionalBlocks, QString outputFormat, bool rotations, bool blur, double blurValue, bool irisBlur, double irisBlurValue, double irisRadiusValue)
 {
     QString outputPath;
     QString leftOutputPath, rightOutputPath;
@@ -190,7 +190,7 @@ void MinutiaeMarker::generateBlocks(int blockSize, int additionalBlocks, QString
                 if (irisBlur) {
                     dir.mkpath(leftOutputPath + "/irisblur/rot0/" + rightOutputPath);
                     leftImgName = leftOutputPath + "/irisblur/rot0/" + rightOutputPath + "/" + QString::number(actBlockSize);
-                    blockIrisBlur = this->irisBlurBlock(blockOrig, blurValue, irisBlurValue);
+                    blockIrisBlur = this->irisBlurBlock(blockOrig, irisBlurValue, irisRadiusValue);
                     blockIrisBlur.save(leftImgName + "_irisblur_rot0_" + rightImgName);
                 }
 

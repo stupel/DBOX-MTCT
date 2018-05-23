@@ -52,12 +52,12 @@ public:
     QWidget *tab_marker;
     QHBoxLayout *horizontalLayout_6;
     QVBoxLayout *verticalLayout_5;
-    QGroupBox *groupBox_inputImages;
+    QGroupBox *groupBox_marker_inputImages;
     QVBoxLayout *verticalLayout_9;
     QVBoxLayout *verticalLayout_8;
     QPushButton *pushButton_inputDirectory;
     QListWidget *listWidget_inputImages;
-    QGroupBox *groupBox_settings;
+    QGroupBox *groupBox_marker_settings;
     QVBoxLayout *verticalLayout_3;
     QGridLayout *gridLayout;
     QLabel *label_minutiaeBlockSize;
@@ -71,15 +71,17 @@ public:
     QRadioButton *radioButton_nothing;
     QGroupBox *groupBox_transformations;
     QVBoxLayout *verticalLayout;
-    QCheckBox *checkBox_rotations;
+    QCheckBox *checkBox_marker_rotations;
     QHBoxLayout *horizontalLayout_17;
-    QCheckBox *checkBox_blur;
+    QCheckBox *checkBox_marker_blur;
     QSpacerItem *horizontalSpacer_9;
-    QDoubleSpinBox *doubleSpinBox_blur;
-    QHBoxLayout *horizontalLayout_25;
-    QCheckBox *checkBox_irisBlur;
-    QSpacerItem *horizontalSpacer_24;
-    QDoubleSpinBox *doubleSpinBox_irisBlur;
+    QDoubleSpinBox *doubleSpinBox_marker_blur;
+    QGroupBox *groupBox_marker_irisBlur;
+    QGridLayout *gridLayout_7;
+    QLabel *label_irisBlur_blur;
+    QLabel *label_irisBlur_radius;
+    QDoubleSpinBox *doubleSpinBox_marker_irisBlur_blur;
+    QDoubleSpinBox *doubleSpinBox_marker_irisBlur_radius;
     QGroupBox *groupBox_fingerprintImage;
     QVBoxLayout *verticalLayout_6;
     QGraphicsView *graphicsView_fingerprintMarker;
@@ -113,24 +115,24 @@ public:
     QSpacerItem *horizontalSpacer_22;
     QLabel *label_blockIrisBlur;
     QSpacerItem *horizontalSpacer_23;
-    QGroupBox *groupBox_minutiaeList;
+    QGroupBox *groupBox_marker_minutiaeList;
     QVBoxLayout *verticalLayout_4;
     QTableWidget *tableWidget_minutiae;
     QGroupBox *groupBox_output;
     QVBoxLayout *verticalLayout_10;
     QHBoxLayout *horizontalLayout_5;
     QLabel *label_outputPath;
-    QLineEdit *lineEdit_outputDirectory;
+    QLineEdit *lineEdit_marker_outputDirectory;
     QHBoxLayout *horizontalLayout_4;
     QSpacerItem *horizontalSpacer_2;
-    QPushButton *pushButton_outputDirectory;
+    QPushButton *pushButton_marker_outputDirectory;
     QSpacerItem *verticalSpacer_6;
     QSpacerItem *verticalSpacer_4;
     QHBoxLayout *horizontalLayout;
     QLabel *label_outputFormat;
     QComboBox *comboBox_outputFormat;
     QSpacerItem *horizontalSpacer;
-    QPushButton *pushButton_saveBlocks;
+    QPushButton *pushButton_marker_saveBlocks;
     QProgressBar *progressBar_savingBlocks;
     QWidget *tab_trainer;
     QHBoxLayout *horizontalLayout_51;
@@ -515,18 +517,18 @@ public:
         verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setSpacing(6);
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
-        groupBox_inputImages = new QGroupBox(tab_marker);
-        groupBox_inputImages->setObjectName(QStringLiteral("groupBox_inputImages"));
-        groupBox_inputImages->setMinimumSize(QSize(200, 0));
-        groupBox_inputImages->setMaximumSize(QSize(200, 16777215));
-        verticalLayout_9 = new QVBoxLayout(groupBox_inputImages);
+        groupBox_marker_inputImages = new QGroupBox(tab_marker);
+        groupBox_marker_inputImages->setObjectName(QStringLiteral("groupBox_marker_inputImages"));
+        groupBox_marker_inputImages->setMinimumSize(QSize(200, 0));
+        groupBox_marker_inputImages->setMaximumSize(QSize(200, 16777215));
+        verticalLayout_9 = new QVBoxLayout(groupBox_marker_inputImages);
         verticalLayout_9->setSpacing(6);
         verticalLayout_9->setContentsMargins(11, 11, 11, 11);
         verticalLayout_9->setObjectName(QStringLiteral("verticalLayout_9"));
         verticalLayout_8 = new QVBoxLayout();
         verticalLayout_8->setSpacing(6);
         verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
-        pushButton_inputDirectory = new QPushButton(groupBox_inputImages);
+        pushButton_inputDirectory = new QPushButton(groupBox_marker_inputImages);
         pushButton_inputDirectory->setObjectName(QStringLiteral("pushButton_inputDirectory"));
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
@@ -537,7 +539,7 @@ public:
 
         verticalLayout_8->addWidget(pushButton_inputDirectory);
 
-        listWidget_inputImages = new QListWidget(groupBox_inputImages);
+        listWidget_inputImages = new QListWidget(groupBox_marker_inputImages);
         listWidget_inputImages->setObjectName(QStringLiteral("listWidget_inputImages"));
         QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Expanding);
         sizePolicy1.setHorizontalStretch(0);
@@ -552,19 +554,19 @@ public:
         verticalLayout_9->addLayout(verticalLayout_8);
 
 
-        verticalLayout_5->addWidget(groupBox_inputImages);
+        verticalLayout_5->addWidget(groupBox_marker_inputImages);
 
-        groupBox_settings = new QGroupBox(tab_marker);
-        groupBox_settings->setObjectName(QStringLiteral("groupBox_settings"));
-        groupBox_settings->setMaximumSize(QSize(200, 16777215));
-        verticalLayout_3 = new QVBoxLayout(groupBox_settings);
+        groupBox_marker_settings = new QGroupBox(tab_marker);
+        groupBox_marker_settings->setObjectName(QStringLiteral("groupBox_marker_settings"));
+        groupBox_marker_settings->setMaximumSize(QSize(200, 16777215));
+        verticalLayout_3 = new QVBoxLayout(groupBox_marker_settings);
         verticalLayout_3->setSpacing(6);
         verticalLayout_3->setContentsMargins(11, 11, 11, 11);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         gridLayout = new QGridLayout();
         gridLayout->setSpacing(6);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        label_minutiaeBlockSize = new QLabel(groupBox_settings);
+        label_minutiaeBlockSize = new QLabel(groupBox_marker_settings);
         label_minutiaeBlockSize->setObjectName(QStringLiteral("label_minutiaeBlockSize"));
         QSizePolicy sizePolicy2(QSizePolicy::Fixed, QSizePolicy::Preferred);
         sizePolicy2.setHorizontalStretch(0);
@@ -575,15 +577,15 @@ public:
 
         gridLayout->addWidget(label_minutiaeBlockSize, 0, 0, 1, 1);
 
-        spinBox_minutiaeBlockSize = new QSpinBox(groupBox_settings);
+        spinBox_minutiaeBlockSize = new QSpinBox(groupBox_marker_settings);
         spinBox_minutiaeBlockSize->setObjectName(QStringLiteral("spinBox_minutiaeBlockSize"));
         sizePolicy.setHeightForWidth(spinBox_minutiaeBlockSize->sizePolicy().hasHeightForWidth());
         spinBox_minutiaeBlockSize->setSizePolicy(sizePolicy);
-        spinBox_minutiaeBlockSize->setValue(19);
+        spinBox_minutiaeBlockSize->setValue(21);
 
         gridLayout->addWidget(spinBox_minutiaeBlockSize, 0, 1, 1, 1);
 
-        label_additionalBlocks = new QLabel(groupBox_settings);
+        label_additionalBlocks = new QLabel(groupBox_marker_settings);
         label_additionalBlocks->setObjectName(QStringLiteral("label_additionalBlocks"));
         sizePolicy2.setHeightForWidth(label_additionalBlocks->sizePolicy().hasHeightForWidth());
         label_additionalBlocks->setSizePolicy(sizePolicy2);
@@ -591,18 +593,18 @@ public:
 
         gridLayout->addWidget(label_additionalBlocks, 1, 0, 1, 1);
 
-        spinBox_additionalBlocks = new QSpinBox(groupBox_settings);
+        spinBox_additionalBlocks = new QSpinBox(groupBox_marker_settings);
         spinBox_additionalBlocks->setObjectName(QStringLiteral("spinBox_additionalBlocks"));
         sizePolicy.setHeightForWidth(spinBox_additionalBlocks->sizePolicy().hasHeightForWidth());
         spinBox_additionalBlocks->setSizePolicy(sizePolicy);
-        spinBox_additionalBlocks->setValue(3);
+        spinBox_additionalBlocks->setValue(2);
 
         gridLayout->addWidget(spinBox_additionalBlocks, 1, 1, 1, 1);
 
 
         verticalLayout_3->addLayout(gridLayout);
 
-        groupBox_minutiaeType = new QGroupBox(groupBox_settings);
+        groupBox_minutiaeType = new QGroupBox(groupBox_marker_settings);
         groupBox_minutiaeType->setObjectName(QStringLiteral("groupBox_minutiaeType"));
         verticalLayout_2 = new QVBoxLayout(groupBox_minutiaeType);
         verticalLayout_2->setSpacing(6);
@@ -628,79 +630,95 @@ public:
 
         verticalLayout_3->addWidget(groupBox_minutiaeType);
 
-        groupBox_transformations = new QGroupBox(groupBox_settings);
+        groupBox_transformations = new QGroupBox(groupBox_marker_settings);
         groupBox_transformations->setObjectName(QStringLiteral("groupBox_transformations"));
         verticalLayout = new QVBoxLayout(groupBox_transformations);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        checkBox_rotations = new QCheckBox(groupBox_transformations);
-        checkBox_rotations->setObjectName(QStringLiteral("checkBox_rotations"));
-        checkBox_rotations->setChecked(true);
+        checkBox_marker_rotations = new QCheckBox(groupBox_transformations);
+        checkBox_marker_rotations->setObjectName(QStringLiteral("checkBox_marker_rotations"));
+        checkBox_marker_rotations->setChecked(true);
 
-        verticalLayout->addWidget(checkBox_rotations);
+        verticalLayout->addWidget(checkBox_marker_rotations);
 
         horizontalLayout_17 = new QHBoxLayout();
         horizontalLayout_17->setSpacing(6);
         horizontalLayout_17->setObjectName(QStringLiteral("horizontalLayout_17"));
-        checkBox_blur = new QCheckBox(groupBox_transformations);
-        checkBox_blur->setObjectName(QStringLiteral("checkBox_blur"));
-        checkBox_blur->setChecked(true);
+        checkBox_marker_blur = new QCheckBox(groupBox_transformations);
+        checkBox_marker_blur->setObjectName(QStringLiteral("checkBox_marker_blur"));
+        checkBox_marker_blur->setChecked(false);
 
-        horizontalLayout_17->addWidget(checkBox_blur);
+        horizontalLayout_17->addWidget(checkBox_marker_blur);
 
         horizontalSpacer_9 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_17->addItem(horizontalSpacer_9);
 
-        doubleSpinBox_blur = new QDoubleSpinBox(groupBox_transformations);
-        doubleSpinBox_blur->setObjectName(QStringLiteral("doubleSpinBox_blur"));
-        doubleSpinBox_blur->setMinimumSize(QSize(50, 0));
-        doubleSpinBox_blur->setMaximumSize(QSize(50, 16777215));
-        doubleSpinBox_blur->setDecimals(1);
-        doubleSpinBox_blur->setMinimum(0.1);
-        doubleSpinBox_blur->setMaximum(10);
-        doubleSpinBox_blur->setSingleStep(0.1);
-        doubleSpinBox_blur->setValue(1.1);
+        doubleSpinBox_marker_blur = new QDoubleSpinBox(groupBox_transformations);
+        doubleSpinBox_marker_blur->setObjectName(QStringLiteral("doubleSpinBox_marker_blur"));
+        doubleSpinBox_marker_blur->setMinimumSize(QSize(50, 0));
+        doubleSpinBox_marker_blur->setMaximumSize(QSize(50, 16777215));
+        doubleSpinBox_marker_blur->setDecimals(1);
+        doubleSpinBox_marker_blur->setMinimum(0.1);
+        doubleSpinBox_marker_blur->setMaximum(10);
+        doubleSpinBox_marker_blur->setSingleStep(0.1);
+        doubleSpinBox_marker_blur->setValue(0.6);
 
-        horizontalLayout_17->addWidget(doubleSpinBox_blur);
+        horizontalLayout_17->addWidget(doubleSpinBox_marker_blur);
 
 
         verticalLayout->addLayout(horizontalLayout_17);
 
-        horizontalLayout_25 = new QHBoxLayout();
-        horizontalLayout_25->setSpacing(6);
-        horizontalLayout_25->setObjectName(QStringLiteral("horizontalLayout_25"));
-        checkBox_irisBlur = new QCheckBox(groupBox_transformations);
-        checkBox_irisBlur->setObjectName(QStringLiteral("checkBox_irisBlur"));
-        checkBox_irisBlur->setChecked(true);
+        groupBox_marker_irisBlur = new QGroupBox(groupBox_transformations);
+        groupBox_marker_irisBlur->setObjectName(QStringLiteral("groupBox_marker_irisBlur"));
+        groupBox_marker_irisBlur->setCheckable(true);
+        gridLayout_7 = new QGridLayout(groupBox_marker_irisBlur);
+        gridLayout_7->setSpacing(6);
+        gridLayout_7->setContentsMargins(11, 11, 11, 11);
+        gridLayout_7->setObjectName(QStringLiteral("gridLayout_7"));
+        label_irisBlur_blur = new QLabel(groupBox_marker_irisBlur);
+        label_irisBlur_blur->setObjectName(QStringLiteral("label_irisBlur_blur"));
 
-        horizontalLayout_25->addWidget(checkBox_irisBlur);
+        gridLayout_7->addWidget(label_irisBlur_blur, 0, 0, 1, 1);
 
-        horizontalSpacer_24 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        label_irisBlur_radius = new QLabel(groupBox_marker_irisBlur);
+        label_irisBlur_radius->setObjectName(QStringLiteral("label_irisBlur_radius"));
 
-        horizontalLayout_25->addItem(horizontalSpacer_24);
+        gridLayout_7->addWidget(label_irisBlur_radius, 0, 1, 1, 1);
 
-        doubleSpinBox_irisBlur = new QDoubleSpinBox(groupBox_transformations);
-        doubleSpinBox_irisBlur->setObjectName(QStringLiteral("doubleSpinBox_irisBlur"));
-        doubleSpinBox_irisBlur->setMinimumSize(QSize(50, 0));
-        doubleSpinBox_irisBlur->setMaximumSize(QSize(50, 16777215));
-        doubleSpinBox_irisBlur->setDecimals(1);
-        doubleSpinBox_irisBlur->setMinimum(0.1);
-        doubleSpinBox_irisBlur->setMaximum(10);
-        doubleSpinBox_irisBlur->setSingleStep(0.1);
-        doubleSpinBox_irisBlur->setValue(1.7);
+        doubleSpinBox_marker_irisBlur_blur = new QDoubleSpinBox(groupBox_marker_irisBlur);
+        doubleSpinBox_marker_irisBlur_blur->setObjectName(QStringLiteral("doubleSpinBox_marker_irisBlur_blur"));
+        doubleSpinBox_marker_irisBlur_blur->setMinimumSize(QSize(50, 0));
+        doubleSpinBox_marker_irisBlur_blur->setMaximumSize(QSize(50, 16777215));
+        doubleSpinBox_marker_irisBlur_blur->setDecimals(1);
+        doubleSpinBox_marker_irisBlur_blur->setMinimum(0.1);
+        doubleSpinBox_marker_irisBlur_blur->setMaximum(10);
+        doubleSpinBox_marker_irisBlur_blur->setSingleStep(0.1);
+        doubleSpinBox_marker_irisBlur_blur->setValue(1.1);
 
-        horizontalLayout_25->addWidget(doubleSpinBox_irisBlur);
+        gridLayout_7->addWidget(doubleSpinBox_marker_irisBlur_blur, 1, 0, 1, 1);
+
+        doubleSpinBox_marker_irisBlur_radius = new QDoubleSpinBox(groupBox_marker_irisBlur);
+        doubleSpinBox_marker_irisBlur_radius->setObjectName(QStringLiteral("doubleSpinBox_marker_irisBlur_radius"));
+        doubleSpinBox_marker_irisBlur_radius->setMinimumSize(QSize(50, 0));
+        doubleSpinBox_marker_irisBlur_radius->setMaximumSize(QSize(50, 16777215));
+        doubleSpinBox_marker_irisBlur_radius->setDecimals(1);
+        doubleSpinBox_marker_irisBlur_radius->setMinimum(0.1);
+        doubleSpinBox_marker_irisBlur_radius->setMaximum(10);
+        doubleSpinBox_marker_irisBlur_radius->setSingleStep(0.1);
+        doubleSpinBox_marker_irisBlur_radius->setValue(0.5);
+
+        gridLayout_7->addWidget(doubleSpinBox_marker_irisBlur_radius, 1, 1, 1, 1);
 
 
-        verticalLayout->addLayout(horizontalLayout_25);
+        verticalLayout->addWidget(groupBox_marker_irisBlur);
 
 
         verticalLayout_3->addWidget(groupBox_transformations);
 
 
-        verticalLayout_5->addWidget(groupBox_settings);
+        verticalLayout_5->addWidget(groupBox_marker_settings);
 
 
         horizontalLayout_6->addLayout(verticalLayout_5);
@@ -909,15 +927,15 @@ public:
 
         verticalLayout_18->addWidget(groupBox_blockPreview);
 
-        groupBox_minutiaeList = new QGroupBox(tab_marker);
-        groupBox_minutiaeList->setObjectName(QStringLiteral("groupBox_minutiaeList"));
-        groupBox_minutiaeList->setMinimumSize(QSize(270, 0));
-        groupBox_minutiaeList->setMaximumSize(QSize(270, 16777215));
-        verticalLayout_4 = new QVBoxLayout(groupBox_minutiaeList);
+        groupBox_marker_minutiaeList = new QGroupBox(tab_marker);
+        groupBox_marker_minutiaeList->setObjectName(QStringLiteral("groupBox_marker_minutiaeList"));
+        groupBox_marker_minutiaeList->setMinimumSize(QSize(270, 0));
+        groupBox_marker_minutiaeList->setMaximumSize(QSize(270, 16777215));
+        verticalLayout_4 = new QVBoxLayout(groupBox_marker_minutiaeList);
         verticalLayout_4->setSpacing(6);
         verticalLayout_4->setContentsMargins(11, 11, 11, 11);
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        tableWidget_minutiae = new QTableWidget(groupBox_minutiaeList);
+        tableWidget_minutiae = new QTableWidget(groupBox_marker_minutiaeList);
         tableWidget_minutiae->setObjectName(QStringLiteral("tableWidget_minutiae"));
         tableWidget_minutiae->setMaximumSize(QSize(256, 16777215));
         tableWidget_minutiae->setAutoFillBackground(false);
@@ -935,7 +953,7 @@ public:
         verticalLayout_4->addWidget(tableWidget_minutiae);
 
 
-        verticalLayout_18->addWidget(groupBox_minutiaeList);
+        verticalLayout_18->addWidget(groupBox_marker_minutiaeList);
 
         groupBox_output = new QGroupBox(tab_marker);
         groupBox_output->setObjectName(QStringLiteral("groupBox_output"));
@@ -954,11 +972,11 @@ public:
 
         horizontalLayout_5->addWidget(label_outputPath);
 
-        lineEdit_outputDirectory = new QLineEdit(groupBox_output);
-        lineEdit_outputDirectory->setObjectName(QStringLiteral("lineEdit_outputDirectory"));
-        lineEdit_outputDirectory->setReadOnly(true);
+        lineEdit_marker_outputDirectory = new QLineEdit(groupBox_output);
+        lineEdit_marker_outputDirectory->setObjectName(QStringLiteral("lineEdit_marker_outputDirectory"));
+        lineEdit_marker_outputDirectory->setReadOnly(true);
 
-        horizontalLayout_5->addWidget(lineEdit_outputDirectory);
+        horizontalLayout_5->addWidget(lineEdit_marker_outputDirectory);
 
 
         verticalLayout_10->addLayout(horizontalLayout_5);
@@ -970,14 +988,14 @@ public:
 
         horizontalLayout_4->addItem(horizontalSpacer_2);
 
-        pushButton_outputDirectory = new QPushButton(groupBox_output);
-        pushButton_outputDirectory->setObjectName(QStringLiteral("pushButton_outputDirectory"));
-        sizePolicy.setHeightForWidth(pushButton_outputDirectory->sizePolicy().hasHeightForWidth());
-        pushButton_outputDirectory->setSizePolicy(sizePolicy);
-        pushButton_outputDirectory->setMinimumSize(QSize(100, 0));
-        pushButton_outputDirectory->setMaximumSize(QSize(100, 16777215));
+        pushButton_marker_outputDirectory = new QPushButton(groupBox_output);
+        pushButton_marker_outputDirectory->setObjectName(QStringLiteral("pushButton_marker_outputDirectory"));
+        sizePolicy.setHeightForWidth(pushButton_marker_outputDirectory->sizePolicy().hasHeightForWidth());
+        pushButton_marker_outputDirectory->setSizePolicy(sizePolicy);
+        pushButton_marker_outputDirectory->setMinimumSize(QSize(100, 0));
+        pushButton_marker_outputDirectory->setMaximumSize(QSize(100, 16777215));
 
-        horizontalLayout_4->addWidget(pushButton_outputDirectory);
+        horizontalLayout_4->addWidget(pushButton_marker_outputDirectory);
 
 
         verticalLayout_10->addLayout(horizontalLayout_4);
@@ -1012,16 +1030,16 @@ public:
 
         horizontalLayout->addItem(horizontalSpacer);
 
-        pushButton_saveBlocks = new QPushButton(groupBox_output);
-        pushButton_saveBlocks->setObjectName(QStringLiteral("pushButton_saveBlocks"));
-        pushButton_saveBlocks->setMinimumSize(QSize(100, 0));
-        pushButton_saveBlocks->setMaximumSize(QSize(100, 16777215));
-        pushButton_saveBlocks->setAutoFillBackground(false);
-        pushButton_saveBlocks->setStyleSheet(QLatin1String("background: rgb(54, 156, 221);\n"
+        pushButton_marker_saveBlocks = new QPushButton(groupBox_output);
+        pushButton_marker_saveBlocks->setObjectName(QStringLiteral("pushButton_marker_saveBlocks"));
+        pushButton_marker_saveBlocks->setMinimumSize(QSize(100, 0));
+        pushButton_marker_saveBlocks->setMaximumSize(QSize(100, 16777215));
+        pushButton_marker_saveBlocks->setAutoFillBackground(false);
+        pushButton_marker_saveBlocks->setStyleSheet(QLatin1String("background: rgb(54, 156, 221);\n"
 "color: white;"));
-        pushButton_saveBlocks->setCheckable(false);
+        pushButton_marker_saveBlocks->setCheckable(false);
 
-        horizontalLayout->addWidget(pushButton_saveBlocks);
+        horizontalLayout->addWidget(pushButton_marker_saveBlocks);
 
 
         verticalLayout_10->addLayout(horizontalLayout);
@@ -3104,8 +3122,8 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget_main->setCurrentIndex(1);
-        tabWidget_exTester_settings->setCurrentIndex(2);
+        tabWidget_main->setCurrentIndex(0);
+        tabWidget_exTester_settings->setCurrentIndex(0);
         tabWidget_exTester_results->setCurrentIndex(0);
         tabWidget_testerSettings->setCurrentIndex(0);
         tabWidget_testResults->setCurrentIndex(0);
@@ -3117,9 +3135,9 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "DBOX-MTCT", nullptr));
-        groupBox_inputImages->setTitle(QApplication::translate("MainWindow", "Input Images", nullptr));
+        groupBox_marker_inputImages->setTitle(QApplication::translate("MainWindow", "Input Images", nullptr));
         pushButton_inputDirectory->setText(QApplication::translate("MainWindow", "Select Directory", nullptr));
-        groupBox_settings->setTitle(QApplication::translate("MainWindow", "Settings", nullptr));
+        groupBox_marker_settings->setTitle(QApplication::translate("MainWindow", "Settings", nullptr));
         label_minutiaeBlockSize->setText(QApplication::translate("MainWindow", "Minutiae Block Size:", nullptr));
         label_additionalBlocks->setText(QApplication::translate("MainWindow", "Additional Blocks +/-:", nullptr));
         groupBox_minutiaeType->setTitle(QApplication::translate("MainWindow", "Minutiae Type", nullptr));
@@ -3127,24 +3145,26 @@ public:
         radioButton_bifurcation->setText(QApplication::translate("MainWindow", "Bifurcation", nullptr));
         radioButton_nothing->setText(QApplication::translate("MainWindow", "Nothing", nullptr));
         groupBox_transformations->setTitle(QApplication::translate("MainWindow", "Transformations", nullptr));
-        checkBox_rotations->setText(QApplication::translate("MainWindow", "Rotations", nullptr));
-        checkBox_blur->setText(QApplication::translate("MainWindow", "Blur", nullptr));
-        checkBox_irisBlur->setText(QApplication::translate("MainWindow", "Iris Blur", nullptr));
+        checkBox_marker_rotations->setText(QApplication::translate("MainWindow", "Rotations", nullptr));
+        checkBox_marker_blur->setText(QApplication::translate("MainWindow", "Blur", nullptr));
+        groupBox_marker_irisBlur->setTitle(QApplication::translate("MainWindow", "Iris Blur", nullptr));
+        label_irisBlur_blur->setText(QApplication::translate("MainWindow", "Blur", nullptr));
+        label_irisBlur_radius->setText(QApplication::translate("MainWindow", "Radius", nullptr));
         groupBox_fingerprintImage->setTitle(QApplication::translate("MainWindow", "Fingerprint Image", nullptr));
         groupBox_blockPreview->setTitle(QApplication::translate("MainWindow", "Block Preview", nullptr));
         label_blockOrig->setText(QApplication::translate("MainWindow", "Original", nullptr));
         label_blockBlur->setText(QApplication::translate("MainWindow", "Blurred", nullptr));
         label_blockIrisBlur->setText(QApplication::translate("MainWindow", "Iris Blurred", nullptr));
-        groupBox_minutiaeList->setTitle(QApplication::translate("MainWindow", "Minutiae List", nullptr));
+        groupBox_marker_minutiaeList->setTitle(QApplication::translate("MainWindow", "Minutiae List", nullptr));
         groupBox_output->setTitle(QApplication::translate("MainWindow", "Output", nullptr));
         label_outputPath->setText(QApplication::translate("MainWindow", "Path:", nullptr));
-        lineEdit_outputDirectory->setText(QApplication::translate("MainWindow", "./output", nullptr));
-        pushButton_outputDirectory->setText(QApplication::translate("MainWindow", "Browse", nullptr));
+        lineEdit_marker_outputDirectory->setText(QApplication::translate("MainWindow", "./output", nullptr));
+        pushButton_marker_outputDirectory->setText(QApplication::translate("MainWindow", "Browse", nullptr));
         label_outputFormat->setText(QApplication::translate("MainWindow", "File Format:", nullptr));
         comboBox_outputFormat->setItemText(0, QApplication::translate("MainWindow", "*.BMP", nullptr));
         comboBox_outputFormat->setItemText(1, QApplication::translate("MainWindow", "*.TIF", nullptr));
 
-        pushButton_saveBlocks->setText(QApplication::translate("MainWindow", "Save Blocks", nullptr));
+        pushButton_marker_saveBlocks->setText(QApplication::translate("MainWindow", "Save Blocks", nullptr));
         tabWidget_main->setTabText(tabWidget_main->indexOf(tab_marker), QApplication::translate("MainWindow", "Minutiae Marker", nullptr));
         groupBox_netTrainer_input->setTitle(QApplication::translate("MainWindow", "Image Blocks Input", nullptr));
         pushButton_netTrainer_input->setText(QApplication::translate("MainWindow", "Select Directory", nullptr));

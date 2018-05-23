@@ -49,7 +49,7 @@ private:
 
 private slots:
     void pushMinutia(QPoint xy, QString type);
-    void generateBlocks(int blockSize, int additionalBlocks, QString outputFormat, bool rotations, bool blur, double blurValue, bool irisBlur, double irisBlurValue);
+    void generateBlocks(int blockSize, int additionalBlocks, QString outputFormat, bool rotations, bool blur, double blurValue, bool irisBlur, double irisBlurValue, double irisRadiusValue);
     void updataMinutiae(QString prevImgName, QString imgName);
 
 signals:

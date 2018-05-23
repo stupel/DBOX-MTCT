@@ -202,10 +202,10 @@ void MainWindow::on_pushButton_inputDirectory_clicked()
     }
 }
 
-void MainWindow::on_pushButton_outputDirectory_clicked()
+void MainWindow::on_pushButton_marker_outputDirectory_clicked()
 {
     this->minMarkerTh->setOutputPath(QFileDialog::getExistingDirectory());
-    this->ui->lineEdit_outputDirectory->setText(this->minMarkerTh->getOutputPath());
+    this->ui->lineEdit_marker_outputDirectory->setText(this->minMarkerTh->getOutputPath());
 }
 
 
@@ -256,9 +256,9 @@ void MainWindow::updateBlockPreviews(QPoint xy)
     QImage block = this->fpImg.copy(QRect(xy.x() - blockSize/2, xy.y() - blockSize/2, blockSize, blockSize));
     this->sceneBlockOrig->addPixmap(QPixmap::fromImage(block).scaled(this->ui->graphicsView_blockOrig->size()));
     this->ui->graphicsView_blockOrig->setScene(this->sceneBlockOrig);
-    this->sceneBlockBlur->addPixmap(QPixmap::fromImage(this->minMarkerTh->blurBlock(block, this->ui->doubleSpinBox_blur->value())).scaled(this->ui->graphicsView_blockBlur->size()));
+    this->sceneBlockBlur->addPixmap(QPixmap::fromImage(this->minMarkerTh->blurBlock(block, this->ui->doubleSpinBox_marker_blur->value())).scaled(this->ui->graphicsView_blockBlur->size()));
     this->ui->graphicsView_blockBlur->setScene(this->sceneBlockBlur);
-    this->sceneBlockIrisBlur->addPixmap(QPixmap::fromImage(this->minMarkerTh->irisBlurBlock(block, this->ui->doubleSpinBox_blur->value(), this->ui->doubleSpinBox_irisBlur->value())).scaled(this->ui->graphicsView_blockIrisBlur->size()));
+    this->sceneBlockIrisBlur->addPixmap(QPixmap::fromImage(this->minMarkerTh->irisBlurBlock(block, this->ui->doubleSpinBox_marker_irisBlur_blur->value(), this->ui->doubleSpinBox_marker_irisBlur_radius->value())).scaled(this->ui->graphicsView_blockIrisBlur->size()));
     this->ui->graphicsView_blockIrisBlur->setScene(this->sceneBlockIrisBlur);
 }
 
@@ -332,20 +332,42 @@ void MainWindow::tableWidgetCellSelected(int row, int col)
     }
 }
 
-void MainWindow::on_pushButton_saveBlocks_clicked()
+void MainWindow::on_pushButton_marker_saveBlocks_clicked()
 {
+    this->ui->groupBox_marker_inputImages->setEnabled(false);
+    this->ui->groupBox_marker_minutiaeList->setEnabled(false);
+    this->ui->groupBox_marker_settings->setEnabled(false);
+    this->ui->pushButton_marker_saveBlocks->setEnabled(false);
+    this->ui->pushButton_marker_outputDirectory->setEnabled(false);
+
+    this->minMarkerTh->setOutputPath(this->ui->lineEdit_marker_outputDirectory->text());
+
     emit updateMinutiaeSignal(this->actualImgName, this->actualImgName);
     emit generateBlocksSignal(this->ui->spinBox_minutiaeBlockSize->value(), this->ui->spinBox_additionalBlocks->value(),
-                              this->ui->comboBox_outputFormat->currentText(), this->ui->checkBox_rotations->isChecked(),
-                              this->ui->checkBox_blur->isChecked(), this->ui->doubleSpinBox_blur->value(), this->ui->checkBox_irisBlur->isChecked(), this->ui->doubleSpinBox_irisBlur->value());
+                              this->ui->comboBox_outputFormat->currentText(), this->ui->checkBox_marker_rotations->isChecked(),
+                              this->ui->checkBox_marker_blur->isChecked(), this->ui->doubleSpinBox_marker_blur->value(), this->ui->groupBox_marker_irisBlur->isChecked(), this->ui->doubleSpinBox_marker_irisBlur_blur->value(), this->ui->doubleSpinBox_marker_irisBlur_radius->value());
 }
 
-void MainWindow::on_doubleSpinBox_blur_valueChanged(double arg1)
+void MainWindow::markerBlocksSaved()
+{
+    this->ui->groupBox_marker_inputImages->setEnabled(true);
+    this->ui->groupBox_marker_minutiaeList->setEnabled(true);
+    this->ui->groupBox_marker_settings->setEnabled(true);
+    this->ui->pushButton_marker_saveBlocks->setEnabled(true);
+    this->ui->pushButton_marker_outputDirectory->setEnabled(true);
+}
+
+void MainWindow::on_doubleSpinBox_marker_blur_valueChanged(double arg1)
 {
     if (!this->minMarkerTh->getMinutiae().empty()) this->updateBlockPreviews(std::get<0>(this->minMarkerTh->getMinutiae()[this->minMarkerTh->getMinutiae().size()-1]));
 }
 
-void MainWindow::on_doubleSpinBox_irisBlur_valueChanged(double arg1)
+void MainWindow::on_doubleSpinBox_marker_irisBlur_blur_valueChanged(double arg1)
+{
+    if (!this->minMarkerTh->getMinutiae().empty()) this->updateBlockPreviews(std::get<0>(this->minMarkerTh->getMinutiae()[this->minMarkerTh->getMinutiae().size()-1]));
+}
+
+void MainWindow::on_doubleSpinBox_marker_irisBlur_radius_valueChanged(double arg1)
 {
     if (!this->minMarkerTh->getMinutiae().empty()) this->updateBlockPreviews(std::get<0>(this->minMarkerTh->getMinutiae()[this->minMarkerTh->getMinutiae().size()-1]));
 }
@@ -555,9 +577,10 @@ void MainWindow::startMinutiaeMarker()
     connect(this->minMarkerTh, SIGNAL(updateProgressBarSignal(QString, int, QString)), this, SLOT(updateProgressBar(QString, int, QString)));
     connect(this->fpScene, SIGNAL(pushMinutiaSignal(QPoint, QString)), this->minMarkerTh, SLOT(pushMinutia(QPoint, QString)));
     connect(this->fpScene, SIGNAL(setActualPositionSignal(QPoint)), this, SLOT(drawCurrentRectanglePosition(QPoint)));
-    connect(this, SIGNAL(generateBlocksSignal(int, int, QString, bool, bool, double, bool, double)), this->minMarkerTh, SLOT(generateBlocks(int, int, QString, bool, bool, double, bool, double)));
+    connect(this, SIGNAL(generateBlocksSignal(int, int, QString, bool, bool, double, bool, double, double)), this->minMarkerTh, SLOT(generateBlocks(int, int, QString, bool, bool, double, bool, double, double)));
     connect(this->minMarkerTh, SIGNAL(updateMinutiaeMarkerSceneSignal(QString)), this, SLOT(updateMinutiaeMarker(QString)));
     connect(this, SIGNAL(updateMinutiaeSignal(QString, QString)), this->minMarkerTh, SLOT(updataMinutiae(QString, QString)));
+    connect(this->minMarkerTh, SIGNAL(blocksSaved()), this, SLOT(markerBlocksSaved()));
 }
 
 void MainWindow::startNetworkTrainer()

@@ -65,8 +65,8 @@ private slots:
     void updateMinutiaeMarker(QString action);
     void generateMinutiaeHeatmap();
     void tableWidgetCellSelected(int row, int col);
-    void on_pushButton_outputDirectory_clicked();
-    void on_pushButton_saveBlocks_clicked();
+    void on_pushButton_marker_outputDirectory_clicked();
+    void on_pushButton_marker_saveBlocks_clicked();
     void on_pushButton_netTrainer_input_clicked();
     void on_pushButton_netTrainer_startTraining_clicked();
     void on_pushButton_netTrainer_outputFolder_clicked();
@@ -85,6 +85,7 @@ private slots:
     void addLog(QString logFieldName, QString text);
     void clearLog(QString logFieldName);
     void drawGraph(DBTEST_RESULT results);
+    void markerBlocksSaved();
 
     void questionMessageBox(QString question, QString subject);
     void warningMessageBox(QString boxType, QString text, QString subject);
@@ -93,8 +94,8 @@ private slots:
     void on_pushButton_startTesting_clicked();
 
     void on_tabWidget_testerSettings_currentChanged(int index);
-    void on_doubleSpinBox_blur_valueChanged(double arg1);
-    void on_doubleSpinBox_irisBlur_valueChanged(double arg1);
+    void on_doubleSpinBox_marker_blur_valueChanged(double arg1);
+    void on_doubleSpinBox_marker_irisBlur_blur_valueChanged(double arg1);
 
     void on_pushButton_exTester_inputDir_clicked();
     void on_listWidget_exTester_inputImages_itemClicked(QListWidgetItem *item);
@@ -114,14 +115,11 @@ private slots:
     void on_checkBox_exTester_advancedOMap_clicked();
 
     void on_radioButton_exTester_crossingNumber_clicked(bool checked);
-
     void on_radioButton_exTester_fixedPredictedMinutiae_clicked(bool checked);
-
     void on_radioButton_exTester_predictedMinutiae_clicked(bool checked);
-
     void on_checkBox_exTester_varBlockSize_clicked(bool checked);
-
     void on_tabWidget_exTester_settings_currentChanged(int index);
+    void on_doubleSpinBox_marker_irisBlur_radius_valueChanged(double arg1);
 
 private:
     Ui::MainWindow *ui;
@@ -184,7 +182,7 @@ private:
 
 signals:
     void predictHeatmapSignal(QImage, int, bool);
-    void generateBlocksSignal(int, int, QString, bool, bool, double, bool, double);
+    void generateBlocksSignal(int, int, QString, bool, bool, double, bool, double, double);
     void predictMinutiaSignal(QImage, QPoint, int, bool);
     void updateMinutiaeSignal(QString, QString);
     void questionBoxAnswerSignal(bool answer);

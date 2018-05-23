@@ -34,7 +34,7 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_5">
           <item>
-           <widget class="QGroupBox" name="groupBox_inputImages">
+           <widget class="QGroupBox" name="groupBox_marker_inputImages">
             <property name="minimumSize">
              <size>
               <width>200</width>
@@ -94,7 +94,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QGroupBox" name="groupBox_settings">
+           <widget class="QGroupBox" name="groupBox_marker_settings">
             <property name="maximumSize">
              <size>
               <width>200</width>
@@ -132,7 +132,7 @@
                   </sizepolicy>
                  </property>
                  <property name="value">
-                  <number>19</number>
+                  <number>21</number>
                  </property>
                 </widget>
                </item>
@@ -161,7 +161,7 @@
                   </sizepolicy>
                  </property>
                  <property name="value">
-                  <number>3</number>
+                  <number>2</number>
                  </property>
                 </widget>
                </item>
@@ -210,7 +210,7 @@
                </property>
                <layout class="QVBoxLayout" name="verticalLayout">
                 <item>
-                 <widget class="QCheckBox" name="checkBox_rotations">
+                 <widget class="QCheckBox" name="checkBox_marker_rotations">
                   <property name="text">
                    <string>Rotations</string>
                   </property>
@@ -222,12 +222,12 @@
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_17">
                   <item>
-                   <widget class="QCheckBox" name="checkBox_blur">
+                   <widget class="QCheckBox" name="checkBox_marker_blur">
                     <property name="text">
                      <string>Blur</string>
                     </property>
                     <property name="checked">
-                     <bool>true</bool>
+                     <bool>false</bool>
                     </property>
                    </widget>
                   </item>
@@ -245,7 +245,7 @@
                    </spacer>
                   </item>
                   <item>
-                   <widget class="QDoubleSpinBox" name="doubleSpinBox_blur">
+                   <widget class="QDoubleSpinBox" name="doubleSpinBox_marker_blur">
                     <property name="minimumSize">
                      <size>
                       <width>50</width>
@@ -271,69 +271,99 @@
                      <double>0.100000000000000</double>
                     </property>
                     <property name="value">
-                     <double>1.100000000000000</double>
+                     <double>0.600000000000000</double>
                     </property>
                    </widget>
                   </item>
                  </layout>
                 </item>
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_25">
-                  <item>
-                   <widget class="QCheckBox" name="checkBox_irisBlur">
-                    <property name="text">
-                     <string>Iris Blur</string>
-                    </property>
-                    <property name="checked">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <spacer name="horizontalSpacer_24">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>40</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item>
-                   <widget class="QDoubleSpinBox" name="doubleSpinBox_irisBlur">
-                    <property name="minimumSize">
-                     <size>
-                      <width>50</width>
-                      <height>0</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>50</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="decimals">
-                     <number>1</number>
-                    </property>
-                    <property name="minimum">
-                     <double>0.100000000000000</double>
-                    </property>
-                    <property name="maximum">
-                     <double>10.000000000000000</double>
-                    </property>
-                    <property name="singleStep">
-                     <double>0.100000000000000</double>
-                    </property>
-                    <property name="value">
-                     <double>1.700000000000000</double>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
+                 <widget class="QGroupBox" name="groupBox_marker_irisBlur">
+                  <property name="title">
+                   <string>Iris Blur</string>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_7">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_irisBlur_blur">
+                     <property name="text">
+                      <string>Blur</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QLabel" name="label_irisBlur_radius">
+                     <property name="text">
+                      <string>Radius</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QDoubleSpinBox" name="doubleSpinBox_marker_irisBlur_blur">
+                     <property name="minimumSize">
+                      <size>
+                       <width>50</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>50</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="decimals">
+                      <number>1</number>
+                     </property>
+                     <property name="minimum">
+                      <double>0.100000000000000</double>
+                     </property>
+                     <property name="maximum">
+                      <double>10.000000000000000</double>
+                     </property>
+                     <property name="singleStep">
+                      <double>0.100000000000000</double>
+                     </property>
+                     <property name="value">
+                      <double>1.100000000000000</double>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QDoubleSpinBox" name="doubleSpinBox_marker_irisBlur_radius">
+                     <property name="minimumSize">
+                      <size>
+                       <width>50</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>50</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="decimals">
+                      <number>1</number>
+                     </property>
+                     <property name="minimum">
+                      <double>0.100000000000000</double>
+                     </property>
+                     <property name="maximum">
+                      <double>10.000000000000000</double>
+                     </property>
+                     <property name="singleStep">
+                      <double>0.100000000000000</double>
+                     </property>
+                     <property name="value">
+                      <double>0.500000000000000</double>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -758,7 +788,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QGroupBox" name="groupBox_minutiaeList">
+           <widget class="QGroupBox" name="groupBox_marker_minutiaeList">
             <property name="minimumSize">
              <size>
               <width>270</width>
@@ -855,7 +885,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QLineEdit" name="lineEdit_outputDirectory">
+                <widget class="QLineEdit" name="lineEdit_marker_outputDirectory">
                  <property name="text">
                   <string>./output</string>
                  </property>
@@ -882,7 +912,7 @@
                 </spacer>
                </item>
                <item>
-                <widget class="QPushButton" name="pushButton_outputDirectory">
+                <widget class="QPushButton" name="pushButton_marker_outputDirectory">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                    <horstretch>0</horstretch>
@@ -989,7 +1019,7 @@
                 </spacer>
                </item>
                <item>
-                <widget class="QPushButton" name="pushButton_saveBlocks">
+                <widget class="QPushButton" name="pushButton_marker_saveBlocks">
                  <property name="minimumSize">
                   <size>
                    <width>100</width>
