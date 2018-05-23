@@ -3,7 +3,7 @@
 MinutiaeMarker::MinutiaeMarker()
 {
     this->setObjectName("marker");
-    this->outputPath = "./output";
+    this->outputPath = QDir::currentPath();
 }
 
 void MinutiaeMarker::run()
@@ -145,7 +145,6 @@ int MinutiaeMarker::countOutputFiles()
 
 void MinutiaeMarker::generateBlocks(int blockSize, int additionalBlocks, QString outputFormat, bool rotations, bool blur, double blurValue, bool irisBlur, double irisBlurValue, double irisRadiusValue)
 {
-    QString outputPath;
     QString leftOutputPath, rightOutputPath;
     QString leftImgName, rightImgName;
     QImage fpImg;
@@ -156,24 +155,30 @@ void MinutiaeMarker::generateBlocks(int blockSize, int additionalBlocks, QString
     int currentFile = 0;
     int saveProgress = 0;
 
-    if (this->outputPath == "") outputPath = "./";
-    else outputPath = this->outputPath + "/";
+    if (this->outputPath[0] == ".") this->outputPath = QDir::currentPath() + this->outputPath.mid(1,this->outputPath.length()-1) + "/";
 
     for (auto img = this->images.begin(); img != this->images.end(); img++) {
         for (int actBlockSize = blockSize - additionalBlocks*2; actBlockSize <= blockSize + additionalBlocks*2; actBlockSize += 2) {
 
-            leftOutputPath = outputPath + QString::number(actBlockSize) + "x" +  QString::number(actBlockSize);
+            int fileNumbers[3] = {0,0,0}; //ending, bifurcation, nothing
+
+            leftOutputPath = this->outputPath + QString::number(actBlockSize) + "x" +  QString::number(actBlockSize);
             rightOutputPath = img.key().left(img.key().lastIndexOf("."));
             dir.mkpath(leftOutputPath + "/orig/rot0/" + rightOutputPath);
-            dir.setPath(leftOutputPath + "/orig/rot0/" + rightOutputPath);
 
-            int exFileNum = dir.entryList(QStringList() << outputFormat.toLower()).size();
+            dir.setPath(leftOutputPath + "/orig/rot0/" + rightOutputPath);
+            for (auto i : dir.entryList()) {
+                if (i.contains("end")) fileNumbers[0]++;
+                else if (i.contains("bif")) fileNumbers[1]++;
+                else if (i.contains("not")) fileNumbers[2]++;
+            }
+
             for (auto block : img.value()) {
 
                 leftImgName = leftOutputPath + "/orig/rot0/" + rightOutputPath + "/" + QString::number(actBlockSize);
-                rightImgName = img.key().left(img.key().lastIndexOf(".")) + "_" + std::get<1>(block).left(3).toLower() +
-                        "_" + QString::number(exFileNum) + outputFormat.mid(1).toLower();
-                exFileNum++;
+                if (std::get<1>(block)[0].toLower() == 'e') rightImgName = img.key().left(img.key().lastIndexOf(".")) + "_" + std::get<1>(block).left(3).toLower() + "_" + QString::number(fileNumbers[0]++) + outputFormat.mid(1).toLower();
+                else if (std::get<1>(block)[0].toLower() == 'b') rightImgName = img.key().left(img.key().lastIndexOf(".")) + "_" + std::get<1>(block).left(3).toLower() + "_" + QString::number(fileNumbers[1]++) + outputFormat.mid(1).toLower();
+                else if (std::get<1>(block)[0].toLower() == 'n') rightImgName = img.key().left(img.key().lastIndexOf(".")) + "_" + std::get<1>(block).left(3).toLower() + "_" + QString::number(fileNumbers[2]++) + outputFormat.mid(1).toLower();
 
                 fpImg.load(this->inputPath + "/" + img.key());
                 fpImg.convertToFormat(QImage::Format_Grayscale8);
@@ -183,12 +188,14 @@ void MinutiaeMarker::generateBlocks(int blockSize, int additionalBlocks, QString
 
                 if (blur) {
                     dir.mkpath(leftOutputPath + "/blur/rot0/" + rightOutputPath);
+
                     leftImgName = leftOutputPath + "/blur/rot0/" + rightOutputPath + "/" + QString::number(actBlockSize);
                     blockBlur = this->blurBlock(blockOrig, blurValue);
                     blockBlur.save(leftImgName + "_blur_rot0_" + rightImgName);
                 }
                 if (irisBlur) {
                     dir.mkpath(leftOutputPath + "/irisblur/rot0/" + rightOutputPath);
+
                     leftImgName = leftOutputPath + "/irisblur/rot0/" + rightOutputPath + "/" + QString::number(actBlockSize);
                     blockIrisBlur = this->irisBlurBlock(blockOrig, irisBlurValue, irisRadiusValue);
                     blockIrisBlur.save(leftImgName + "_irisblur_rot0_" + rightImgName);
@@ -198,17 +205,20 @@ void MinutiaeMarker::generateBlocks(int blockSize, int additionalBlocks, QString
                     for (int rot = 90; rot < 360; rot += 90) {
                         leftImgName = leftOutputPath + "/orig/rot" + QString::number(rot) + "/" + rightOutputPath + "/" + QString::number(actBlockSize);
                         dir.mkpath(leftOutputPath + "/orig/rot" + QString::number(rot) + "/" + rightOutputPath);
+
                         rotateBlock(blockOrig, rot).save(leftImgName + "_orig_rot" + QString::number(rot) + "_" + rightImgName);
 
                         if (blur) {
                             leftImgName = leftOutputPath + "/blur/rot" + QString::number(rot) + "/" + rightOutputPath + "/" + QString::number(actBlockSize);
                             dir.mkpath(leftOutputPath + "/blur/rot" + QString::number(rot) + "/" + rightOutputPath);
+
                             rotateBlock(blockBlur, rot).save(leftImgName + "_blur_rot" + QString::number(rot) + "_" + rightImgName);
                         }
 
                         if (irisBlur) {
                             leftImgName = leftOutputPath + "/irisblur/rot" + QString::number(rot) + "/" + rightOutputPath + "/" + QString::number(actBlockSize);
                             dir.mkpath(leftOutputPath + "/irisblur/rot" + QString::number(rot) + "/" + rightOutputPath);
+
                             rotateBlock(blockIrisBlur, rot).save(leftImgName + "_irisblur_rot" + QString::number(rot) + "_" + rightImgName);
                         }
                     }
@@ -225,4 +235,8 @@ void MinutiaeMarker::generateBlocks(int blockSize, int additionalBlocks, QString
     }
     emit updateProgressBarSignal(this->objectName(), 0);
     emit blocksSaved();
+
+    this->minutiae.clear();
+    this->images.clear();
+    emit updateMinutiaeMarkerSceneSignal("remove");
 }
