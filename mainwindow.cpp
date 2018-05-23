@@ -355,6 +355,12 @@ void MainWindow::markerBlocksSaved()
     this->ui->groupBox_marker_settings->setEnabled(true);
     this->ui->pushButton_marker_saveBlocks->setEnabled(true);
     this->ui->pushButton_marker_outputDirectory->setEnabled(true);
+
+    QDir inputImages(this->minMarkerTh->getInputPath(), "*.png *.jpg *.bmp *.tif");
+    for (int i = 0; i < this->ui->listWidget_inputImages->count(); i++) {
+        if (this->ui->listWidget_inputImages->item(i)->backgroundColor() == QColor(132,221,114))
+            this->ui->listWidget_inputImages->item(i)->setBackground(QColor(130,200,255));
+    }
 }
 
 void MainWindow::on_doubleSpinBox_marker_blur_valueChanged(double arg1)
