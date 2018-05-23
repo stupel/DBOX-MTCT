@@ -597,10 +597,11 @@ void CaffeNetwork::trainNetwork()
     vector<string> stages = get_stages_from_flags();            //!!!!!!!!!!!!!
 
     caffe::SolverParameter solver_param;
-    caffe::ReadSolverParamsFromTextFileOrDie(flag_solver, &solver_param);
+    //caffe::ReadSolverParamsFromTextFileOrDie(flag_solver, &solver_param);
     //solver_param.set_solver_mode(caffe::SolverParameter_SolverMode_GPU);
-    //solver_param.set_net(modelPath, 34);
-
+    //solver_param.set_net(modelPath, strlen(modelPath));
+    //solver_param.set_type("SGD");
+    qDebug() << QString::fromStdString(solver_param.type());
     solver_param.mutable_train_state()->set_level(flag_level);
     for (int i = 0; i < stages.size(); i++) {
         solver_param.mutable_train_state()->add_stage(stages[i]);
@@ -677,7 +678,7 @@ void CaffeNetwork::trainNetwork()
 // Parse GPU ids or use all available devices
 void CaffeNetwork::get_gpus(vector<int>* gpus)
 {
-    string flag_gpu = "";
+    string flag_gpu = "all";
 
     if (flag_gpu == "all") {
         int count = 0;
