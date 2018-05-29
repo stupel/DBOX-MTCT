@@ -213,7 +213,7 @@ void MainWindow::on_listWidget_inputImages_itemClicked(QListWidgetItem *item)
 {
     this->actualImgName = item->text();
     this->fpImg.load(this->minMarkerTh->getInputPath() + "/" + this->actualImgName);
-    this->fpImg.convertToFormat(QImage::Format_Grayscale8);
+    this->fpImg = this->fpImg.convertToFormat(QImage::Format_Grayscale8);
 
     this->fpScene->setImgWidth(this->fpImg.width());
     this->fpScene->setImgHeight(this->fpImg.height());
@@ -444,7 +444,7 @@ void MainWindow::on_listWidget_inputImages_2_itemClicked(QListWidgetItem *item)
 {
     this->actualImgName = item->text();
     this->fpImg.load(this->minCheckerTh->getImgInputPath() + "/" + this->actualImgName);
-    this->fpImg.convertToFormat(QImage::Format_Grayscale8);
+    this->fpImg = this->fpImg.convertToFormat(QImage::Format_Grayscale8);
 
     this->fpScene->clear();
     this->fpScene->addPixmap(QPixmap::fromImage(this->fpImg));

@@ -86,11 +86,16 @@ QImage MinutiaeMarker::irisBlurBlock(QImage &qBlock, const double &blurValue, co
     cv::Mat blockBlurred;
     cv::Mat irisBlurredBlock = cv::Mat::zeros(block.size(), block.type());
 
-    cv::GaussianBlur(block, blockBlurred, cv::Size(0, 0), blurValue);;
+    int kernelSize = 9;
+
+    cv::GaussianBlur(block, blockBlurred, cv::Size(kernelSize, kernelSize), blurValue);;
 
     cv::Mat mask = cv::Mat(block.rows, block.cols, CV_8UC1, cv::Scalar(255));
-    cv::circle(mask, cv::Point (block.cols / 2, block.rows / 2), block.rows / 2 * 0.85, cv::Scalar(0), -1);
-    cv::GaussianBlur(mask, mask, cv::Size(0, 0), irisBlurValue);
+    cv::circle(mask, cv::Point (block.cols / 2, block.rows / 2), block.rows / 2 * 0.75, cv::Scalar(0), -1);
+    cv::GaussianBlur(mask, mask, cv::Size(kernelSize, kernelSize), irisBlurValue);
+
+    //qDebug() << "Halo";
+    //cv::imshow("mask", mask);
 
     for (int y = 0; y < irisBlurredBlock.rows; ++y)
         for (int x = 0; x < irisBlurredBlock.cols; ++x)
@@ -110,7 +115,7 @@ QImage MinutiaeMarker::blurBlock(QImage &qBlock, const double &blurValue)
 {
     cv::Mat blurredImg  = h.QImage2Mat(qBlock, CV_8UC1);
 
-    cv::GaussianBlur(blurredImg, blurredImg, cv::Size(0, 0), blurValue);
+    cv::GaussianBlur(blurredImg, blurredImg, cv::Size(3, 3), blurValue);
 
     return this->h.Mat2QImage(blurredImg, QImage::Format_Grayscale8);
 }
@@ -181,7 +186,7 @@ void MinutiaeMarker::generateBlocks(int blockSize, int additionalBlocks, QString
                 else if (std::get<1>(block)[0].toLower() == 'n') rightImgName = img.key().left(img.key().lastIndexOf(".")) + "_" + std::get<1>(block).left(3).toLower() + "_" + QString::number(fileNumbers[2]++) + outputFormat.mid(1).toLower();
 
                 fpImg.load(this->inputPath + "/" + img.key());
-                fpImg.convertToFormat(QImage::Format_Grayscale8);
+                fpImg = fpImg.convertToFormat(QImage::Format_Grayscale8);
 
                 blockOrig = fpImg.copy(QRect(std::get<0>(block).x() - actBlockSize/2, std::get<0>(block).y() - actBlockSize/2, actBlockSize, actBlockSize));
                 blockOrig.save(leftImgName + "_orig_rot0_" + rightImgName);

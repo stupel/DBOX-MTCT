@@ -707,7 +707,7 @@ public:
         doubleSpinBox_marker_irisBlur_radius->setMinimum(0.1);
         doubleSpinBox_marker_irisBlur_radius->setMaximum(10);
         doubleSpinBox_marker_irisBlur_radius->setSingleStep(0.1);
-        doubleSpinBox_marker_irisBlur_radius->setValue(0.5);
+        doubleSpinBox_marker_irisBlur_radius->setValue(3);
 
         gridLayout_7->addWidget(doubleSpinBox_marker_irisBlur_radius, 1, 1, 1, 1);
 
